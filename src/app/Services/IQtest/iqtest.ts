@@ -6,7 +6,8 @@ import OpenAI from 'openai';
 })
 export class IqtestService {
   private openai = new OpenAI({
-    apiKey: 'REMOVED', // ⚠️ Replace with env variable in production
+    // apiKey: 'REMOVED',
+    apiKey: 'API_KEY_HERE',
     dangerouslyAllowBrowser: true
   });
 
