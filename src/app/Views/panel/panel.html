@@ -1,0 +1,32 @@
+<div class="background p-4 flex flex-row justify-end">
+  <div class="w-[40%] bg-secondary p-5 rounded-4xl shadow-md h-full overflow-auto scroll-hidden flex flex-col justify-between">
+    <div class="relative flex-1 mt-1">
+        <div *ngIf="step === 1" class="transition-all duration-500 ease-in-out opacity-100" [ngClass]="{ 'opacity-0 -translate-x-10': step !== 1 }">
+            <app-home></app-home>
+        </div>
+        <div *ngIf="step === 2" class="transition-all duration-500 ease-in-out opacity-100" [ngClass]="{ 'opacity-0 -translate-x-10': step !== 2 }">
+            <app-information></app-information>
+        </div>
+        <div *ngIf="step === 3" class="transition-all duration-500 ease-in-out opacity-100" [ngClass]="{ 'opacity-0 translate-x-10': step !== 3 }">
+            <app-test></app-test>
+        </div>
+    </div>
+    <div class="flex justify-between mt-6">
+        <div class="flex w-full gap-3 flex-flow">
+            <button *ngIf="step !==1" (click)="prevStep()" class="bg-accent text-white px-4 py-3 text-xl font-Playfair rounded-full">
+                <lucide-icon [img]="back"></lucide-icon>
+            </button>
+            <button (click)="submitInfo()" *ngIf="step === 2" class="w-full bg-accent text-white px-6 py-3 text-xl font-Playfair rounded-full">
+                Next
+            </button>
+            <button *ngIf="step !== 2 && step !== 3" (click)="nextStep()" class="w-full bg-accent text-white px-6 py-3 text-xl font-Playfair rounded-full">
+                Proceed
+            </button>
+            <button *ngIf="step === 3" class="bg-accent !w-full text-white px-6 py-3 text-xl font-Playfair rounded-full">
+                Start Exam
+            </button>
+        </div>
+        
+    </div>
+  </div>
+</div>

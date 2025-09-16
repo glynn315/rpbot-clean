@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+.background{
+  background-image: url('../public/img/bg.png');
+  background-color: #EAE1D4;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: -120px -255px;
+  height: 100dvh;
+}
+
+.bg-primary{
+    background-color: #EAE1D4;
+}
+.bg-secondary{
+    background-color: #B18343;
+}
+.bg-accent{
+    background-color: #0A352D;
+}
+.font-Playfair {
+  font-family: "Playfair Display", serif;
+  font-style: normal;
+}
+
+.font-Lora {
+  font-family: "Lora", serif;
+  font-style: normal;
+}
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

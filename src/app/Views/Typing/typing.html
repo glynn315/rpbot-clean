@@ -1,0 +1,47 @@
+<div class="typing-test" (contextmenu)="$event.preventDefault()">
+    <h2 class="text-4xl font-bold mt-10">Renaissance Park Applicant Typing Test</h2>
+
+    <div class="justify-center mt-4 flex flex-row">
+        <div class="timer bg-accent text-white rounded-full w-40 p-2">⏳ {{ timer }}s</div>
+    </div>
+
+    
+
+    <p class="text">
+        <ng-container *ngFor="let word of currentLine.split(' '); let i = index">
+            <span
+            class="text-4xl mr-2"
+            [ngClass]="{
+                correct: currentStatuses[i] === 'correct',
+                wrong: currentStatuses[i] === 'wrong',
+                pending: currentStatuses[i] === 'pending'
+            }"
+            >
+            {{ word }}
+            </span>
+        </ng-container>
+    </p>
+
+
+    <textarea
+        [(ngModel)]="userInput"
+        class="text-4xl text-center rounded-md border-2"
+        (input)="onInputChange()"
+        [disabled]="testEnded"
+        (paste)="$event.preventDefault()"
+        (copy)="$event.preventDefault()"
+        (cut)="$event.preventDefault()"
+        placeholder="Start typing here..."
+        rows="3"
+        cols="60"
+    ></textarea>
+
+    <div class="resultContainer flex flex-row justify-center items-center h-dvh absolute left-0 top-0 w-full">
+        <div *ngIf="testEnded" class="results !m-0 bg-accent text-white p-5 flex flex-col justify-center items-center !text-3xl leading-10 w-[40%] rounded-3xl">
+            <p>Speed: {{ wpm }} WPM</p>
+            <p>Accuracy: {{ accuracy }}%</p>
+            <button (click)="completeTest()" class="bg-secondary w-100 rounded-full !text-xl">Continue</button>
+        </div>
+    </div>
+    
+</div>

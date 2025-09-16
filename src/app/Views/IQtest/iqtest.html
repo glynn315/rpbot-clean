@@ -1,0 +1,42 @@
+<div class="background p-4 flex flex-row justify-end">
+  <div class="w-[40%] bg-secondary p-5 rounded-4xl shadow-md h-full flex flex-col justify-between">
+    
+    <div *ngIf="loading" class="text-center">Loading questions...</div>
+    
+    <div class="relative flex-1 mt-1" *ngIf="!loading && !submitted">
+      <h2 class="text-lg font-bold mb-4">
+        Question {{ currentIndex + 1 }} of {{ questions.length }}
+      </h2>
+      <p class="mb-4">{{ questions[currentIndex].text }}</p>
+
+      <input
+        type="text"
+        [(ngModel)]="questions[currentIndex].userAnswer"
+        class="border rounded p-2 w-full"
+        placeholder="Your answer"
+      />
+    </div>
+
+    <div class="flex justify-between mt-6" *ngIf="!loading && !submitted">
+      <button (click)="prevQuestion()" [disabled]="currentIndex === 0" class="bg-gray-400 px-4 py-2 rounded-lg text-white">
+        Previous
+      </button>
+
+      <button *ngIf="currentIndex < questions.length - 1" (click)="nextQuestion()" class="bg-blue-500 px-4 py-2 rounded-lg text-white">
+        Next
+      </button>
+
+      <button *ngIf="currentIndex === questions.length - 1" (click)="submitTest()" class="bg-green-500 px-4 py-2 rounded-lg text-white">
+        Submit
+      </button>
+    </div>
+
+    <div *ngIf="submitted && !loading" class="text-center">
+      <h2 class="text-2xl font-bold mb-4">Test Completed!</h2>
+      <p class="mb-2">Your Score: {{ score }} / {{ questions.length }}</p>
+      <button (click)="restartTest()" class="bg-purple-500 px-4 py-2 rounded-lg text-white">
+        Restart
+      </button>
+    </div>
+  </div>
+</div>

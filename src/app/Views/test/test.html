@@ -1,0 +1,28 @@
+<div class="w-full block flex-col flex">
+    <header class="text-3xl font-Playfair text-white">
+        Exam Category
+    </header>
+    <div class="typingTest mt-2">
+        <label for="" class="font-Playfair text-xl text-white">Typing Test</label>
+        <div>
+            <label for="" class="text-white">Word per Minutes</label>
+            <input type="text" name="" class="w-full bg-primary rounded-md p-2 mt-1" id="" value="{{wpm}}" disabled>
+        </div>
+        <div>
+            <label for="" class="text-white">Accuracy</label>
+            <input type="text" name="" class="w-full bg-primary rounded-md p-2 mt-1" id="" value="{{accuracy}}%" disabled>
+        </div>
+        <button (click)="TypingTest()" class="bg-accent p-3 text-white w-full mt-2 rounded-full font-Playfair cursor-pointer text-xl !disabled:bg-gray-400 disabled:cursor-not-allowed" [disabled]="wpm != 0">
+            Take Typing Test
+        </button>
+    </div>
+    <button (click)="iqtest()" class="bg-accent p-3 text-white w-full mt-2 rounded-full font-Playfair text-xl cursor-pointer">
+        Take IQ Test
+    </button>
+    <button *ngIf="InformationModule.InfoField.positionSelected === 'Accounting'"  class="bg-accent p-3 text-white w-full mt-2 rounded-full font-Playfair text-xl">
+        Take Accounting Test
+    </button>
+    <button *ngIf="InformationModule.InfoField.positionSelected === 'Civil Engineer'" class="bg-accent p-3 text-white w-full mt-2 rounded-full font-Playfair text-xl">
+        Take Engineering Test
+    </button>
+</div>
