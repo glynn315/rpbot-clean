@@ -1,9 +1,10 @@
+import { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const openai = new OpenAI({
-      apiKey: process.env['OPENAI_API_KEY'],
+      apiKey: process.env.OPENAI_API_KEY,
     });
 
     const prompt = `
@@ -22,12 +23,12 @@ Each question must follow this format:
       messages: [{ role: "user", content: prompt }],
     });
 
-    const content = completion.choices[0].message.content || "{}";
+    const content = completion.choices[0].message?.content || "{}";
     const parsed = JSON.parse(content);
 
     res.status(200).json(parsed);
-  } catch (err) {
-    console.error("API error:", err);
-    res.status(500).json({ error: "Failed to generate questions" });
+  } catch (err: any) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
   }
 }
