@@ -6,7 +6,7 @@ import OpenAI from 'openai';
 })
 export class IqtestService {
   private openai = new OpenAI({
-    apiKey: `${process.env['OPENAI_API_KEY']}`,
+    apiKey: process.env['OPENAI_API_KEY'],
     dangerouslyAllowBrowser: true
   });
 
