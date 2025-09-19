@@ -2,15 +2,23 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // ✅ secure
+  apiKey: process.env.OPENAI_API_KEY, // ✅ secure from Vercel env
 });
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
+  }
+
   try {
-    const { messages, job } = req.body;
+    const { messages, job } = req.body || {};
+
+    if (!messages || !job) {
+      return res.status(400).json({ error: 'Missing required fields: messages or job' });
+    }
 
     const systemMessage = {
-      role: "system",
+      role: 'system',
       content: `You are a professional HR interviewer conducting an interview for the role of "${job.role}".  
 
       You must conduct the interview in a structured but adaptive way:  
@@ -47,22 +55,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       ### 🔹 Rules for Follow-Ups:  
       - After each candidate response, generate **up to 2 thoughtful follow-up questions**.  
-      - Tailor these follow-ups based on the job’s qualifications: ${job.qualifications.join(", ")}.  
+      - Tailor these follow-ups based on the job’s qualifications: ${job.qualifications?.join(', ') || ''}.  
       - Keep questions professional yet supportive.  
       - Avoid excessive technical jargon unless clearly required for the role.  
       - Do **not** repeat previous questions.  
-      - Always ask **only one question at a time**.`
+      - Always ask **only one question at a time**.`,
     };
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: 'gpt-4o-mini',
       messages: [systemMessage, ...messages],
       temperature: 0.7,
     });
 
-    res.status(200).json(completion);
+    return res.status(200).json(completion);
   } catch (err: any) {
-    console.error("Interview API Error:", err);
-    res.status(500).json({ error: err.message });
+    console.error('❌ Interview API Error:', err);
+    return res.status(500).json({ error: err.message || 'Internal Server Error' });
   }
 }
