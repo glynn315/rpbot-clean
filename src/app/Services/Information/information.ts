@@ -7,9 +7,11 @@ import { InformationModel } from '../../Model/Information/information.model';
 export class InformationServices {
   InfoField: InformationModel = {
     positionSelected: '',
+    applicantName: '',
   };
 
   SubmitInformation() {
-    sessionStorage.setItem('selectedPosition',this.InfoField.positionSelected!);
+    sessionStorage.setItem('applicantPosition',this.InfoField.positionSelected!);
+    sessionStorage.setItem('applicantName',this.InfoField.applicantName!);
   }
 }

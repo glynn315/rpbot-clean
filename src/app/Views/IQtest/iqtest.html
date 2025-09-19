@@ -1,42 +1,56 @@
 <div class="background p-4 flex flex-row justify-end">
-  <div class="w-[40%] bg-secondary p-5 rounded-4xl shadow-md h-full flex flex-col justify-between">
+  <div class="w-[40%] bg-secondary p-5 !bg-primary rounded-4xl shadow-md h-full flex flex-col justify-between">
     
     <div *ngIf="loading" class="text-center">Loading questions...</div>
     
-    <div class="relative flex-1 mt-1" *ngIf="!loading && !submitted">
-      <h2 class="text-lg font-bold mb-4">
-        Question {{ currentIndex + 1 }} of {{ questions.length }}
-      </h2>
-      <p class="mb-4">{{ questions[currentIndex].text }}</p>
+    
+    <div *ngIf="!loading">
+      <div class="p-5 bg-secondary rounded-xl">
+        <h2 class="text-xl font-bold mb-4 text-white">
+          Question {{ currentStep + 1 }} of {{ questions.length }}
+        </h2>
+        <p class="mb-4 text-white text-justify">{{ questions[currentStep]?.text }}</p>
+        <div *ngFor="let choice of questions[currentStep]?.choices" class="mb-2">
+          <label class="flex items-center gap-2 bg-primary p-2 rounded-xl">
+            <input
+              type="radio"
+              [value]="choice.charAt(0)"
+              [(ngModel)]="answers[currentStep]"
+              name="q{{ currentStep }}"/>
+            {{ choice }}
+          </label>
+        </div>
+        <div class="flex justify-between mt-6">
+          <button
+            (click)="prev()"
+            [disabled]="currentStep === 0"
+            class="px-4 py-2 bg-gray-300 rounded">
+            Previous
+          </button>
 
-      <input
-        type="text"
-        [(ngModel)]="questions[currentIndex].userAnswer"
-        class="border rounded p-2 w-full"
-        placeholder="Your answer"
-      />
+          <button
+            *ngIf="currentStep < questions.length - 1"
+            (click)="next()"
+            [disabled]="!answers[currentStep]"
+            class="px-4 py-2 bg-blue-500 text-white rounded">
+            Next
+          </button>
+
+          <button *ngIf="currentStep === questions.length - 1" (click)="submit()"
+            [disabled]="!answers[currentStep]"
+            class="px-4 py-2 bg-green-500 text-white rounded">
+            Submit
+          </button>
+        </div>
+      </div>
     </div>
-
-    <div class="flex justify-between mt-6" *ngIf="!loading && !submitted">
-      <button (click)="prevQuestion()" [disabled]="currentIndex === 0" class="bg-gray-400 px-4 py-2 rounded-lg text-white">
-        Previous
-      </button>
-
-      <button *ngIf="currentIndex < questions.length - 1" (click)="nextQuestion()" class="bg-blue-500 px-4 py-2 rounded-lg text-white">
-        Next
-      </button>
-
-      <button *ngIf="currentIndex === questions.length - 1" (click)="submitTest()" class="bg-green-500 px-4 py-2 rounded-lg text-white">
-        Submit
-      </button>
-    </div>
-
-    <div *ngIf="submitted && !loading" class="text-center">
-      <h2 class="text-2xl font-bold mb-4">Test Completed!</h2>
-      <p class="mb-2">Your Score: {{ score }} / {{ questions.length }}</p>
-      <button (click)="restartTest()" class="bg-purple-500 px-4 py-2 rounded-lg text-white">
-        Restart
-      </button>
-    </div>
+    
   </div>
+</div>
+<div *ngIf="score !== null" class="p-5 bg-white rounded-xl shadow-md text-center absolute top-[35%] w-[50%] right-[25%]">
+  <h2 class="text-2xl font-bold mb-4">Thank You for Taking this Test</h2>
+
+  <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded" (click)="resetQuiz()" >
+    Continue
+  </button>
 </div>

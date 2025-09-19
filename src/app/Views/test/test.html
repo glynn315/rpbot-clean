@@ -16,7 +16,7 @@
             Take Typing Test
         </button>
     </div>
-    <button (click)="iqtest()" class="bg-accent p-3 text-white w-full mt-2 rounded-full font-Playfair text-xl cursor-pointer">
+    <button (click)="iqtest()" class="bg-accent p-3 text-white w-full mt-2 rounded-full font-Playfair text-xl cursor-pointer disabled:cursor-not-allowed" [disabled]="wpm == 0">
         Take IQ Test
     </button>
     <button *ngIf="InformationModule.InfoField.positionSelected === 'Accounting'"  class="bg-accent p-3 text-white w-full mt-2 rounded-full font-Playfair text-xl">

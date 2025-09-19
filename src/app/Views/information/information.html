@@ -1,215 +1,235 @@
 <div class="w-full block flex-col flex">
-    <header class="text-3xl font-Playfair text-white">
-        Personal Information
-    </header>
+    <div class="w-full flex flex-row items-center gap-3">
+        <lucide-icon [img]="back" (click)="previousForm()" color="#fff" class="cursor-pointer"></lucide-icon>
+        <header class="text-3xl font-Playfair text-white">
+            Personal Information
+        </header>
+    </div>
     <div>
-        <form (ngSubmit)="InformationServices.SubmitInformation()" class="mt-2">
-            <div class="flex flex-row gap-2">
-                <div class="w-2/3">
-                    <label for="" class="text-lg font-Lora text-white">First Name</label>
-                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="First Name">
+        <form (ngSubmit)="InformationServices.SubmitInformation()" class="mt-2 flex flex-row">
+            <div *ngIf="displayForm == 1">
+                <div class="flex flex-row gap-2">
+                    <div class="w-2/3">
+                        <label for="" class="text-lg font-Lora text-white">First Name</label>
+                        <input type="text" name="fname" [(ngModel)]="applicantinformation.fname" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="First Name">
+                    </div>
+                    <div class="w-1/3">
+                        <label for="" class="text-lg font-Lora text-white">Middle Name</label>
+                        <input type="text" name="mname" [(ngModel)]="applicantinformation.mname" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
+                    </div>
                 </div>
-                <div class="w-1/3">
-                    <label for="" class="text-lg font-Lora text-white">Middle Name</label>
-                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
+                <div>
+                    <label for="" class="text-lg font-Lora text-white">Family Name</label>
+                    <input type="text" name="lname" [(ngModel)]="applicantinformation.lname" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Last Name">
                 </div>
-            </div>
-            <div>
-                <label for="" class="text-lg font-Lora text-white">Family Name</label>
-                <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Last Name">
-            </div>
-            <!-- <div>
-                <label for="" class="text-lg font-Lora text-white">Address</label>
-                <textarea name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Address"></textarea>
-            </div> -->
-            <div>
-                <label for="" class="text-lg font-Lora text-white">Email</label>
-                <input type="mail" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Email">
-            </div>
-            <div>
-                <label for="" class="text-lg font-Lora text-white">Desired Position</label>
-                <select [(ngModel)]="InformationServices.InfoField.positionSelected" name="positionSelected" id="" class="w-[100%] p-2 bg-primary rounded-md outline-none appearance-none">
-                    <option value="">-Select Available Position-</option>
-                    <option value="IT Staff">IT Staff</option>
-                    <option value="Audit Maker">Audit Maker</option>
-                    <option value="Accounting">Accounting</option>
-                    <option value="Civil Engineer">Civil Engineer</option>
-                </select>
-            </div>
-            <div class="flex flex-row gap-2">
-                <div class="w-1/2">
-                    <label for="" class="text-lg font-Lora text-white">Civil Status</label>
-                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="First Name">
+                <div>
+                    <label for="" class="text-lg font-Lora text-white">Email</label>
+                    <input type="mail" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Email">
                 </div>
-                <div class="w-1/2">
-                    <label for="" class="text-lg font-Lora text-white">Contact Number</label>
-                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
+                <div>
+                    <label for="" class="text-lg font-Lora text-white">Desired Position</label>
+                    <select [(ngModel)]="InformationServices.InfoField.positionSelected" name="positionSelected" id="" class="w-[100%] p-2 bg-primary rounded-md outline-none appearance-none">
+                        <option value="">-Select Available Position-</option>
+                        <option value="IT Staff">IT Staff</option>
+                        <option value="Planning Staff">Planning Staff</option>
+                        <option value="Accounting">Accounting</option>
+                        <option value="Civil Engineer">Civil Engineer</option>
+                    </select>
                 </div>
+                <div class="flex flex-row gap-2">
+                    <div class="w-1/2">
+                        <label for="" class="text-lg font-Lora text-white">Civil Status</label>
+                        <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="First Name">
+                    </div>
+                    <div class="w-1/2">
+                        <label for="" class="text-lg font-Lora text-white">Contact Number</label>
+                        <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
+                    </div>
+                </div>
+                <div class="flex flex-row gap-2">
+                    <div class="w-1/2">
+                        <label for="" class="text-lg font-Lora text-white">Birth Date</label>
+                        <input type="date" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none">
+                    </div>
+                    <div class="w-1/2">
+                        <label for="" class="text-lg font-Lora text-white">Religion</label>
+                        <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
+                    </div>
+                </div>
+                <div class="flex flex-row gap-2">
+                    <div class="w-2/3">
+                        <label for="" class="text-lg font-Lora text-white">Address</label>
+                        <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Address">
+                    </div>
+                    <div class="w-1/3">
+                        <label for="" class="text-lg font-Lora text-white">Expected Salary</label>
+                        <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Expected Salary">
+                    </div>
+                </div>
+                <button (click)="nextStep()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
             </div>
-            <div class="flex flex-row gap-2">
-                <div class="w-1/2">
-                    <label for="" class="text-lg font-Lora text-white">Birth Date</label>
+            <div *ngIf="displayForm == 2" class="w-full">
+                <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Eligibility</header>
+                <button class="bg-accent text-white font-Lora rounded-full p-2 mt-2 font-semibold">+ Add New Eligibility</button>
+                <button (click)="nextStep()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
+            </div>
+            <div *ngIf="displayForm == 3">
+                <div class="mt-2">
+                    <label for="" class="text-lg font-Lora text-white">Name of College</label>
+                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Name of College">
+                </div>
+                <div class="flex flex-row gap-2">
+                    <div class="w-2/3">
+                        <label for="" class="text-lg font-Lora text-white">College Course Graduated</label>
+                        <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="First Name">
+                    </div>
+                    <div class="w-1/3">
+                        <label for="" class="text-lg font-Lora text-white">Year Graduated College</label>
+                        <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <label for="" class="text-lg font-Lora text-white text-justify">When do you plan to take Graduate Course? <span class="text-base">(Please indicate year if applicable)</span></label>
+                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="CPA Board Exam - PASSED/FAILED">
+                </div>
+                <div class="mt-2">
+                    <label for="" class="text-lg font-Lora text-white text-justify">When do you plan to take your board exams? If no Plans, please indicate "No Plans". If already took the exam, please specify what exam was taken and the result [Passed/Failed]. (Ex: CPA Board Exam - Failed)</label>
+                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="CPA Board Exam - PASSED/FAILED">
+                </div>
+                <button (click)="nextStep()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
+            </div>
+            <div *ngIf="displayForm == 4">
+                <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Marriage</header>
+                <div class="flex flex-row gap-2">
+                    <div class="w-2/3">
+                        <label for="" class="text-lg font-Lora text-white">What is your partner's religion?</label>
+                        <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="First Name">
+                    </div>
+                    <div class="w-1/3">
+                        <label for="" class="text-lg font-Lora text-white">Date Marriage</label>
+                        <input type="date" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
+                    </div>
+                </div>
+                <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Do you have a child</header>
+                <div class="flex flex-row gap-3 mt-3">
+                    <label class="flex items-center space-x-2 cursor-pointer w-full">
+                        <input type="radio" name="child" value="yes" class="hidden peer">
+                        <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-green-700 peer-checked:text-white peer-checked:border-none">
+                            Yes
+                        </span>
+                    </label>
+
+                    <label class="flex items-center space-x-2 cursor-pointer w-full">
+                        <input type="radio" name="child" value="no" class="hidden peer">
+                        <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-red-700 peer-checked:text-white peer-checked:border-none">
+                            No
+                        </span>
+                    </label>
+                    
+                </div>
+                <div class="mt-2">
+                    <label for="" class="text-lg font-Lora text-white text-justify">How many children do you have?</label>
+                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="No. of Children">
+                </div>
+                <div class="mt-2">
+                    <label for="" class="text-lg font-Lora text-white text-justify">Age of Children?</label>
+                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="No. of Children">
+                </div>
+                <div class="mt-2">
+                    <label for="" class="text-lg font-Lora text-white text-justify">Who is taking care of your dependents while you are working?</label>
+                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="No. of Children">
+                </div>
+                <button (click)="nextStep()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
+            </div>
+            <div *ngIf="displayForm == 5" class="w-full">
+                <header class="font-Playfair text-xl mt-3 text-white border-b-2 pb-1">Add Work Experience <span class="text-base">(Click New to add more Work Experience)</span></header>
+                <button class="bg-accent text-white font-Lora rounded-full p-2 mt-2 font-semibold">+ Add New Work Experience</button>
+                <button (click)="nextStep()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
+            </div>
+            <div *ngIf="displayForm == 6">
+                <div class="mt-2">
+                    <label for="" class="text-lg font-Lora text-white">What was your significant contribution in your previous company?</label>
+                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Name of College">
+                </div>
+                <header class="font-Lora text-xl mt-3 text-white border-b-2 pb-1">Do you have any pending application with the government or other companies that might derail your application/employment with us?</header>
+                <div class="flex flex-row gap-3 mt-3">
+                    <label class="flex items-center space-x-2 cursor-pointer w-full">
+                        <input type="radio" name="child" value="yes" class="hidden peer">
+                        <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-green-700 peer-checked:text-white peer-checked:border-none">
+                            Yes
+                        </span>
+                    </label>
+
+                    <label class="flex items-center space-x-2 cursor-pointer w-full">
+                        <input type="radio" name="child" value="no" class="hidden peer">
+                        <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-red-700 peer-checked:text-white peer-checked:border-none">
+                            No
+                        </span>
+                    </label>
+                </div>
+                <header class="font-Lora text-xl mt-3 text-white border-b-2 pb-1">We have one year lock in contract for employees. Are you certain that you are willing to render minimum of 1 year of service with us regardless of opportunities that might arise in the near future?</header>
+                <div class="flex flex-row gap-3 mt-3">
+                    <label class="flex items-center space-x-2 cursor-pointer w-full">
+                        <input type="radio" name="child" value="yes" class="hidden peer">
+                        <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-green-700 peer-checked:text-white peer-checked:border-none">
+                            Yes
+                        </span>
+                    </label>
+
+                    <label class="flex items-center space-x-2 cursor-pointer w-full">
+                        <input type="radio" name="child" value="no" class="hidden peer">
+                        <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-red-700 peer-checked:text-white peer-checked:border-none">
+                            No
+                        </span>
+                    </label>
+                </div>
+                <header class="font-Lora text-xl mt-3 text-white border-b-2 pb-1">Do you have motorcycle?</header>
+                <div class="flex flex-row gap-3 mt-3">
+                    <label class="flex items-center space-x-2 cursor-pointer w-full">
+                        <input type="radio" name="child" value="yes" class="hidden peer">
+                        <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-green-700 peer-checked:text-white peer-checked:border-none">
+                            Yes
+                        </span>
+                    </label>
+
+                    <label class="flex items-center space-x-2 cursor-pointer w-full">
+                        <input type="radio" name="child" value="no" class="hidden peer">
+                        <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-red-700 peer-checked:text-white peer-checked:border-none">
+                            No
+                        </span>
+                    </label>
+                </div>
+                <header class="font-Lora text-xl mt-3 text-white border-b-2 pb-1">Do you have Driver's License?</header>
+                <div class="flex flex-row gap-3 mt-3">
+                    <label class="flex items-center space-x-2 cursor-pointer w-full">
+                        <input type="radio" name="child" value="yes" class="hidden peer">
+                        <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-green-700 peer-checked:text-white peer-checked:border-none">
+                            Yes
+                        </span>
+                    </label>
+
+                    <label class="flex items-center space-x-2 cursor-pointer w-full">
+                        <input type="radio" name="child" value="no" class="hidden peer">
+                        <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-red-700 peer-checked:text-white peer-checked:border-none">
+                            No
+                        </span>
+                    </label>
+                </div>
+                <button (click)="nextStep()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
+            </div>
+            <div *ngIf="displayForm == 7" class="w-full">
+                <div class="mt-2">
+                    <label for="" class="text-lg font-Lora text-white text-justify">Top 3 Technical Skills you are good at</label>
+                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="No. of Children">
+                </div>
+                <div class="mt-1">
+                    <label for="" class="text-lg font-Lora text-white">Applicants Question</label>
+                    <textarea name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Applicants Question"></textarea>
+                </div> 
+                <div class="mt-2">
+                    <label for="" class="text-lg font-Lora text-white text-justify">Soonest Date Available</label>
                     <input type="date" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none">
                 </div>
-                <div class="w-1/2">
-                    <label for="" class="text-lg font-Lora text-white">Religion</label>
-                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
-                </div>
-            </div>
-            <div class="flex flex-row gap-2">
-                <div class="w-2/3">
-                    <label for="" class="text-lg font-Lora text-white">Address</label>
-                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Address">
-                </div>
-                <div class="w-1/3">
-                    <label for="" class="text-lg font-Lora text-white">Expected Salary</label>
-                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Expected Salary">
-                </div>
-            </div>
-            <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Eligibility</header>
-            <button class="bg-accent text-white font-Lora rounded-full p-2 mt-2 font-semibold">+ Add New Eligibility</button>
-            <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Do you have a child</header>
-            <div class="flex flex-row gap-3 mt-3">
-                <label class="flex items-center space-x-2 cursor-pointer w-full">
-                    <input type="radio" name="child" value="yes" class="hidden peer">
-                    <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-green-700 peer-checked:text-white peer-checked:border-none">
-                        Yes
-                    </span>
-                </label>
-
-                <label class="flex items-center space-x-2 cursor-pointer w-full">
-                    <input type="radio" name="child" value="no" class="hidden peer">
-                    <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-red-700 peer-checked:text-white peer-checked:border-none">
-                        No
-                    </span>
-                </label>
-            </div>
-            <div class="mt-1">
-                <label for="" class="text-lg font-Lora text-white">Applicants Question</label>
-                <textarea name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Applicants Question"></textarea>
-            </div>
-            <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Marriage</header>
-            <div class="flex flex-row gap-2">
-                <div class="w-2/3">
-                    <label for="" class="text-lg font-Lora text-white">What is your partner's religion?</label>
-                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="First Name">
-                </div>
-                <div class="w-1/3">
-                    <label for="" class="text-lg font-Lora text-white">Date Marriage</label>
-                    <input type="date" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
-                </div>
-            </div>
-            <div class="mt-2">
-                <label for="" class="text-lg font-Lora text-white">Name of College</label>
-                <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Name of College">
-            </div>
-            <div class="flex flex-row gap-2">
-                <div class="w-2/3">
-                    <label for="" class="text-lg font-Lora text-white">College Course Graduated</label>
-                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="First Name">
-                </div>
-                <div class="w-1/3">
-                    <label for="" class="text-lg font-Lora text-white">Year Graduated College</label>
-                    <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
-                </div>
-            </div>
-            <header class="font-Playfair text-xl mt-3 text-white border-b-2 pb-1">Add Work Experience <span class="text-base">(Click New to add more Work Experience)</span></header>
-            <button class="bg-accent text-white font-Lora rounded-full p-2 mt-2 font-semibold">+ Add New Work Experience</button>
-            <div class="mt-2">
-                <label for="" class="text-lg font-Lora text-white">What was your significant contribution in your previous company?</label>
-                <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Name of College">
-            </div>
-            <div class="mt-2">
-                <label for="" class="text-lg font-Lora text-white text-justify">When do you plan to take your board exams? If no Plans, please indicate "No Plans". If already took the exam, please specify what exam was taken and the result [Passed/Failed]. (Ex: CPA Board Exam - Failed)</label>
-                <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="CPA Board Exam - PASSED/FAILED">
-            </div>
-            <header class="font-Lora text-xl mt-3 text-white border-b-2 pb-1">Do you have any pending application with the government or other companies that might derail your application/employment with us?</header>
-            <div class="flex flex-row gap-3 mt-3">
-                <label class="flex items-center space-x-2 cursor-pointer w-full">
-                    <input type="radio" name="child" value="yes" class="hidden peer">
-                    <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-green-700 peer-checked:text-white peer-checked:border-none">
-                        Yes
-                    </span>
-                </label>
-
-                <label class="flex items-center space-x-2 cursor-pointer w-full">
-                    <input type="radio" name="child" value="no" class="hidden peer">
-                    <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-red-700 peer-checked:text-white peer-checked:border-none">
-                        No
-                    </span>
-                </label>
-            </div>
-            <header class="font-Lora text-xl mt-3 text-white border-b-2 pb-1">We have one year lock in contract for employees. Are you certain that you are willing to render minimum of 1 year of service with us regardless of opportunities that might arise in the near future?</header>
-            <div class="flex flex-row gap-3 mt-3">
-                <label class="flex items-center space-x-2 cursor-pointer w-full">
-                    <input type="radio" name="child" value="yes" class="hidden peer">
-                    <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-green-700 peer-checked:text-white peer-checked:border-none">
-                        Yes
-                    </span>
-                </label>
-
-                <label class="flex items-center space-x-2 cursor-pointer w-full">
-                    <input type="radio" name="child" value="no" class="hidden peer">
-                    <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-red-700 peer-checked:text-white peer-checked:border-none">
-                        No
-                    </span>
-                </label>
-            </div>
-            <div class="mt-2">
-                <label for="" class="text-lg font-Lora text-white text-justify">When do you plan to take Graduate Course? <span class="text-base">(Please indicate year if applicable)</span></label>
-                <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="CPA Board Exam - PASSED/FAILED">
-            </div>
-            <div class="mt-2">
-                <label for="" class="text-lg font-Lora text-white text-justify">How many children do you have?</label>
-                <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="No. of Children">
-            </div>
-            <div class="mt-2">
-                <label for="" class="text-lg font-Lora text-white text-justify">Age of Children?</label>
-                <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="No. of Children">
-            </div>
-            <div class="mt-2">
-                <label for="" class="text-lg font-Lora text-white text-justify">Who is taking care of your dependents while you are working?</label>
-                <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="No. of Children">
-            </div>
-            <header class="font-Lora text-xl mt-3 text-white border-b-2 pb-1">Do you have motorcycle?</header>
-            <div class="flex flex-row gap-3 mt-3">
-                <label class="flex items-center space-x-2 cursor-pointer w-full">
-                    <input type="radio" name="child" value="yes" class="hidden peer">
-                    <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-green-700 peer-checked:text-white peer-checked:border-none">
-                        Yes
-                    </span>
-                </label>
-
-                <label class="flex items-center space-x-2 cursor-pointer w-full">
-                    <input type="radio" name="child" value="no" class="hidden peer">
-                    <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-red-700 peer-checked:text-white peer-checked:border-none">
-                        No
-                    </span>
-                </label>
-            </div>
-            <header class="font-Lora text-xl mt-3 text-white border-b-2 pb-1">Do you have Driver's License?</header>
-            <div class="flex flex-row gap-3 mt-3">
-                <label class="flex items-center space-x-2 cursor-pointer w-full">
-                    <input type="radio" name="child" value="yes" class="hidden peer">
-                    <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-green-700 peer-checked:text-white peer-checked:border-none">
-                        Yes
-                    </span>
-                </label>
-
-                <label class="flex items-center space-x-2 cursor-pointer w-full">
-                    <input type="radio" name="child" value="no" class="hidden peer">
-                    <span class="px-4 w-full py-2 rounded-lg text-center border-2 border-white peer-checked:bg-red-700 peer-checked:text-white peer-checked:border-none">
-                        No
-                    </span>
-                </label>
-            </div>
-            <div class="mt-2">
-                <label for="" class="text-lg font-Lora text-white text-justify">Top 3 Technical Skills you are good at</label>
-                <input type="text" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="No. of Children">
-            </div>
-            <div class="mt-2">
-                <label for="" class="text-lg font-Lora text-white text-justify">Soonest Date Available</label>
-                <input type="date" name="" id="" class="w-full p-2 bg-primary rounded-md outline-none">
             </div>
         </form>
     </div>

@@ -1,58 +1,63 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { IqtestService } from '../../Services/IQtest/iqtest';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
+interface Question {
+  text: string;
+  choices: string[];
+  answer: string;
+}
+
 @Component({
   selector: 'app-iqtest',
   standalone: true,
-  imports: [CommonModule, FormsModule], 
   templateUrl: './iqtest.html',
-  styleUrl: './iqtest.scss'
+  imports: [FormsModule, CommonModule],
+  styleUrls: ['./iqtest.scss']
 })
-export class Iqtest implements OnInit {
-  currentIndex = 0;
-  score = 0;
-  submitted = false;
+export class IqtestComponent implements OnInit {
+  questions: Question[] = [];
+  currentStep = 0;
+  answers: string[] = [];
+  score: number | null = null;
   loading = true;
 
-  questions: { text: string; answer: string; userAnswer: string }[] = [];
-
-  constructor(private ai: IqtestService) {}
+  constructor(
+    private IqtestService: IqtestService,
+    private Router: Router,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   async ngOnInit() {
-    this.questions = (await this.ai.generateQuestions()).map(q => ({
-      ...q,
-      userAnswer: ""
-    }));
-    this.loading = false;
-  }
-
-  nextQuestion() {
-    if (this.currentIndex < this.questions.length - 1) {
-      this.currentIndex++;
+    try {
+      const data: Question[] = await this.IqtestService.generateQuestions();
+      this.questions = data;
+      this.answers = new Array(this.questions.length).fill(null);
+    } catch (err) {
+      console.error('Failed to load questions:', err);
+    } finally {
+      this.loading = false;
+      this.cdr.detectChanges();   // 👈 force update
     }
   }
 
-  prevQuestion() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
-  }
+  next() { if (this.currentStep < this.questions.length - 1) this.currentStep++; }
+  prev() { if (this.currentStep > 0) this.currentStep--; }
 
-  submitTest() {
-    this.score = 0;
-    this.questions.forEach(q => {
-      if (q.userAnswer.trim().toLowerCase() === q.answer.toLowerCase()) {
-        this.score++;
-      }
+  submit() {
+    let correct = 0;
+    this.questions.forEach((q, i) => {
+      if (this.answers[i] === q.answer) correct++;
     });
-    this.submitted = true;
+    this.score = correct;
   }
 
-  restartTest() {
-    this.currentIndex = 0;
-    this.score = 0;
-    this.submitted = false;
-    this.questions.forEach(q => (q.userAnswer = ""));
+  resetQuiz() {
+    if (this.score !== null) {
+      sessionStorage.setItem('score', this.score.toString());
+      this.Router.navigate(['/home']);
+    }
   }
 }

@@ -6,27 +6,60 @@ import OpenAI from 'openai';
 })
 export class IqtestService {
   private openai = new OpenAI({
-    // apiKey: 'REMOVED',
-    apiKey: 'API_KEY_HERE',
+    apiKey: `${process.env['OPENAI_API_KEY']}`,
     dangerouslyAllowBrowser: true
   });
 
   async generateQuestions(): Promise<any[]> {
     const prompt = `
-      Generate 7 random situational IQ test questions in JSON format.
-      Each item should have fields: { "text": string, "answer": string }.
-      Do NOT include explanations, just the problem and answer.
-    `;
+Generate exactly 7 situational IQ test questions in JSON format.
+Return only an object with a "questions" field that contains the array.
+Each question must follow this format:
+{
+  "text": "string",
+  "choices": ["A) ...", "B) ...", "C) ...", "D) ..."],
+  "answer": "A" | "B" | "C" | "D"
+}
+`;
 
     const completion = await this.openai.chat.completions.create({
       model: "gpt-5-nano",
-      messages: [{ role: "user", content: prompt }]
+      messages: [{ role: "user", content: prompt }],
+      response_format: {
+        type: "json_schema",
+        json_schema: {
+          name: "iq_questions",
+          schema: {
+            type: "object",
+            properties: {
+              questions: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    text: { type: "string" },
+                    choices: {
+                      type: "array",
+                      items: { type: "string" }
+                    },
+                    answer: { type: "string" }
+                  },
+                  required: ["text", "choices", "answer"]
+                }
+              }
+            },
+            required: ["questions"]
+          }
+        }
+      }
     });
 
     try {
-      return JSON.parse(completion.choices[0].message.content || "[]");
+      const content = completion.choices[0].message.content || "{}";
+      const parsed = JSON.parse(content);
+      return parsed.questions || [];
     } catch (e) {
-      console.error("Failed to parse AI response", e);
+      console.error("Failed to parse AI response", e, completion.choices[0].message.content);
       return [];
     }
   }

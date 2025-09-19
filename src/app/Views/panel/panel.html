@@ -10,20 +10,31 @@
         <div *ngIf="step === 3" class="transition-all duration-500 ease-in-out opacity-100" [ngClass]="{ 'opacity-0 translate-x-10': step !== 3 }">
             <app-test></app-test>
         </div>
+        <div *ngIf="step === 4" class="transition-all duration-500 ease-in-out opacity-100" [ngClass]="{ 'opacity-0 translate-x-10': step !== 4 }">
+            <app-interview></app-interview>
+        </div>
+        <div *ngIf="step === 5" class="transition-all duration-500 ease-in-out opacity-100" [ngClass]="{ 'opacity-0 translate-x-10': step !== 5 }">
+            <app-interview-process></app-interview-process>
+        </div>
     </div>
     <div class="flex justify-between mt-6">
         <div class="flex w-full gap-3 flex-flow">
-            <button *ngIf="step !==1" (click)="prevStep()" class="bg-accent text-white px-4 py-3 text-xl font-Playfair rounded-full">
+            <button *ngIf="step !==1 && step !==2 && step !==5" (click)="prevStep()" class="bg-accent text-white px-4 py-3 text-xl font-Playfair rounded-full">
                 <lucide-icon [img]="back"></lucide-icon>
             </button>
-            <button (click)="submitInfo()" *ngIf="step === 2" class="w-full bg-accent text-white px-6 py-3 text-xl font-Playfair rounded-full">
-                Next
-            </button>
-            <button *ngIf="step !== 2 && step !== 3" (click)="nextStep()" class="w-full bg-accent text-white px-6 py-3 text-xl font-Playfair rounded-full">
+            <div *ngIf="step === 2 && form === 7" class="w-full flex flex-row gap-2">
+                <button (click)="prevStep()" class="bg-accent text-white px-4 py-3 text-xl font-Playfair rounded-full">
+                    <lucide-icon [img]="back"></lucide-icon>
+                </button>
+                <button (click)="submitInfo()" class="w-full bg-accent text-white px-6 py-3 text-xl font-Playfair rounded-full">
+                    Next
+                </button>
+            </div>
+            <button *ngIf="step !== 2 && step !== 3 && step !== 5" (click)="nextStep()" class="w-full bg-accent text-white px-6 py-3 text-xl font-Playfair rounded-full">
                 Proceed
             </button>
-            <button *ngIf="step === 3" class="bg-accent !w-full text-white px-6 py-3 text-xl font-Playfair rounded-full">
-                Start Exam
+            <button *ngIf="step === 3" (click)="nextStep()" class="bg-accent !w-full text-white px-6 py-3 text-xl font-Playfair rounded-full cursor-pointer disabled:cursor-not-allowed" [disabled]="IQtestScore == 0">
+                Continue to Interview
             </button>
         </div>
         
