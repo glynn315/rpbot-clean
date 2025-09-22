@@ -23,10 +23,39 @@ export class InterviewServices {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.apiKey}`
     });
-
+    const sessionData = {
+      firstname: sessionStorage.getItem("firstname"),
+      middlename: sessionStorage.getItem("middlename"),
+      lastname: sessionStorage.getItem("lastname"),
+      email: sessionStorage.getItem("email"),
+      civilstatus: sessionStorage.getItem("civilstatus"),
+      contactnumber: sessionStorage.getItem("contactnumber"),
+      birthdate: sessionStorage.getItem("birthdate"),
+      religion: sessionStorage.getItem("religion"),
+      province: sessionStorage.getItem("province"),
+      cities: sessionStorage.getItem("cities"),
+      barangay: sessionStorage.getItem("barangay"),
+      zipcode: sessionStorage.getItem("zipcode"),
+      expectedsalary: sessionStorage.getItem("expectedsalary"),
+      eligibility: sessionStorage.getItem("eligibility"),
+      college: sessionStorage.getItem("college"),
+      course: sessionStorage.getItem("course"),
+      yeargraduate: sessionStorage.getItem("yeargraduate"),
+      graduateschool: sessionStorage.getItem("graduateschool"),
+      boardexam: sessionStorage.getItem("boardexam"),
+      partnerReligion: sessionStorage.getItem("partnerReligion"),
+      dateMarried: sessionStorage.getItem("dateMarried"),
+      numberofchildren: sessionStorage.getItem("numberofchildren"),
+      guardianofchildren: sessionStorage.getItem("guardianofchildren"),
+      workingList: JSON.parse(sessionStorage.getItem("workingList") || "[]"),
+      contribution: sessionStorage.getItem("contribution"),
+      pendingapplication: sessionStorage.getItem("pendingapplication"),
+      lockincontract: sessionStorage.getItem("lockincontract"),
+      motorcycle: sessionStorage.getItem("motorcycle"),
+    };
     const systemMessage = {
       role: 'system',
-      content: GPTPrompts.interviewSystemPrompt(job.role, job.qualifications)
+      content: GPTPrompts.interviewSystemPrompt(job.role, job.qualifications,sessionData)
     };
 
     let userContent = '';

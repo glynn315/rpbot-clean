@@ -18,8 +18,6 @@ export class Test implements OnInit {
   wpm = sessionStorage.getItem('wpm') || 0;
   accuracy = sessionStorage.getItem('accuracy') || 0;
   ngOnInit(): void {
-    console.log(this.InformationModule.InfoField.positionSelected);
-    
     this.InformationModule.SubmitInformation();
   }
 

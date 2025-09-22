@@ -11,7 +11,6 @@ export class InformationServices {
   };
 
   SubmitInformation() {
-    sessionStorage.setItem('applicantPosition',this.InfoField.positionSelected!);
-    sessionStorage.setItem('applicantName',this.InfoField.applicantName!);
+
   }
 }

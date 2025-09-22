@@ -34,15 +34,11 @@ export class Panel implements OnInit {
     const savedStep = sessionStorage.getItem('step');
     this.step = savedStep ? parseInt(savedStep, 10) : 1;
   }
-
-  
-
   nextStep() {
     if (this.step < 5) {
       this.step++;
       sessionStorage.setItem('step', this.step.toString());
       console.log(this.step);
-      
     }
     if (this.step === 2) {
       this.showNext = this.form === 7;
@@ -52,7 +48,6 @@ export class Panel implements OnInit {
   }
 
   submitInfo() {
-    this.informationServices.SubmitInformation();
     this.step++;
     sessionStorage.setItem('step', this.step.toString());
   }

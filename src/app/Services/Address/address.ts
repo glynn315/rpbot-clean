@@ -18,7 +18,11 @@ export class AddressServices {
   }
 
   displayCities(code: number):Observable<CitiesModel[]>{
-    return this.http.get<CitiesModel[]>(`${this.apiAddress}/provinces/${code}/cities`);
+    return this.http.get<CitiesModel[]>(`${this.apiAddress}/provinces/${code}/cities-municipalities/`);
+  }
+
+  displayBarangay(code: number):Observable<CitiesModel[]>{
+    return this.http.get<CitiesModel[]>(`${this.apiAddress}/cities-municipalities/${code}/barangays/`);
   }
   
 }
