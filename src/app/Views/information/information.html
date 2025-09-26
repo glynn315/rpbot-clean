@@ -40,7 +40,7 @@
                     <div class="flex flex-row gap-2">
                         <div class="w-1/2">
                             <label for="" class="text-lg font-Lora text-white">Civil Status</label>
-                            <select name="civilstatus" [(ngModel)]="applicantinformation.civilstatus" id="" class="w-full p-2 bg-primary rounded-md outline-none">
+                            <select name="civilstatus" [(ngModel)]="applicantinformation.civilStatus" id="" class="w-full p-2 bg-primary rounded-md outline-none">
                                 <option value="Single">Single</option>
                                 <option value="Married">Married</option>
                                 <option value="Widowed">Widowed</option>
@@ -110,7 +110,7 @@
                     </div>
                     <div>
                         <label for="" class="text-lg font-Lora text-white">Expected Salary</label>
-                        <input type="text" name="expectedsalary" [(ngModel)]="applicantinformation.expectedsalary" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Expected Salary">
+                        <input type="text" name="expectedsalary" [(ngModel)]="applicantinformation.expectedSalary" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Expected Salary">
                     </div>
                     <button (click)="nextStep()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
                 </form>

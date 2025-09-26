@@ -1,24 +1,69 @@
 <div class="w-full block flex-col flex">
     <header class="text-3xl font-Playfair text-white">
-        Exam Category
+        Screening Process
     </header>
     <div class="typingTest mt-2">
-        <label for="" class="font-Playfair text-xl text-white">Typing Test</label>
-        <div>
-            <label for="" class="text-white">Word per Minutes</label>
-            <input type="text" name="" class="w-full bg-primary rounded-md p-2 mt-1" id="" value="{{wpm}}" disabled>
+        <div class="flex flex-row justify-between items-center">
+            <div class="flex flex-row items-center gap-4">
+                <div>
+                    @if (wpm == 0) {
+                        <lucide-icon [img]="Pending" color="#000"></lucide-icon>
+                    }
+                    @if (wpm != 0) {
+                        <lucide-icon [img]="Check" color="#000"></lucide-icon>
+                    }
+                </div>
+                <div>
+                    <span>Typing Test</span>
+                </div>
+            </div>
+            <div>
+                <button (click)="TypingTest()" class="bg-accent p-1 text-white w-30 mt-2 rounded-full font-Playfair cursor-pointer text-base !disabled:bg-gray-400 disabled:cursor-not-allowed disabled:!bg-gray-400" [disabled]="wpm != 0">
+                    Proceed
+                </button>
+            </div>
         </div>
-        <div>
-            <label for="" class="text-white">Accuracy</label>
-            <input type="text" name="" class="w-full bg-primary rounded-md p-2 mt-1" id="" value="{{accuracy}}%" disabled>
+        <div class="flex flex-row justify-between items-center">
+            <div class="flex flex-row items-center gap-4">
+                <div>
+                    @if (score == 0) {
+                        <lucide-icon [img]="Pending" color="#000"></lucide-icon>
+                    }
+                    @if (score != 0) {
+                        <lucide-icon [img]="Check" color="#000"></lucide-icon>
+                    }
+                </div>
+                <div>
+                    <span>IQ Test</span>
+                </div>
+            </div>
+            <div>
+                <button (click)="iqtest()" class="bg-accent p-1 text-white w-30 mt-2 rounded-full font-Playfair cursor-pointer text-base !disabled:bg-gray-400 disabled:cursor-not-allowed disabled:!bg-gray-400" [disabled]="score !=0">
+                    Proceed
+                </button>
+            </div>
         </div>
-        <button (click)="TypingTest()" class="bg-accent p-3 text-white w-full mt-2 rounded-full font-Playfair cursor-pointer text-xl !disabled:bg-gray-400 disabled:cursor-not-allowed" [disabled]="wpm != 0">
-            Take Typing Test
-        </button>
+        <div class="flex flex-row justify-between items-center">
+            <div class="flex flex-row items-center gap-4">
+                <div>
+                    @if (generalInterview == 'Pending' || generalInterview == null) {
+                        <lucide-icon [img]="Pending" color="#000"></lucide-icon>
+                    }
+                    @if (generalInterview == 'Done') {
+                        <lucide-icon [img]="Check" color="#000"></lucide-icon>
+                    }
+                </div>
+                <div>
+                    <span>General Interview</span>
+                </div>
+            </div>
+            <div>
+            <button (click)="generalInterviewTest()" class="bg-accent p-1 text-white w-30 mt-2 rounded-full font-Playfair cursor-pointer text-base !disabled:bg-gray-400 disabled:cursor-not-allowed disabled:!bg-gray-400" [disabled]="generalInterview == 'Done'">
+                    Proceed
+                </button>
+            </div>
+        </div>
     </div>
-    <button (click)="iqtest()" class="bg-accent p-3 text-white w-full mt-2 rounded-full font-Playfair text-xl cursor-pointer disabled:cursor-not-allowed" [disabled]="wpm == 0">
-        Take IQ Test
-    </button>
     <button *ngIf="InformationModule.InfoField.positionSelected === 'Accounting'"  class="bg-accent p-3 text-white w-full mt-2 rounded-full font-Playfair text-xl">
         Take Accounting Test
     </button>

@@ -11,6 +11,8 @@ import { Education } from '../../Model/Information/Education/education.model';
 import { Marriage } from '../../Model/Information/Marriage/marriage.model';
 import { WorkExperience } from '../../Model/Information/WorkExperience/work-experience.model';
 import { ApplicationStatus } from '../../Model/Information/ApplicationStatus/application-status.model';
+import { FormSubmission } from '../../Services/form-submission';
+import { AnyARecord } from 'dns';
 
 @Component({
   selector: 'app-information',
@@ -18,12 +20,13 @@ import { ApplicationStatus } from '../../Model/Information/ApplicationStatus/app
   imports: [FormsModule, CommonModule, LucideAngularModule],
   templateUrl: './information.html',
   styleUrls: ['./information.scss'],
-  providers: [AddressServices]
+  providers: [AddressServices, FormSubmission]
 })
 export class Information implements OnInit {
   readonly back = ChevronLeft;
   readonly close = CircleX;
   displayForm: number = 0;
+  informationID: number = 0;
   WorkExperienceFieldStatus: boolean = false;
   workingList: WorkExperience[] = [];
   educationalBackground: Education[] = [];
@@ -43,7 +46,7 @@ export class Information implements OnInit {
     middlename: '',
     lastname: '',
     email: '',
-    civilstatus: '---Select Status---',
+    civilStatus: '---Select Status---',
     contactnumber: '',
     birthdate: '',
     religion: '',
@@ -51,7 +54,7 @@ export class Information implements OnInit {
     cities: '',
     barangay: '',
     zipcode: 0,
-    expectedsalary: 0,
+    expectedSalary: 0,
     positionSelected: '',
     applicantName: '',
   };
@@ -96,7 +99,7 @@ export class Information implements OnInit {
   }
   displayCity : CitiesModel[] = [];
 
-  constructor(private AddressServices: AddressServices) {}
+  constructor(private AddressServices: AddressServices , private InformationServices: FormSubmission) {}
 
   async ngOnInit(): Promise<void> {
     const savedForm = sessionStorage.getItem('form');
@@ -146,7 +149,7 @@ export class Information implements OnInit {
     sessionStorage.setItem('middlename', this.applicantinformation.middlename!);
     sessionStorage.setItem('lastname', this.applicantinformation.lastname!);
     sessionStorage.setItem('email', this.applicantinformation.email!);
-    sessionStorage.setItem('civilstatus', this.applicantinformation.civilstatus!);
+    sessionStorage.setItem('civilstatus', this.applicantinformation.civilStatus!);
     sessionStorage.setItem('contactnumber', this.applicantinformation.contactnumber!);
     sessionStorage.setItem('birthdate', this.applicantinformation.birthdate!);
     sessionStorage.setItem('religion', this.applicantinformation.religion!);
@@ -154,7 +157,7 @@ export class Information implements OnInit {
     sessionStorage.setItem('cities', this.applicantinformation.cities!);
     sessionStorage.setItem('barangay', this.applicantinformation.barangay!);
     sessionStorage.setItem('zipcode', this.applicantinformation.zipcode?.toString()!);
-    sessionStorage.setItem('expectedsalary', this.applicantinformation.expectedsalary?.toString()!);
+    sessionStorage.setItem('expectedsalary', this.applicantinformation.expectedSalary?.toString()!);
   }
   workingExperience() {
     this.workingList.push({ ...this.WorkingInformation });
@@ -186,9 +189,75 @@ export class Information implements OnInit {
     sessionStorage.setItem('motorcycle', this.ApplicationStatusField.motorcycle!);
     sessionStorage.setItem('license', this.ApplicationStatusField.license!);
   }
-  applicationConfirmation(){
-    sessionStorage.setItem('technicalSkills', this.ApplicationStatusField.technicalSkills!);
-    sessionStorage.setItem('question', this.ApplicationStatusField.question!);
-    sessionStorage.setItem('dateAvailability', this.ApplicationStatusField.dateAvailability!);
+  applicationConfirmation() {
+    const applicant: InformationModel = {
+      firstname: sessionStorage.getItem('firstname') || '',
+      middlename: sessionStorage.getItem('middlename') || '',
+      lastname: sessionStorage.getItem('lastname') || '',
+      email: sessionStorage.getItem('email') || '',
+      civilStatus: sessionStorage.getItem('civilstatus') || '',
+      contactnumber: sessionStorage.getItem('contactnumber') || '',
+      birthdate: sessionStorage.getItem('birthdate') || '',
+      religion: sessionStorage.getItem('religion') || '',
+      province: sessionStorage.getItem('province') || '',
+      cities: sessionStorage.getItem('cities') || '',
+      barangay: sessionStorage.getItem('barangay') || '',
+      zipcode: Number(sessionStorage.getItem('zipcode')) || 0,
+      expectedSalary: Number(sessionStorage.getItem('expectedsalary')) || 0,
+      positionSelected: sessionStorage.getItem('applicantPosition') || '',
+      applicantName: sessionStorage.getItem('applicantName') || '',
+    };
+
+    const eligibility: Eligibility = {
+      eligibility: sessionStorage.getItem('eligibility') || '',
+    };
+
+    const education: Education = {
+      college: sessionStorage.getItem('college') || '',
+      course: sessionStorage.getItem('course') || '',
+      yeargraduate: Number(sessionStorage.getItem('yeargraduate')) || 0,
+      graduateschool: Number(sessionStorage.getItem('graduateschool')) || 0,
+      boardexam: sessionStorage.getItem('boardexam') || '',
+    };
+
+    const marriage: Marriage = {
+      partnerReligion: sessionStorage.getItem('partnerReligion') || '',
+      dateMarried: sessionStorage.getItem('dateMarried') || '',
+      child: sessionStorage.getItem('child') || '',
+      numberofchildren: Number(sessionStorage.getItem('numberofchildren')) || 0,
+      ageofchildren: sessionStorage.getItem('ageofchildren') || '',
+      guardianofchildren: sessionStorage.getItem('guardianofchildren') || '',
+    };
+
+    const workingList: WorkExperience[] = JSON.parse(sessionStorage.getItem('workingList') || '[]');
+
+    const applicationStatus: ApplicationStatus = {
+      contribution: sessionStorage.getItem('contribution') || '',
+      pendingapplication: sessionStorage.getItem('pendingapplication') || '',
+      lockincontract: sessionStorage.getItem('lockincontract') || '',
+      motorcycle: sessionStorage.getItem('motorcycle') || '',
+      license: sessionStorage.getItem('license') || '',
+      technicalSkills: sessionStorage.getItem('technicalSkills') || '',
+      question: sessionStorage.getItem('question') || '',
+      dateAvailability: sessionStorage.getItem('dateAvailability') || '',
+    };
+    this.InformationServices.storeInformation(applicant).subscribe((info: any) => {
+      const infoId = info[1].applicant_i_information_id;
+      eligibility.applicant_i_information_id = infoId;
+      education.applicant_i_information_id = infoId;
+      marriage.applicant_i_information_id = infoId;
+      applicationStatus.applicant_i_information_id = infoId;
+      workingList.forEach(w => w.applicant_i_information_id = infoId);
+
+      this.InformationServices.storeEligibility(eligibility).subscribe();
+      this.InformationServices.storeApplicantEducation(education).subscribe();
+      this.InformationServices.storeMarriageInformation(marriage).subscribe();
+      this.InformationServices.storeApplicationStatus(applicationStatus).subscribe();
+
+      workingList.forEach(work =>
+        this.InformationServices.storeExperience(work).subscribe()
+      );
+    });
   }
+
 }

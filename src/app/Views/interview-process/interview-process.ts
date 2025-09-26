@@ -18,7 +18,8 @@ import { Router } from '@angular/router';
 })
 export class InterviewProcess implements OnInit {
   readonly Send = Send;
-
+  isTyping: boolean = false;
+  showEndButton: boolean = false;
   messages: { role: string, content: string }[] = [];
   userInput: string = '';
 
@@ -49,7 +50,6 @@ export class InterviewProcess implements OnInit {
       this.startInterview();
     }
   }
-
   startInterview() {
     if (!this.selectedJob) return;
 
@@ -59,46 +59,35 @@ export class InterviewProcess implements OnInit {
       this.cdr.detectChanges();
     });
   }
-
   sendMessage() {
     if (!this.userInput.trim() || !this.selectedJob) return;
     const userMessage = this.userInput.trim();
     this.messages.push({ role: 'user', content: userMessage });
     this.saveMessages();
     this.userInput = '';
-
     if (["none","no","nope","no questions","nothing"].includes(userMessage.toLowerCase())) {
       this.endInterview();
       return;
     }
 
+    this.isTyping = true;
+
     this.interviewService.sendMessage(this.messages, this.selectedJob, userMessage).subscribe(res => {
-      this.messages.push({ role: 'assistant', content: res.choices[0].message.content });
-      this.saveMessages();
-      this.cdr.detectChanges();
-      this.scrollToBottom();
-    });
-  }   
+      const reply = res.choices[0].message.content;
 
-
-  private generateFollowUps() {
-    if (!this.selectedJob) return;
-
-    this.interviewService.sendMessage(this.messages, this.selectedJob, 'followup').subscribe(res => {
-      const followups = res.choices[0].message.content
-        .split('\n')
-        .map((q: string) => q.trim())
-        .filter((q: any) => q);
-
-      if (followups.length > 0) {
-        this.messages.push({ role: 'assistant', content: followups[0] });
+      setTimeout(() => {
+        this.messages.push({ role: 'assistant', content: reply });
         this.saveMessages();
+        this.isTyping = false;
         this.cdr.detectChanges();
         this.scrollToBottom();
-      }
+        if (/thank you for taking the time|we’ll review your application|have a great day/i.test(reply)) {
+          this.showEndButton = true;
+        } else {
+        }
+      }, 2000);
     });
   }
-
   endInterview() {
     if (!this.selectedJob) return;
 
@@ -109,9 +98,9 @@ export class InterviewProcess implements OnInit {
       this.cdr.detectChanges();
       this.scrollToBottom();
       this.fetchPrivateRatings();
+      
     });
   }
-
   private fetchPrivateRatings() {
     if (!this.selectedJob) return;
 
@@ -119,7 +108,8 @@ export class InterviewProcess implements OnInit {
       const evalText = res.choices[0].message.content;
       const ratings = this.extractRatings(evalText);
       sessionStorage.setItem('evaluationRatings', JSON.stringify(ratings));
-      console.log('Private evaluation saved:', ratings);
+      sessionStorage.setItem('generalInterview', 'Done');
+      
     });
   }
 
@@ -156,6 +146,7 @@ export class InterviewProcess implements OnInit {
   }
 
   proceedNext() {
-    this.router.navigate(['/evaluation']);
+    sessionStorage.setItem('step','3');
+    location.reload();
   }
 }

@@ -7,6 +7,7 @@ import { LucideAngularModule, ChevronLeft } from 'lucide-angular';
 import { InformationServices } from '../../Services/Information/information';
 import { Interview } from "../interview/interview";
 import { InterviewProcess } from "../interview-process/interview-process";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panel',
@@ -20,7 +21,7 @@ export class Panel implements OnInit {
   readonly back = ChevronLeft;
   step: number = 1;
   showNext = true;
-  constructor(private informationServices: InformationServices) {}
+  constructor(private Router: Router) {}
 
   get IQtestScore(): number {
     const testScore = sessionStorage.getItem('score');
@@ -36,15 +37,21 @@ export class Panel implements OnInit {
   }
   nextStep() {
     if (this.step < 5) {
-      this.step++;
-      sessionStorage.setItem('step', this.step.toString());
-      console.log(this.step);
+      if (this.step === 3) {
+        this.Router.navigate(['/evaluation']);
+      }
+      else{
+        this.step++;
+        sessionStorage.setItem('step', this.step.toString());
+      }
     }
+    
     if (this.step === 2) {
       this.showNext = this.form === 7;
     } else {
       this.showNext = true;
     }
+    
   }
 
   submitInfo() {
