@@ -25,9 +25,14 @@ import { AnyARecord } from 'dns';
 export class Information implements OnInit {
   readonly back = ChevronLeft;
   readonly close = CircleX;
+  collegeGraduate: boolean = false;
+  collegeSelectorValue: boolean = true;
+  marriage: boolean = false;
+  marriageValue: boolean = false;
   displayForm: number = 0;
   informationID: number = 0;
   WorkExperienceFieldStatus: boolean = false;
+
   workingList: WorkExperience[] = [];
   educationalBackground: Education[] = [];
   marriageInformation: Marriage[] = [];
@@ -112,6 +117,22 @@ export class Information implements OnInit {
     this.AddressServices.displayProvinces().subscribe((data) => {
       this.displayAddress = data;
     });
+  }
+  collegeSelector(){
+    if(this.collegeSelectorValue == false){
+      this.collegeGraduate = false;
+    }
+    else{
+      this.collegeGraduate = true;
+    }
+  }
+  marriageSelector(){
+    if(this.marriageValue == false){
+      this.marriage = false;
+    }
+    else{
+      this.marriage= true;
+    }
   }
   previousForm(){
     this.displayForm--
