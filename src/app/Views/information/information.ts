@@ -190,6 +190,9 @@ export class Information implements OnInit {
     sessionStorage.setItem('license', this.ApplicationStatusField.license!);
   }
   applicationConfirmation() {
+    sessionStorage.setItem('dateAvailability', this.ApplicationStatusField.dateAvailability!);
+    sessionStorage.setItem('question', this.ApplicationStatusField.question!);
+    sessionStorage.setItem('technicalSkills', this.ApplicationStatusField.technicalSkills!);
     const applicant: InformationModel = {
       firstname: sessionStorage.getItem('firstname') || '',
       middlename: sessionStorage.getItem('middlename') || '',

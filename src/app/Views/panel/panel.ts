@@ -21,6 +21,7 @@ export class Panel implements OnInit {
   readonly back = ChevronLeft;
   step: number = 1;
   showNext = true;
+  generalInterview = sessionStorage.getItem('generalInterview') || 'Pending';
   constructor(private Router: Router) {}
 
   get IQtestScore(): number {
