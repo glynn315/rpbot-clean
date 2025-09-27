@@ -267,6 +267,7 @@ export class Information implements OnInit {
     };
     this.InformationServices.storeInformation(applicant).subscribe((info: any) => {
       const infoId = info[1].applicant_i_information_id;
+      sessionStorage.setItem('applicantID', infoId.toString())
       eligibility.applicant_i_information_id = infoId;
       education.applicant_i_information_id = infoId;
       marriage.applicant_i_information_id = infoId;

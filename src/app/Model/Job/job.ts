@@ -1,4 +1,5 @@
 export interface Job {
     role: string,
-    qualifications: string[]
+    qualifications: string[],
+    salaryBudget: number,
 }

@@ -9,7 +9,7 @@ import { GPTPrompts } from './InterviewPrompt/gptprompts';
 })
 export class InterviewServices {
   private apiUrl = 'https://api.openai.com/v1/chat/completions';
-  private apiKey = '';
+  private apiKey = '***REMOVED***';
 
   constructor(private http: HttpClient) {}
 
@@ -55,7 +55,7 @@ export class InterviewServices {
     };
     const systemMessage = {
       role: 'system',
-      content: GPTPrompts.interviewSystemPrompt(job.role, job.qualifications,sessionData)
+      content: GPTPrompts.interviewSystemPrompt(job.role, job.qualifications,sessionData, job.salaryBudget)
     };
 
     let userContent = '';

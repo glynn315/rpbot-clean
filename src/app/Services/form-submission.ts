@@ -8,6 +8,8 @@ import { Education } from '../Model/Information/Education/education.model';
 import { Eligibility } from '../Model/Information/Eligibility/eligibility.model';
 import { Marriage } from '../Model/Information/Marriage/marriage.model';
 import { WorkExperience } from '../Model/Information/WorkExperience/work-experience.model';
+import { Wpm } from '../Model/wpm/wpm';
+import { IqModel } from '../Model/iq/iq';
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +65,14 @@ export class FormSubmission {
 
   storeExperience(post: WorkExperience):Observable<WorkExperience>{
     return this.http.post<WorkExperience>(`${this.apiUrl}applicantExperience`, post)
+  }
+
+  storeWpm(post: Wpm):Observable<Wpm>{
+    return this.http.post<Wpm>(`${this.apiUrl}wpm`, post)
+  }
+
+  storeIq(post: IqModel):Observable<IqModel>{
+    return this.http.post<IqModel>(`${this.apiUrl}IQ`, post)
   }
 
 
