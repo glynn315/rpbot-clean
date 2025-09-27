@@ -6,7 +6,7 @@ import OpenAI from 'openai';
 })
 export class IqtestService {
   private openai = new OpenAI({
-    apiKey: '***REMOVED***',
+    apiKey: '',
     dangerouslyAllowBrowser: true
   });
 
