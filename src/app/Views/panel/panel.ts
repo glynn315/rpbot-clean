@@ -24,6 +24,11 @@ export class Panel implements OnInit {
   generalInterview = sessionStorage.getItem('generalInterview') || 'Pending';
   constructor(private Router: Router) {}
 
+  get info(): string {
+    const dataStored = sessionStorage.getItem('DataStored');
+    return dataStored ? dataStored : 'false';
+  }
+
   get IQtestScore(): number {
     const testScore = sessionStorage.getItem('score');
     return testScore ? parseInt(testScore, 10) : 0;

@@ -13,11 +13,13 @@ import { WorkExperience } from '../../Model/Information/WorkExperience/work-expe
 import { ApplicationStatus } from '../../Model/Information/ApplicationStatus/application-status.model';
 import { FormSubmission } from '../../Services/form-submission';
 import { AnyARecord } from 'dns';
+import { LoaderComponent } from '../../shared/loader/loader.component';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-information',
   standalone: true,
-  imports: [FormsModule, CommonModule, LucideAngularModule],
+  imports: [FormsModule, CommonModule, LucideAngularModule, LoaderComponent],
   templateUrl: './information.html',
   styleUrls: ['./information.scss'],
   providers: [AddressServices, FormSubmission]
@@ -25,6 +27,8 @@ import { AnyARecord } from 'dns';
 export class Information implements OnInit {
   readonly back = ChevronLeft;
   readonly close = CircleX;
+
+  activeLoader: boolean = false;
   collegeGraduate: boolean = false;
   collegeSelectorValue: boolean = true;
   marriage: boolean = false;
@@ -138,15 +142,30 @@ export class Information implements OnInit {
     this.displayForm--
     sessionStorage.setItem('form', this.displayForm.toString());
   }
-  selected(){
-    console.log(this.provinceField.code);
-    this.AddressServices.displayCities(this.provinceField.code!).subscribe((data) => {
-      this.displayCity = data;
+  selected() {
+    this.activeLoader = true;
+    this.AddressServices.displayCities(this.provinceField.code!).subscribe({
+      next: (data) => {
+        this.displayCity = data;
+      },
+      error: (err) => {
+        console.error(err);
+      },
+      complete: () => {
+        this.activeLoader = false;
+      }
     });
   }
+
   citiesSelected(){
-    this.AddressServices.displayBarangay(this.municipalityField.code!).subscribe((data) => {
-      this.displayBarangay = data;
+    this.activeLoader = true;
+    this.AddressServices.displayBarangay(this.municipalityField.code!).subscribe({
+      next: (data) => {
+        this.displayBarangay= data;
+      },
+      complete: () => {
+        this.activeLoader = false;
+      }
     });
   }
   nextStep() {
@@ -211,6 +230,13 @@ export class Information implements OnInit {
     sessionStorage.setItem('license', this.ApplicationStatusField.license!);
   }
   applicationConfirmation() {
+    if (confirm("Are you sure you want to save this information?")) {
+      this.applicationConfirmationField();
+    } else {
+      alert("Save cancelled.");
+    }
+  }
+  applicationConfirmationField() {
     sessionStorage.setItem('dateAvailability', this.ApplicationStatusField.dateAvailability!);
     sessionStorage.setItem('question', this.ApplicationStatusField.question!);
     sessionStorage.setItem('technicalSkills', this.ApplicationStatusField.technicalSkills!);
@@ -283,6 +309,7 @@ export class Information implements OnInit {
         this.InformationServices.storeExperience(work).subscribe()
       );
     });
+    sessionStorage.setItem('DataStored', 'true');
   }
 
 }

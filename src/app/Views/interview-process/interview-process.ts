@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { LucideAngularModule , Send } from "lucide-angular";
 import { InterviewServices } from '../../Services/Interview/interview';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./interview-process.scss'],
   providers: [InterviewServices]
 })
-export class InterviewProcess implements OnInit {
+export class InterviewProcess implements OnInit, AfterViewChecked  {
   readonly Send = Send;
   isTyping: boolean = false;
   showEndButton: boolean = false;
@@ -29,7 +29,7 @@ export class InterviewProcess implements OnInit {
 
   jobs = Jobs;
   selectedJob: Job | undefined;
-
+  private shouldScroll: boolean = false;
   @ViewChild('messagesContainer') private messagesContainer!: ElementRef;
 
   constructor(
@@ -37,6 +37,12 @@ export class InterviewProcess implements OnInit {
     private cdr: ChangeDetectorRef,
     private router: Router
   ) {}
+  ngAfterViewChecked(): void {
+    if (this.shouldScroll) {
+      this.scrollToBottom();
+      this.shouldScroll = false;
+    }
+  }
 
   ngOnInit() {
     this.applicantName = sessionStorage.getItem('applicantName') ?? 'Applicant';
@@ -79,6 +85,7 @@ export class InterviewProcess implements OnInit {
         this.messages.push({ role: 'assistant', content: reply });
         this.saveMessages();
         this.isTyping = false;
+        this.shouldScroll = true; 
         this.cdr.detectChanges();
         this.scrollToBottom();
         if (/thank you for taking the time|we’ll review your application|have a great day/i.test(reply)) {
@@ -95,6 +102,7 @@ export class InterviewProcess implements OnInit {
       this.messages.push({ role: 'assistant', content: res.choices[0].message.content });
       this.interviewCompleted = true;
       this.saveMessages();
+      this.shouldScroll = true;
       this.cdr.detectChanges();
       this.scrollToBottom();
       this.fetchPrivateRatings();

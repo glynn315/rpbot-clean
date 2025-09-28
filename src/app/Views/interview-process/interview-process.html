@@ -1,23 +1,19 @@
 <div #messagesContainer class="!h-[100%] absolute w-full overflow-y-scroll flex flex-col p-2 gap-2" style="scrollbar-width:none;">
   <div class="flex-1 w-full rounded-xl p-2 text-white overflow-y-auto" style="scrollbar-width:none;">
     <div *ngFor="let msg of messages" [ngClass]="{'text-right': msg.role === 'user', 'text-left': msg.role === 'assistant'}">
-      <div class="p-3 my-1 rounded-xl w-auto" style="max-width: 80%;" 
-           [ngClass]="msg.role === 'user' ? 'bg-blue-600 inline-block text-left text-justify' : 'bg-gray-700 inline-block'">
+      <div class="p-3 my-1 rounded-xl w-auto" style="max-width: 80%;" [ngClass]="msg.role === 'user' ? 'bg-blue-600 inline-block text-left text-justify' : 'bg-gray-700 inline-block'">
         {{ msg.content }}
       </div>
     </div>
-
-    <!-- Typing indicator -->
-    <div *ngIf="isTyping" class="text-gray-400 italic animate-pulse">Interviewer is typing...</div>
+    <div *ngIf="isTyping" class="text-black italic animate-pulse">Interviewer is typing...</div>
   </div>
-
-  <!-- Input box until interview completed -->
   <div *ngIf="!interviewCompleted" class="w-full h-[15%] py-2 flex flex-row gap-2 items-start">
     <textarea [(ngModel)]="userInput"
           placeholder="Interview Response"
           class="w-full h-full border border-gray-400 rounded-xl p-1 outline-none bg-primary"
           (keydown.enter)="sendMessage(); $event.preventDefault()"
-          (keydown.shift.enter)="$event.stopPropagation()"></textarea>
+          (keydown.shift.enter)="$event.stopPropagation()"
+          (paste)="$event.preventDefault()"></textarea>
     <lucide-icon [img]="Send" class="bg-accent p-1 rounded-md cursor-pointer" color="#fff" (click)="sendMessage()"></lucide-icon>
   </div>
   <div *ngIf="showEndButton && !interviewCompleted" class="w-full py-2 flex justify-center">
