@@ -12,15 +12,22 @@ export class IqtestService {
 
   async generateQuestions(): Promise<any[]> {
     const prompt = `
-Generate exactly 7 situational IQ test questions in JSON format.
-Return only an object with a "questions" field that contains the array.
-Each question must follow this format:
-{
-  "text": "string",
-  "choices": ["A) ...", "B) ...", "C) ...", "D) ..."],
-  "answer": "A" | "B" | "C" | "D"
-}
-`;
+      Generate exactly 7 random hard situational numerical word problems in JSON format.
+      Generate exactly 7 random average situational word problems in JSON format.
+      Generate exactly 7 random analytical word problems in JSON format.
+
+      Return only an object with these fields:
+      {
+         "questions": [ ...21 questions total... ]
+      }
+
+      Each question in any array must follow this format:
+      {
+        "text": "string",
+        "choices": ["A) ...", "B) ...", "C) ...", "D) ..."],
+        "answer": "A" | "B" | "C" | "D"
+      }
+    `;
 
     const completion = await this.openai.chat.completions.create({
       model: "gpt-5-nano",

@@ -81,4 +81,44 @@ export class FormSubmission {
   }
 
 
+
+
+
+  displayApplicantInfo(id: number):Observable<InformationModel>{
+    return this.http.get<InformationModel>(`${this.apiUrl}applicant/${id}`);
+  }
+
+  displayApplicantEducationInfo(id: number):Observable<Education>{
+    return this.http.get<Education>(`${this.apiUrl}applicantEducation/${id}`);
+  }
+
+  displayApplicationStatusInfo(id: number):Observable<ApplicationStatus>{
+    return this.http.get<ApplicationStatus>(`${this.apiUrl}applicationStatus/${id}`);
+  }
+
+  displayApplicantEligibilityInfo(id: number):Observable<Eligibility>{
+    return this.http.get<Eligibility>(`${this.apiUrl}eligibility/${id}`);
+  }
+
+  displayApplicantMarriageInfo(id: number):Observable<Marriage>{
+    return this.http.get<Marriage>(`${this.apiUrl}marriage/${id}`);
+  }
+
+  displayApplicantExperienceInfo(id: number):Observable<WorkExperience>{
+    return this.http.get<WorkExperience>(`${this.apiUrl}workExperience/${id}`);
+  }
+
+  displayWpmInfo(id: number):Observable<Wpm>{
+    return this.http.get<Wpm>(`${this.apiUrl}wpm/${id}`);
+  }
+
+  displayIqInfo(id: number):Observable<IqModel>{
+    return this.http.get<IqModel>(`${this.apiUrl}iq/${id}`);
+  }
+
+  displayConversationInfo(id: number):Observable<Conversation>{
+    return this.http.get<Conversation>(`${this.apiUrl}conversations/${id}`);
+  }
+
+
 }

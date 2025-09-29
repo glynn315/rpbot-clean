@@ -6,4 +6,8 @@ export interface Message {
 export interface Conversation {
     applicant_i_information_id: number;
     messages: Message[];
+    care?: number;
+    mastery?: number;
+    discipline?: number;
+    commentary?: string;
 }

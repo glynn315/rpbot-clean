@@ -30,7 +30,11 @@ export class Interviewevaluation implements OnInit {
   }
   MessageFields: Conversation = {
     applicant_i_information_id: Number(sessionStorage.getItem('applicantID')) || 0,
-    messages: JSON.parse(sessionStorage.getItem('interviewMessages') || '[]')
+    messages: JSON.parse(sessionStorage.getItem('interviewMessages') || '[]'),
+    care: 0,
+    mastery: 0,
+    discipline: 0,
+    commentary: '',
   };
   ngOnInit(): void {
     const raw = sessionStorage.getItem('evaluationRatings');
@@ -40,7 +44,8 @@ export class Interviewevaluation implements OnInit {
 
     this.EmailFields = {
       name: 'Yvert Glynn Soriano',
-      email: 'hrd_ho_checker@chiukim.com',
+      email: 'yggs.drive@gmail.com',
+      // email: 'hrd_ho_checker@chiukim.com',
       message: ratings.commentary,
       care: ratings.care,
       discipline: ratings.discipline,
@@ -49,7 +54,13 @@ export class Interviewevaluation implements OnInit {
       accuracy: sessionStorage.getItem('accuracy') || null,
       score: sessionStorage.getItem('score') || null,
       applicant: sessionStorage.getItem('applicantName') || null,
+      applicantID: sessionStorage.getItem('applicantID') || null,
     };
+
+    this.MessageFields.care = this.EmailFields.care;
+    this.MessageFields.discipline = this.EmailFields.discipline;
+    this.MessageFields.mastery = this.EmailFields.mastery;
+    this.MessageFields.commentary = this.EmailFields.message;
 
     setTimeout(() => {
       this.FormRegistrationServices.storeIq(this.IQForm).subscribe(()=> {});
