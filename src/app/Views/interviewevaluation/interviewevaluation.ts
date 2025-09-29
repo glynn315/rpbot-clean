@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormSubmission } from '../../Services/form-submission';
 import { IqModel } from '../../Model/iq/iq';
 import { Wpm } from '../../Model/wpm/wpm';
+import { Conversation } from '../../Model/Conversation/conversation';
 
 
 @Component({
@@ -27,6 +28,10 @@ export class Interviewevaluation implements OnInit {
     wpm: Number(sessionStorage.getItem('wpm')) || 0,
     accuracy:  Number(sessionStorage.getItem('accuracy')) || 0,
   }
+  MessageFields: Conversation = {
+    applicant_i_information_id: Number(sessionStorage.getItem('applicantID')) || 0,
+    messages: JSON.parse(sessionStorage.getItem('interviewMessages') || '[]')
+  };
   ngOnInit(): void {
     const raw = sessionStorage.getItem('evaluationRatings');
     const ratings = JSON.parse(raw!);
@@ -49,6 +54,7 @@ export class Interviewevaluation implements OnInit {
     setTimeout(() => {
       this.FormRegistrationServices.storeIq(this.IQForm).subscribe(()=> {});
       this.FormRegistrationServices.storeWpm(this.WPMForm).subscribe(()=> {});
+      this.FormRegistrationServices.StoreMesssage(this.MessageFields).subscribe(() => {});
       this.EmailServices.sendEmail(this.EmailFields).subscribe(() => {
       });
       this.Router.navigate(['/complete']);

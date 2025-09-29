@@ -10,6 +10,7 @@ import { Marriage } from '../Model/Information/Marriage/marriage.model';
 import { WorkExperience } from '../Model/Information/WorkExperience/work-experience.model';
 import { Wpm } from '../Model/wpm/wpm';
 import { IqModel } from '../Model/iq/iq';
+import { Conversation } from '../Model/Conversation/conversation';
 
 @Injectable({
   providedIn: 'root'
@@ -73,6 +74,10 @@ export class FormSubmission {
 
   storeIq(post: IqModel):Observable<IqModel>{
     return this.http.post<IqModel>(`${this.apiUrl}IQ`, post)
+  }
+
+  StoreMesssage(post: Conversation):Observable<Conversation>{
+    return this.http.post<Conversation>(`${this.apiUrl}conversations`, post)
   }
 
 
