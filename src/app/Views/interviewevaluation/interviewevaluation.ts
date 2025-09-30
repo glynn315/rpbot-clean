@@ -44,8 +44,8 @@ export class Interviewevaluation implements OnInit {
 
     this.EmailFields = {
       name: 'Yvert Glynn Soriano',
-      email: 'yggs.drive@gmail.com',
-      // email: 'hrd_ho_checker@chiukim.com',
+      // email: 'yggs.drive@gmail.com',
+      email: 'hrd_ho_checker@chiukim.com',
       message: ratings.commentary,
       care: ratings.care,
       discipline: ratings.discipline,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule , ChevronLeft , CircleX } from 'lucide-angular';
+import { LucideAngularModule , ChevronLeft , CircleX , PlusCircle } from 'lucide-angular';
 import { AddressServices } from '../../Services/Address/address';
 import { AddressModel } from '../../Model/Address/address.model';
 import { CitiesModel } from '../../Model/Address/cities/cities.model';
@@ -14,7 +14,7 @@ import { ApplicationStatus } from '../../Model/Information/ApplicationStatus/app
 import { FormSubmission } from '../../Services/form-submission';
 import { AnyARecord } from 'dns';
 import { LoaderComponent } from '../../shared/loader/loader.component';
-import { timeout } from 'rxjs';
+import { finalize, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-information',
@@ -27,6 +27,7 @@ import { timeout } from 'rxjs';
 export class Information implements OnInit {
   readonly back = ChevronLeft;
   readonly close = CircleX;
+  readonly PlusCircle = PlusCircle;
 
   activeLoader: boolean = false;
   collegeGraduate: boolean = false;
@@ -144,30 +145,24 @@ export class Information implements OnInit {
   }
   selected() {
     this.activeLoader = true;
-    this.AddressServices.displayCities(this.provinceField.code!).subscribe({
-      next: (data) => {
-        this.displayCity = data;
-      },
-      error: (err) => {
-        console.error(err);
-      },
-      complete: () => {
-        this.activeLoader = false;
-      }
-    });
+    this.AddressServices.displayCities(this.provinceField.code!)
+      .pipe(finalize(() => this.activeLoader = false))
+      .subscribe({
+        next: (data) => this.displayCity = data,
+        error: (err) => console.error(err)
+      });
   }
 
-  citiesSelected(){
+  citiesSelected() {
     this.activeLoader = true;
-    this.AddressServices.displayBarangay(this.municipalityField.code!).subscribe({
-      next: (data) => {
-        this.displayBarangay= data;
-      },
-      complete: () => {
-        this.activeLoader = false;
-      }
-    });
+    this.AddressServices.displayBarangay(this.municipalityField.code!)
+      .pipe(finalize(() => this.activeLoader = false))
+      .subscribe({
+        next: (data) => this.displayBarangay = data,
+        error: (err) => console.error(err)
+      });
   }
+
   nextStep() {
     this.displayForm++;
     sessionStorage.setItem('form', this.displayForm.toString());

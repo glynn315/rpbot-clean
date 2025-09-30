@@ -37,6 +37,10 @@ export class Panel implements OnInit {
     const savedForm = sessionStorage.getItem('form');
     return savedForm ? parseInt(savedForm, 10) : 0;
   }
+  get verifier(): string {
+    const disclaimer = sessionStorage.getItem('disclaimer');
+    return disclaimer ? disclaimer : '' ;
+  }
   ngOnInit(): void {
     const savedStep = sessionStorage.getItem('step');
     this.step = savedStep ? parseInt(savedStep, 10) : 1;
@@ -51,7 +55,6 @@ export class Panel implements OnInit {
         sessionStorage.setItem('step', this.step.toString());
       }
     }
-    
     if (this.step === 2) {
       this.showNext = this.form === 7;
     } else {

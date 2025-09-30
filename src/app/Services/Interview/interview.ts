@@ -9,7 +9,7 @@ import { GPTPrompts } from './InterviewPrompt/gptprompts';
 })
 export class InterviewServices {
   private apiUrl = 'https://api.openai.com/v1/chat/completions';
-  private apiKey = '';
+  private apiKey = 'REMOVED';
 
   constructor(private http: HttpClient) {}
 

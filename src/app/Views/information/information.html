@@ -120,8 +120,9 @@
             <div *ngIf="displayForm == 2" class="w-full">
                 <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Eligibility</header>
                 <form (ngSubmit)="addEligibility()">
-                    <div>
-                        <input type="text" name="eligibility" [(ngModel)]="eligibilityField.eligibility" id="" placeholder="Eligibility" class="bg-white p-2 mt-2 w-full rounded-xl">
+                    <div class="flex flex-row py-2 gap-3 justify-center items-center">
+                        <input type="text" name="eligibility" [(ngModel)]="eligibilityField.eligibility" id="" placeholder="Eligibility" class="bg-white p-2 w-full rounded-xl">
+                        <lucide-icon [img]="PlusCircle"></lucide-icon>
                     </div>
                     <button (click)="nextStep()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
                 </form>
