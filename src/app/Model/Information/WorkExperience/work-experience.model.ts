@@ -5,4 +5,5 @@ export interface WorkExperience {
     reasonforleaving?: string,
     position?: string,
     previouscompensation?: number,
+    contribution?: string,
 }

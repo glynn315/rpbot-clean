@@ -1,6 +1,6 @@
 <div class="w-full block flex-col flex">
     <div class="w-full flex flex-row items-center gap-3">
-        <lucide-icon [img]="back" (click)="previousForm()" color="#fff" class="cursor-pointer"></lucide-icon>
+        <span (click)="previousForm()" class="text-white cursor-pointer">back</span>
         <header class="text-3xl font-Playfair text-white">
             Applicant Information
         </header>
@@ -12,25 +12,46 @@
                 <form (ngSubmit)="submitInformation()">
                     <div class="flex flex-row gap-2">
                         <div class="w-2/3">
-                            <label for="" class="text-lg font-Lora text-white">First Name</label>
-                            <input type="text" name="firstname" [(ngModel)]="applicantinformation.firstname" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="First Name">
+                            <label for="" class="text-lg font-Lora text-white">First Name <span class="text-red-700">*</span></label>
+                            <input type="text" name="firstname" [(ngModel)]="applicantinformation.firstname" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="First Name" required>
                         </div>
                         <div class="w-1/3">
-                            <label for="" class="text-lg font-Lora text-white">Middle Name</label>
-                            <input type="text" name="middlename" [(ngModel)]="applicantinformation.middlename" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Middle Name">
+                            <label class="text-lg font-Lora text-white">
+                                Middle Name <span class="text-red-700">*</span>
+                            </label>
+                            <div class="flex items-center gap-2">
+                                <input
+                                    type="text"
+                                    name="middlename"
+                                    [(ngModel)]="applicantinformation.middlename"
+                                    [disabled]="middleNameNA"
+                                    class="w-full p-2 bg-primary rounded-md outline-none"
+                                    placeholder="Middle Name"
+                                    [required]="!middleNameNA"
+                                >
+
+                                <input
+                                    type="checkbox"
+                                    name="middleNameNA"
+                                    [(ngModel)]="middleNameNA"
+                                    id="middleNA"
+                                    (change)="toggleMiddleNameNA()"
+                                >
+                                <label for="middleNA" class="text-white">N/A</label>
+                            </div>
                         </div>
                     </div>
                     <div>
-                        <label for="" class="text-lg font-Lora text-white">Family Name</label>
-                        <input type="text" name="lastname" [(ngModel)]="applicantinformation.lastname" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Last Name">
+                        <label for="" class="text-lg font-Lora text-white">Family Name <span class="text-red-700">*</span></label>
+                        <input type="text" name="lastname" [(ngModel)]="applicantinformation.lastname" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Last Name" required>
                     </div>
                     <div>
-                        <label for="" class="text-lg font-Lora text-white">Email</label>
-                        <input type="mail" name="email" id="" [(ngModel)]="applicantinformation.email" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Email">
+                        <label for="" class="text-lg font-Lora text-white">Email <span class="text-red-700">*</span></label>
+                        <input type="mail" name="email" id="" [(ngModel)]="applicantinformation.email" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Email" required>
                     </div>
                     <div>
-                        <label for="" class="text-lg font-Lora text-white">Desired Position</label>
-                        <select [(ngModel)]="applicantinformation.positionSelected" name="positionSelected" id="" class="w-[100%] p-2 bg-primary rounded-md outline-none appearance-none">
+                        <label for="" class="text-lg font-Lora text-white">Desired Position <span class="text-red-700">*</span></label>
+                        <select [(ngModel)]="applicantinformation.positionSelected" name="positionSelected" id="" class="w-[100%] p-2 bg-primary rounded-md outline-none appearance-none" required>
                             <option value="">-Select Available Position-</option>
                             <option value="IT Staff">IT Staff</option>
                             <option value="Planning Staff">Planning Staff</option>HR Staff
@@ -41,8 +62,8 @@
                     </div>
                     <div class="flex flex-row gap-2">
                         <div class="w-1/2">
-                            <label for="" class="text-lg font-Lora text-white">Civil Status</label>
-                            <select name="civilstatus" [(ngModel)]="applicantinformation.civilStatus" id="" class="w-full p-2 bg-primary rounded-md outline-none">
+                            <label for="" class="text-lg font-Lora text-white">Civil Status <span class="text-red-700">*</span></label>
+                            <select name="civilstatus" [(ngModel)]="applicantinformation.civilStatus" id="" class="w-full p-2 bg-primary rounded-md outline-none" required>
                                 <option value="Single">Single</option>
                                 <option value="Married">Married</option>
                                 <option value="Widowed">Widowed</option>
@@ -50,18 +71,18 @@
                             </select>
                         </div>
                         <div class="w-1/2">
-                            <label for="" class="text-lg font-Lora text-white">Contact Number</label>
-                            <input type="text" name="contactnumber" [(ngModel)]="applicantinformation.contactnumber" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Contact Number">
+                            <label for="" class="text-lg font-Lora text-white">Contact Number <span class="text-red-700">*</span></label>
+                            <input type="text" name="contactnumber" [(ngModel)]="applicantinformation.contactnumber" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Contact Number" required>
                         </div>
                     </div>
                     <div class="flex flex-row gap-2">
                         <div class="w-1/2">
-                            <label for="" class="text-lg font-Lora text-white">Birth Date</label>
-                            <input type="date" name="birthdate" [(ngModel)]="applicantinformation.birthdate" id="" class="w-full p-2 bg-primary rounded-md outline-none">
+                            <label for="" class="text-lg font-Lora text-white">Birth Date <span class="text-red-700">*</span></label>
+                            <input type="date" name="birthdate" [(ngModel)]="applicantinformation.birthdate" id="" class="w-full p-2 bg-primary rounded-md outline-none" required>
                         </div>
                         <div class="w-1/2">
-                            <label for="" class="text-lg font-Lora text-white">Religion</label>
-                            <select name="religion" [(ngModel)]="applicantinformation.religion" id="" class="w-full p-2 bg-primary rounded-md outline-none">
+                            <label for="" class="text-lg font-Lora text-white">Religion <span class="text-red-700">*</span></label>
+                            <select name="religion" [(ngModel)]="applicantinformation.religion" id="" class="w-full p-2 bg-primary rounded-md outline-none" required>
                                 <option value="">---Select Religion---</option>
                                 <option value="Roman Catholic">Roman Catholic</option>
                                 <option value="Islam">Islam</option>
@@ -80,52 +101,88 @@
                     </div>
                     <div class="flex flex-row gap-2">
                         <div class="w-2/3">
-                            <label for="" class="text-lg font-Lora text-white">Province</label>
-                            <select name="code" [(ngModel)]="provinceField" id="" (change)="selected()" class="w-full bg-white rounded-md p-1">
-                                @for (province of displayAddress; track $index) {
-                                    <option [ngValue]="province">{{province.name}}</option>
-                                }
+                            <label for="" class="text-lg font-Lora text-white">Province <span class="text-red-700">*</span></label>
+                            <select name="provinceField" [(ngModel)]="provinceField" (change)="selected()" class="w-full p-1 rounded bg-white" required>
+                                <option *ngFor="let province of displayAddress" [ngValue]="province">
+                                    {{ province.name }}
+                                </option>
                             </select>
                         </div>
                         <div class="w-1/3">
-                            <label for="" class="text-lg font-Lora text-white">City</label>
-                            <select name="code" [(ngModel)]="municipalityField" id="" (change)="citiesSelected()" class="w-full rounded-md p-1 bg-white">
-                                @for (city of displayCity; track $index) {
-                                    <option [ngValue]="city">{{city.name}}</option>
-                                }
+                            <label for="" class="text-lg font-Lora text-white">City <span class="text-red-700">*</span></label>
+                            <select name="municipalityField" [(ngModel)]="municipalityField" (change)="citiesSelected()" class="w-full p-1 rounded bg-white" required>
+                                <option *ngFor="let city of displayCity" [ngValue]="city">
+                                    {{ city.name }}
+                                </option>
                             </select>
                         </div>
                     </div>
                     <div class="flex flex-row gap-2">
                         <div class="w-2/3">
-                            <label for="" class="text-lg font-Lora text-white">Barangay</label>
-                            <select name="code" [(ngModel)]="barangayField" id="" class="w-full rounded-md p-1 bg-white">
-                                @for (barangay of displayBarangay; track $index) {
-                                    <option [ngValue]="barangay">{{barangay.name}}</option>
-                                }
+                            <label for="" class="text-lg font-Lora text-white">Barangay <span class="text-red-700">*</span></label>
+                            <select name="barangayField" [(ngModel)]="barangayField" class="w-full p-1 rounded bg-white" required>
+                                <option *ngFor="let barangay of displayBarangay" [ngValue]="barangay">
+                                    {{ barangay.name }}
+                                </option>
                             </select>
                         </div>
                         <div class="w-2/3">
-                            <label for="" class="text-lg font-Lora text-white">Zip Code</label>
-                            <input type="text" name="zipcode" [(ngModel)]="applicantinformation.zipcode" id="" class="w-full p-1 bg-primary rounded-md outline-none" placeholder="Address">
+                            <label for="" class="text-lg font-Lora text-white">Zip Code <span class="text-red-700">*</span></label>
+                            <input type="text" name="zipcode" [(ngModel)]="applicantinformation.zipcode" id="" class="w-full p-1 bg-primary rounded-md outline-none" placeholder="Address" required>
                         </div>
                     </div>
                     <div>
-                        <label for="" class="text-lg font-Lora text-white">Expected Salary</label>
-                        <input type="text" name="expectedsalary" [(ngModel)]="applicantinformation.expectedSalary" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Expected Salary">
+                        <label for="" class="text-lg font-Lora text-white">Expected Salary <span class="text-red-700">*</span></label>
+                        <input type="text" name="expectedsalary" [(ngModel)]="applicantinformation.expectedSalary" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Expected Salary" required>
                     </div>
-                    <button (click)="nextStep()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
+                    <button class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
                 </form>
             </div>
             <div *ngIf="displayForm == 2" class="w-full">
-                <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Eligibility</header>
+                <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Eligibility <span class="text-red-700">*</span></header>
                 <form (ngSubmit)="addEligibility()">
                     <div class="flex flex-row py-2 gap-3 justify-center items-center">
-                        <input type="text" name="eligibility" [(ngModel)]="eligibilityField.eligibility" id="" placeholder="Eligibility" class="bg-white p-2 w-full rounded-xl">
-                        <lucide-icon [img]="PlusCircle"></lucide-icon>
+                        <input type="text" name="eligibility" [(ngModel)]="eligibilityField.eligibility" id="" placeholder="Eligibility" class="bg-white p-2 w-full rounded-xl" disabled>
+                        <lucide-icon [img]="PlusCircle" (click)="openEligibility()" class="cursor-pointer"></lucide-icon>
                     </div>
-                    <button (click)="nextStep()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
+                    <button class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
                 </form>
+                @if (eligibilityVisible) {
+                    <div class="p-5 w-full rounded-xl shadow-md bg-white absolute top-0 ">
+                        <header class="text-2xl font-Playfair border-b-2 pb-2">Select Eligibility</header>
+                        <div>
+                            <div class="flex flex-row justify-left items-center gap-2 mt-2">
+                                <input type="checkbox" name="cs" [(ngModel)]="eligibilityOptions.cs" id="CS">
+                                <label for="CS">CS Passer</label>
+                            </div>
+                            <div class="flex flex-row justify-left items-center gap-2 mt-2">
+                                <input type="checkbox" name="let" [(ngModel)]="eligibilityOptions.let" id="LET">
+                                <label for="LET">LET Passer</label>
+                            </div>
+                            <div class="flex flex-row justify-left items-center gap-2 mt-2">
+                                <input type="checkbox" name="board" [(ngModel)]="eligibilityOptions.board" id="Board" value="Board Exam Passer">
+                                <label for="Board">Board Exam Passer</label>
+                            </div>
+                            <div class="flex flex-row justify-left items-center gap-2 mt-2">
+                                <input type="checkbox" name="none" [(ngModel)]="eligibilityOptions.none" id="None" value="None">
+                                <label for="None">None</label>
+                            </div>
+                            <div class="flex flex-row justify-left items-center gap-2 mt-2">
+                                <input type="checkbox" name="" id="Others" (change)="otherSelected()">
+                                <label for="Others">Others</label>
+                                <div class="w-full">
+                                    @if (OthersField) {
+                                        <div>
+                                            <input type="text" [(ngModel)]="otherEligibility" name="otherEligibility"  id="" class="w-full border-b-1 placeholder:text-gray-150" placeholder="e.g Board Exam Passer">
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <button (click)="selectEligibility()" class="w-full bg-accent text-white rounded-full mt-2 p-2">Select</button>
+                    </div>
+                }
             </div>
             <div *ngIf="displayForm == 3" class="w-full">
                 <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Educational Background</header>
@@ -232,7 +289,7 @@
                 @if (WorkExperienceFieldStatus) {
                     <div class="w-full h-auto p-4 bg-white absolute top-0 duration-500 rounded-xl shadow-xl">
                         <header class="flex flex-row justify-between items-center">
-                            <span class="font-Playfair text-2xl">Working Experience</span>
+                            <span class="font-Playfair text-2xl">Work History</span>
                             <lucide-icon [img]="close" (click)="closeExperience()" class="cursor-pointer"></lucide-icon>
                         </header>
                         <form (ngSubmit)="workingExperience()">
@@ -242,15 +299,29 @@
                             </div>
                             <div class="mt-2">
                                 <label for="" class="font-Lora text-base">How long did you work?</label>
-                                <input type="text" name="workduration" [(ngModel)]="WorkingInformation.workduration!" id="" class="w-full border rounded-md p-2" placeholder="Duration">
-                            </div>
+                                <div class="flex flex-row gap-2">
+                                    <div class="flex flex-col w-full">
+                                        <label for="fromDate">From</label>
+                                        <input type="date" id="fromDate" [(ngModel)]="fromDate" name="fromDate" (change)="calculateDuration()" class="w-full border rounded p-1">
+                                    </div>
+                                    <div class="flex flex-col w-full">
+                                        <label for="toDate">To</label>
+                                        <input type="date" id="toDate" [(ngModel)]="toDate" name="toDate" (change)="calculateDuration()" class="w-full border rounded p-1">
+                                    </div>
+                                    </div>
+                                    <input type="text" name="workduration" [(ngModel)]="WorkingInformation.workduration" id="" class="w-full border rounded-md p-2 hidden" placeholder="Duration" readonly>
+                                </div>
                             <div class="mt-2">
                                 <label for="" class="font-Lora text-base">What made you leave?</label>
                                 <input type="text" name="reasonforleaving" [(ngModel)]="WorkingInformation.reasonforleaving!" id="" class="w-full border rounded-md p-2" placeholder="What made you leave?">
                             </div>
                             <div class="mt-2">
-                                <label for="" class="font-Lora text-base">Position?</label>
+                                <label for="" class="font-Lora text-base">Position</label>
                                 <input type="text" name="position" [(ngModel)]="WorkingInformation.position!" id="" class="w-full border rounded-md p-2" placeholder="Position">
+                            </div>
+                            <div class="mt-2">
+                                <label for="" class="font-Lora text-base">What was your significant contribution in your previous company?</label>
+                                <input type="text" name="contribution" [(ngModel)]="WorkingInformation.contribution" id="" class="w-full border rounded-md p-2" placeholder="Contribution">
                             </div>
                             <div class="mt-2">
                                 <label for="" class="font-Lora text-base">How much was your previous compensation?</label>
@@ -265,11 +336,7 @@
             </div>
             <div *ngIf="displayForm == 6">
                 <form (click)="applicationStatusInformation()">
-                    <div class="mt-2">
-                        <label for="" class="text-lg font-Lora text-white">What was your significant contribution in your previous company?</label>
-                        <input type="text" name="contribution" [(ngModel)]="ApplicationStatusField.contribution" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Contribution">
-                    </div>
-                    <header class="font-Lora text-xl mt-3 text-white border-b-2 pb-1">Do you have any pending application with the government or other companies that might derail your application/employment with us?</header>
+                    <header class="font-Lora text-xl text-white border-b-2 pb-1">Do you have any pending application with the government or other companies that might derail your application/employment with us?</header>
                     <div class="flex flex-row gap-3 mt-3">
                         <label class="flex items-center space-x-2 cursor-pointer w-full">
                             <input type="radio" name="pendingapplication" [(ngModel)]="ApplicationStatusField.pendingapplication" value="yes" class="hidden peer">
@@ -338,20 +405,36 @@
             </div>
             <div *ngIf="displayForm == 7" class="w-full">
                 <form (ngSubmit)="applicationConfirmation()">
-                    <div class="mt-2">
-                        <label for="" class="text-lg font-Lora text-white text-justify">Top 3 Technical Skills you are good at</label>
-                        <input type="text" name="technicalSkills" [(ngModel)]="ApplicationStatusField.technicalSkills" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Technical Skills">
+                    <label for="" class="text-lg font-Lora text-white text-justify">Top 3 Technical Skills you are good at</label>
+                    <div class="mt-2 flex flex-row items-center justify-between gap-3">
+                        <div class="w-full">
+                            <input type="text" name="technicalSkills" [(ngModel)]="ApplicationStatusField.technicalSkills" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Technical Skills" disabled>
+                        </div>
+                        <lucide-icon [img]="PlusCircle" (click)="openTechnicalSkills()"></lucide-icon>
                     </div>
                     <div class="mt-1">
                         <label for="" class="text-lg font-Lora text-white">Applicants Question</label>
                         <textarea name="question" [(ngModel)]="ApplicationStatusField.question" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Applicants Question"></textarea>
                     </div> 
-                    <div class="mt-2">
-                        <label for="" class="text-lg font-Lora text-white text-justify">Soonest Date Available</label>
-                        <input type="date" name="dateAvailability" [(ngModel)]="ApplicationStatusField.dateAvailability" id="" class="w-full p-2 bg-primary rounded-md outline-none">
-                    </div>
                     <button class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Confirm</button>
                 </form>
+                  <div *ngIf="TechnocalSkillsVisible" class="p-5 w-full rounded-xl shadow-md bg-white absolute top-0 z-50">
+                    <header class="text-2xl font-Playfair border-b-2 pb-2">Select Technical Skills</header>
+
+                    <div *ngFor="let skill of technicalOptionKeys">
+                    <div class="flex flex-row items-center gap-2 mt-2">
+                        <input type="checkbox" [(ngModel)]="technicalOptions[skill]" [name]="skill">
+                        <label>{{ skill }}</label>
+                    </div>
+                    </div>
+
+                    <button
+                    (click)="selectTechnicalSkills()"
+                    class="w-full bg-accent text-white rounded-full mt-2 p-2"
+                    >
+                    Select
+                    </button>
+                </div>
             </div>
         </form>
     </div>

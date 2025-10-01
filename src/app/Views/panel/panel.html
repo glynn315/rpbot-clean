@@ -41,3 +41,7 @@
     </div>
   </div>
 </div>
+@if (disclaimerVisible) {
+    <app-disclaimer [isVisible]="isVisible" (confirmDisclaimer)="confirmDisclaimer()"></app-disclaimer>
+}
+

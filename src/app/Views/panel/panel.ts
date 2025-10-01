@@ -8,11 +8,12 @@ import { InformationServices } from '../../Services/Information/information';
 import { Interview } from "../interview/interview";
 import { InterviewProcess } from "../interview-process/interview-process";
 import { Router } from '@angular/router';
+import { Disclaimer } from '../disclaimer/disclaimer';
 
 @Component({
   selector: 'app-panel',
   standalone: true,
-  imports: [Information, Test, CommonModule, Home, LucideAngularModule, Interview, InterviewProcess],
+  imports: [Information, Test, CommonModule, Home, LucideAngularModule, Interview, InterviewProcess, Disclaimer],
   templateUrl: './panel.html',
   styleUrl: './panel.scss',
   providers: []
@@ -21,6 +22,8 @@ export class Panel implements OnInit {
   readonly back = ChevronLeft;
   step: number = 1;
   showNext = true;
+  isVisible: boolean = true;
+  disclaimerVisible: boolean = true;
   generalInterview = sessionStorage.getItem('generalInterview') || 'Pending';
   constructor(private Router: Router) {}
 
@@ -44,6 +47,9 @@ export class Panel implements OnInit {
   ngOnInit(): void {
     const savedStep = sessionStorage.getItem('step');
     this.step = savedStep ? parseInt(savedStep, 10) : 1;
+
+    const restriction = sessionStorage.getItem('Agreement');
+    this.disclaimerVisible = !restriction;
   }
   nextStep() {
     if (this.step < 5) {
@@ -66,6 +72,9 @@ export class Panel implements OnInit {
   submitInfo() {
     this.step++;
     sessionStorage.setItem('step', this.step.toString());
+  }
+  confirmDisclaimer(){
+    this.isVisible = false;
   }
 
   prevStep() {
