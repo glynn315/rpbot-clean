@@ -21,8 +21,6 @@
             </span>
         </ng-container>
     </p>
-
-
     <textarea
         [(ngModel)]="userInput"
         class="text-4xl text-center rounded-md border-2"
@@ -36,12 +34,13 @@
         cols="60"
     ></textarea>
 
-    <div class="resultContainer flex flex-row justify-center items-center h-dvh absolute left-0 top-0 w-full">
-        <div *ngIf="testEnded" class="results !m-0 bg-accent text-white p-5 flex flex-col justify-center items-center !text-3xl leading-10 w-[40%] rounded-3xl">
+    <div *ngIf="testEnded" 
+     class="resultContainer flex flex-row justify-center items-center h-dvh absolute left-0 top-0 w-full">
+        <div class="results !m-0 bg-accent text-white p-5 flex flex-col justify-center items-center !text-3xl leading-10 w-[40%] rounded-3xl">
             <p>Speed: {{ wpm }} WPM</p>
             <p>Accuracy: {{ accuracy }}%</p>
             <button (click)="completeTest()" class="bg-secondary w-100 rounded-full !text-xl">Continue</button>
         </div>
-    </div>
+        </div>
     
 </div>

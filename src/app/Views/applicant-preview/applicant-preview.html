@@ -1,5 +1,11 @@
 <div class="w-full h-vh p-10 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
-    <header class="text-4xl font-Playfair font-bold pb-4">Interview Summary</header>
+    <div class="flex flex-row justify-between">
+        <header class="text-4xl font-Playfair font-bold pb-4">Interview Summary</header>
+        <!-- <div class="flex flex-row items-center gap-3">
+            <button class="p-2 bg-green-600 text-white rounded-xl shadow-md px-6">Hired</button>
+            <button class="p-2 bg-red-600 text-white rounded-xl shadow-md px-6">Reject</button>
+        </div> -->
+    </div>
     <div class="flex flex-row gap-6">
         <div class="w-2/3 bg-white/90 backdrop-blur-lg p-6 rounded-2xl shadow-xl overflow-y-auto border border-gray-200">
         <header class="font-Playfair text-2xl font-bold border-b pb-3 text-gray-800">
@@ -24,7 +30,6 @@
             <p><b>One Year Contatract:</b> {{ status.lockincontract }}</p>
             <p><b>License:</b> {{ status.license }}</p>
             <p><b>Motorcycle:</b> {{ status.motorcycle }}</p>
-            <p><b>Date Availability:</b> {{ status.dateAvailability }}</p>
             </section>
             <section *ngIf="eligibility" class="bg-gray-50 rounded-xl p-4 shadow-sm border">
             <h3 class="font-semibold text-lg text-gray-700 mb-2">✅ Eligibility</h3>

@@ -1,0 +1,3008 @@
+{
+  "hard_situational": [
+    {
+      "text": "Find the compound interest on $4660 at 13% for 5 years.",
+      "choices": [
+        "$4025.75",
+        "$3875.75",
+        "$4075.75",
+        "$3925.75"
+      ],
+      "answer": "$3925.75"
+    },
+    {
+      "text": "Find the compound interest on $4920 at 11% for 5 years.",
+      "choices": [
+        "$3320.49",
+        "$3370.49",
+        "$3470.49",
+        "$3520.49"
+      ],
+      "answer": "$3370.49"
+    },
+    {
+      "text": "Find the compound interest on $1028 at 5% for 3 years.",
+      "choices": [
+        "$312.03999999999996",
+        "$262.03999999999996",
+        "$112.03999999999999",
+        "$162.04"
+      ],
+      "answer": "$162.04"
+    },
+    {
+      "text": "Find the compound interest on $1583 at 13% for 2 years.",
+      "choices": [
+        "$438.33",
+        "$538.3299999999999",
+        "$388.33",
+        "$588.3299999999999"
+      ],
+      "answer": "$438.33"
+    },
+    {
+      "text": "A man buys an item for $301 and sells it for $354. Find his profit or loss percentage.",
+      "choices": [
+        "17.61% profit",
+        "22.61% profit",
+        "14.61% profit",
+        "27.61% loss"
+      ],
+      "answer": "17.61% profit"
+    },
+    {
+      "text": "A man buys an item for $140 and sells it for $120. Find his profit or loss percentage.",
+      "choices": [
+        "9.29% profit",
+        "4.289999999999999% loss",
+        "14.29% loss",
+        "17.29% profit"
+      ],
+      "answer": "14.29% loss"
+    },
+    {
+      "text": "Find the compound interest on $3392 at 11% for 2 years.",
+      "choices": [
+        "$887.28",
+        "$737.28",
+        "$937.28",
+        "$787.28"
+      ],
+      "answer": "$787.28"
+    },
+    {
+      "text": "Find the compound interest on $1757 at 5% for 3 years.",
+      "choices": [
+        "$376.95",
+        "$276.95",
+        "$226.95",
+        "$426.95"
+      ],
+      "answer": "$276.95"
+    },
+    {
+      "text": "A man buys an item for $113 and sells it for $197. Find his profit or loss percentage.",
+      "choices": [
+        "84.34% loss",
+        "71.34% profit",
+        "74.34% profit",
+        "79.34% profit"
+      ],
+      "answer": "74.34% profit"
+    },
+    {
+      "text": "A man buys an item for $461 and sells it for $519. Find his profit or loss percentage.",
+      "choices": [
+        "9.58% profit",
+        "12.58% profit",
+        "17.58% profit",
+        "22.58% loss"
+      ],
+      "answer": "12.58% profit"
+    },
+    {
+      "text": "A train 161 m long passes a man standing on a platform in 14 seconds. Find its speed in km/h.",
+      "choices": [
+        "42 km/h",
+        "52 km/h",
+        "57 km/h",
+        "47 km/h"
+      ],
+      "answer": "47 km/h"
+    },
+    {
+      "text": "199 kg of rice at $5/kg is mixed with 191 kg at $7/kg. Find the average price per kg.",
+      "choices": [
+        "$6.98",
+        "$6.48",
+        "$5.48",
+        "$5.98"
+      ],
+      "answer": "$5.98"
+    },
+    {
+      "text": "A pipe fills a tank in 7 hours but a leak empties it in 23 hours. How long to fill the tank with both open?",
+      "choices": [
+        "12.1 hours",
+        "13.1 hours",
+        "10.1 hours",
+        "8.1 hours"
+      ],
+      "answer": "10.1 hours"
+    },
+    {
+      "text": "Find the compound interest on $2016 at 10% for 5 years.",
+      "choices": [
+        "$1180.79",
+        "$1380.79",
+        "$1330.79",
+        "$1230.79"
+      ],
+      "answer": "$1230.79"
+    },
+    {
+      "text": "Find the compound interest on $4603 at 6% for 3 years.",
+      "choices": [
+        "$979.25",
+        "$829.25",
+        "$1029.25",
+        "$879.25"
+      ],
+      "answer": "$879.25"
+    },
+    {
+      "text": "Find the compound interest on $3675 at 15% for 4 years.",
+      "choices": [
+        "$2852.6",
+        "$2752.6",
+        "$2702.6",
+        "$2902.6"
+      ],
+      "answer": "$2752.6"
+    },
+    {
+      "text": "A train 161 m long passes a man standing on a platform in 8 seconds. Find its speed in km/h.",
+      "choices": [
+        "70 km/h",
+        "65 km/h",
+        "60 km/h",
+        "75 km/h"
+      ],
+      "answer": "65 km/h"
+    },
+    {
+      "text": "A pipe fills a tank in 10 hours but a leak empties it in 22 hours. How long to fill the tank with both open?",
+      "choices": [
+        "16.3 hours",
+        "18.3 hours",
+        "21.3 hours",
+        "20.3 hours"
+      ],
+      "answer": "18.3 hours"
+    },
+    {
+      "text": "170 kg of rice at $2/kg is mixed with 134 kg at $9/kg. Find the average price per kg.",
+      "choices": [
+        "$5.59",
+        "$4.59",
+        "$6.09",
+        "$5.09"
+      ],
+      "answer": "$5.09"
+    },
+    {
+      "text": "177 kg of rice at $5/kg is mixed with 124 kg at $8/kg. Find the average price per kg.",
+      "choices": [
+        "$5.74",
+        "$6.24",
+        "$7.24",
+        "$6.74"
+      ],
+      "answer": "$6.24"
+    },
+    {
+      "text": "A man buys an item for $177 and sells it for $248. Find his profit or loss percentage.",
+      "choices": [
+        "37.11% profit",
+        "45.11% profit",
+        "40.11% profit",
+        "50.11% loss"
+      ],
+      "answer": "40.11% profit"
+    },
+    {
+      "text": "Find the compound interest on $4579 at 7% for 2 years.",
+      "choices": [
+        "$663.5",
+        "$813.5",
+        "$613.5",
+        "$763.5"
+      ],
+      "answer": "$663.5"
+    },
+    {
+      "text": "A train 165 m long passes a man standing on a platform in 14 seconds. Find its speed in km/h.",
+      "choices": [
+        "54 km/h",
+        "59 km/h",
+        "49 km/h",
+        "44 km/h"
+      ],
+      "answer": "49 km/h"
+    },
+    {
+      "text": "Find the compound interest on $3422 at 14% for 3 years.",
+      "choices": [
+        "$1647.84",
+        "$1747.84",
+        "$1597.84",
+        "$1797.84"
+      ],
+      "answer": "$1647.84"
+    },
+    {
+      "text": "A train 115 m long passes a man standing on a platform in 13 seconds. Find its speed in km/h.",
+      "choices": [
+        "44 km/h",
+        "49 km/h",
+        "54 km/h",
+        "39 km/h"
+      ],
+      "answer": "44 km/h"
+    },
+    {
+      "text": "Find the compound interest on $4771 at 5% for 3 years.",
+      "choices": [
+        "$752.03",
+        "$902.03",
+        "$702.03",
+        "$852.03"
+      ],
+      "answer": "$752.03"
+    },
+    {
+      "text": "184 kg of rice at $2/kg is mixed with 187 kg at $8/kg. Find the average price per kg.",
+      "choices": [
+        "$5.02",
+        "$4.52",
+        "$5.52",
+        "$6.02"
+      ],
+      "answer": "$5.02"
+    },
+    {
+      "text": "Find the compound interest on $2237 at 14% for 2 years.",
+      "choices": [
+        "$820.21",
+        "$770.21",
+        "$620.21",
+        "$670.21"
+      ],
+      "answer": "$670.21"
+    },
+    {
+      "text": "A pipe fills a tank in 6 hours but a leak empties it in 25 hours. How long to fill the tank with both open?",
+      "choices": [
+        "10.9 hours",
+        "7.9 hours",
+        "5.9 hours",
+        "9.9 hours"
+      ],
+      "answer": "7.9 hours"
+    },
+    {
+      "text": "A man buys an item for $130 and sells it for $173. Find his profit or loss percentage.",
+      "choices": [
+        "43.08% loss",
+        "30.08% profit",
+        "38.08% profit",
+        "33.08% profit"
+      ],
+      "answer": "33.08% profit"
+    },
+    {
+      "text": "Find the compound interest on $4881 at 7% for 4 years.",
+      "choices": [
+        "$1667.0",
+        "$1617.0",
+        "$1517.0",
+        "$1467.0"
+      ],
+      "answer": "$1517.0"
+    },
+    {
+      "text": "A man buys an item for $479 and sells it for $499. Find his profit or loss percentage.",
+      "choices": [
+        "9.18% profit",
+        "4.18% profit",
+        "1.1799999999999997% profit",
+        "14.18% loss"
+      ],
+      "answer": "4.18% profit"
+    },
+    {
+      "text": "A man buys an item for $205 and sells it for $292. Find his profit or loss percentage.",
+      "choices": [
+        "52.44% loss",
+        "47.44% profit",
+        "39.44% profit",
+        "42.44% profit"
+      ],
+      "answer": "42.44% profit"
+    },
+    {
+      "text": "174 kg of rice at $4/kg is mixed with 173 kg at $7/kg. Find the average price per kg.",
+      "choices": [
+        "$5.0",
+        "$6.0",
+        "$5.5",
+        "$6.5"
+      ],
+      "answer": "$5.5"
+    },
+    {
+      "text": "Find the compound interest on $3718 at 6% for 2 years.",
+      "choices": [
+        "$559.54",
+        "$609.54",
+        "$459.54",
+        "$409.54"
+      ],
+      "answer": "$459.54"
+    },
+    {
+      "text": "159 kg of rice at $5/kg is mixed with 171 kg at $9/kg. Find the average price per kg.",
+      "choices": [
+        "$7.57",
+        "$8.07",
+        "$6.57",
+        "$7.07"
+      ],
+      "answer": "$7.07"
+    },
+    {
+      "text": "184 kg of rice at $2/kg is mixed with 146 kg at $6/kg. Find the average price per kg.",
+      "choices": [
+        "$3.27",
+        "$4.77",
+        "$4.27",
+        "$3.77"
+      ],
+      "answer": "$3.77"
+    },
+    {
+      "text": "A train 164 m long passes a man standing on a platform in 8 seconds. Find its speed in km/h.",
+      "choices": [
+        "65 km/h",
+        "70 km/h",
+        "60 km/h",
+        "75 km/h"
+      ],
+      "answer": "65 km/h"
+    },
+    {
+      "text": "A pipe fills a tank in 10 hours but a leak empties it in 25 hours. How long to fill the tank with both open?",
+      "choices": [
+        "14.7 hours",
+        "18.7 hours",
+        "19.7 hours",
+        "16.7 hours"
+      ],
+      "answer": "16.7 hours"
+    },
+    {
+      "text": "123 kg of rice at $4/kg is mixed with 122 kg at $6/kg. Find the average price per kg.",
+      "choices": [
+        "$6.0",
+        "$5.0",
+        "$5.5",
+        "$4.5"
+      ],
+      "answer": "$5.0"
+    },
+    {
+      "text": "A pipe fills a tank in 12 hours but a leak empties it in 29 hours. How long to fill the tank with both open?",
+      "choices": [
+        "18.5 hours",
+        "20.5 hours",
+        "23.5 hours",
+        "22.5 hours"
+      ],
+      "answer": "20.5 hours"
+    },
+    {
+      "text": "A train 172 m long passes a man standing on a platform in 9 seconds. Find its speed in km/h.",
+      "choices": [
+        "72 km/h",
+        "57 km/h",
+        "62 km/h",
+        "67 km/h"
+      ],
+      "answer": "62 km/h"
+    },
+    {
+      "text": "A train 137 m long passes a man standing on a platform in 8 seconds. Find its speed in km/h.",
+      "choices": [
+        "30 km/h",
+        "40 km/h",
+        "35 km/h",
+        "45 km/h"
+      ],
+      "answer": "35 km/h"
+    },
+    {
+      "text": "A train 153 m long passes a man standing on a platform in 11 seconds. Find its speed in km/h.",
+      "choices": [
+        "55 km/h",
+        "70 km/h",
+        "65 km/h",
+        "60 km/h"
+      ],
+      "answer": "60 km/h"
+    },
+    {
+      "text": "A train 137 m long passes a man standing on a platform in 13 seconds. Find its speed in km/h.",
+      "choices": [
+        "52 km/h",
+        "37 km/h",
+        "47 km/h",
+        "42 km/h"
+      ],
+      "answer": "42 km/h"
+    },
+    {
+      "text": "A train 148 m long passes a man standing on a platform in 12 seconds. Find its speed in km/h.",
+      "choices": [
+        "42 km/h",
+        "32 km/h",
+        "47 km/h",
+        "37 km/h"
+      ],
+      "answer": "37 km/h"
+    },
+    {
+      "text": "A pipe fills a tank in 6 hours but a leak empties it in 22 hours. How long to fill the tank with both open?",
+      "choices": [
+        "8.2 hours",
+        "11.2 hours",
+        "10.2 hours",
+        "6.2 hours"
+      ],
+      "answer": "8.2 hours"
+    },
+    {
+      "text": "Find the compound interest on $1392 at 6% for 2 years.",
+      "choices": [
+        "$272.05",
+        "$122.05000000000001",
+        "$322.05",
+        "$172.05"
+      ],
+      "answer": "$172.05"
+    },
+    {
+      "text": "106 kg of rice at $5/kg is mixed with 152 kg at $6/kg. Find the average price per kg.",
+      "choices": [
+        "$5.09",
+        "$6.09",
+        "$5.59",
+        "$6.59"
+      ],
+      "answer": "$5.59"
+    },
+    {
+      "text": "A man buys an item for $464 and sells it for $452. Find his profit or loss percentage.",
+      "choices": [
+        "5.59% profit",
+        "7.41% loss",
+        "2.41% profit",
+        "2.59% loss"
+      ],
+      "answer": "2.59% loss"
+    },
+    {
+      "text": "A man buys an item for $130 and sells it for $223. Find his profit or loss percentage.",
+      "choices": [
+        "68.54% profit",
+        "81.54% loss",
+        "71.54% profit",
+        "76.54% profit"
+      ],
+      "answer": "71.54% profit"
+    },
+    {
+      "text": "124 kg of rice at $2/kg is mixed with 119 kg at $6/kg. Find the average price per kg.",
+      "choices": [
+        "$3.46",
+        "$3.96",
+        "$4.96",
+        "$4.46"
+      ],
+      "answer": "$3.96"
+    },
+    {
+      "text": "A pipe fills a tank in 6 hours but a leak empties it in 30 hours. How long to fill the tank with both open?",
+      "choices": [
+        "5.5 hours",
+        "7.5 hours",
+        "10.5 hours",
+        "9.5 hours"
+      ],
+      "answer": "7.5 hours"
+    },
+    {
+      "text": "Find the compound interest on $4270 at 11% for 5 years.",
+      "choices": [
+        "$3025.2",
+        "$3075.2",
+        "$2925.2",
+        "$2875.2"
+      ],
+      "answer": "$2925.2"
+    },
+    {
+      "text": "115 kg of rice at $4/kg is mixed with 138 kg at $9/kg. Find the average price per kg.",
+      "choices": [
+        "$6.73",
+        "$7.73",
+        "$6.23",
+        "$7.23"
+      ],
+      "answer": "$6.73"
+    },
+    {
+      "text": "179 kg of rice at $2/kg is mixed with 179 kg at $8/kg. Find the average price per kg.",
+      "choices": [
+        "$5.5",
+        "$5.0",
+        "$4.5",
+        "$6.0"
+      ],
+      "answer": "$5.0"
+    },
+    {
+      "text": "Find the compound interest on $1970 at 8% for 5 years.",
+      "choices": [
+        "$874.58",
+        "$924.58",
+        "$1074.58",
+        "$1024.58"
+      ],
+      "answer": "$924.58"
+    },
+    {
+      "text": "135 kg of rice at $4/kg is mixed with 111 kg at $9/kg. Find the average price per kg.",
+      "choices": [
+        "$7.26",
+        "$5.76",
+        "$6.76",
+        "$6.26"
+      ],
+      "answer": "$6.26"
+    },
+    {
+      "text": "A man buys an item for $371 and sells it for $452. Find his profit or loss percentage.",
+      "choices": [
+        "26.83% profit",
+        "31.83% loss",
+        "21.83% profit",
+        "18.83% profit"
+      ],
+      "answer": "21.83% profit"
+    },
+    {
+      "text": "120 kg of rice at $3/kg is mixed with 161 kg at $6/kg. Find the average price per kg.",
+      "choices": [
+        "$5.22",
+        "$5.72",
+        "$4.72",
+        "$4.22"
+      ],
+      "answer": "$4.72"
+    },
+    {
+      "text": "A man buys an item for $177 and sells it for $235. Find his profit or loss percentage.",
+      "choices": [
+        "42.77% loss",
+        "29.770000000000003% profit",
+        "32.77% profit",
+        "37.77% profit"
+      ],
+      "answer": "32.77% profit"
+    },
+    {
+      "text": "180 kg of rice at $3/kg is mixed with 111 kg at $6/kg. Find the average price per kg.",
+      "choices": [
+        "$5.14",
+        "$3.64",
+        "$4.14",
+        "$4.64"
+      ],
+      "answer": "$4.14"
+    },
+    {
+      "text": "A pipe fills a tank in 10 hours but a leak empties it in 20 hours. How long to fill the tank with both open?",
+      "choices": [
+        "20.0 hours",
+        "22.0 hours",
+        "23.0 hours",
+        "18.0 hours"
+      ],
+      "answer": "20.0 hours"
+    },
+    {
+      "text": "159 kg of rice at $4/kg is mixed with 181 kg at $8/kg. Find the average price per kg.",
+      "choices": [
+        "$7.13",
+        "$6.13",
+        "$6.63",
+        "$5.63"
+      ],
+      "answer": "$6.13"
+    },
+    {
+      "text": "Find the compound interest on $4086 at 10% for 2 years.",
+      "choices": [
+        "$808.06",
+        "$858.06",
+        "$1008.06",
+        "$958.06"
+      ],
+      "answer": "$858.06"
+    },
+    {
+      "text": "144 kg of rice at $5/kg is mixed with 172 kg at $6/kg. Find the average price per kg.",
+      "choices": [
+        "$6.54",
+        "$6.04",
+        "$5.04",
+        "$5.54"
+      ],
+      "answer": "$5.54"
+    },
+    {
+      "text": "Find the compound interest on $1015 at 8% for 2 years.",
+      "choices": [
+        "$268.9",
+        "$118.9",
+        "$168.9",
+        "$318.9"
+      ],
+      "answer": "$168.9"
+    },
+    {
+      "text": "A pipe fills a tank in 9 hours but a leak empties it in 25 hours. How long to fill the tank with both open?",
+      "choices": [
+        "12.1 hours",
+        "14.1 hours",
+        "17.1 hours",
+        "16.1 hours"
+      ],
+      "answer": "14.1 hours"
+    },
+    {
+      "text": "A man buys an item for $321 and sells it for $281. Find his profit or loss percentage.",
+      "choices": [
+        "12.46% loss",
+        "15.46% profit",
+        "2.460000000000001% loss",
+        "7.460000000000001% profit"
+      ],
+      "answer": "12.46% loss"
+    },
+    {
+      "text": "Find the compound interest on $2338 at 10% for 5 years.",
+      "choices": [
+        "$1577.37",
+        "$1377.37",
+        "$1427.37",
+        "$1527.37"
+      ],
+      "answer": "$1427.37"
+    },
+    {
+      "text": "A train 174 m long passes a man standing on a platform in 9 seconds. Find its speed in km/h.",
+      "choices": [
+        "52 km/h",
+        "57 km/h",
+        "47 km/h",
+        "42 km/h"
+      ],
+      "answer": "47 km/h"
+    },
+    {
+      "text": "A train 83 m long passes a man standing on a platform in 9 seconds. Find its speed in km/h.",
+      "choices": [
+        "67 km/h",
+        "72 km/h",
+        "77 km/h",
+        "62 km/h"
+      ],
+      "answer": "67 km/h"
+    },
+    {
+      "text": "A pipe fills a tank in 6 hours but a leak empties it in 27 hours. How long to fill the tank with both open?",
+      "choices": [
+        "5.7 hours",
+        "9.7 hours",
+        "10.7 hours",
+        "7.7 hours"
+      ],
+      "answer": "7.7 hours"
+    },
+    {
+      "text": "Find the compound interest on $3214 at 5% for 3 years.",
+      "choices": [
+        "$506.61",
+        "$456.61",
+        "$656.61",
+        "$606.61"
+      ],
+      "answer": "$506.61"
+    },
+    {
+      "text": "A pipe fills a tank in 12 hours but a leak empties it in 21 hours. How long to fill the tank with both open?",
+      "choices": [
+        "26.0 hours",
+        "31.0 hours",
+        "30.0 hours",
+        "28.0 hours"
+      ],
+      "answer": "28.0 hours"
+    },
+    {
+      "text": "Find the compound interest on $4980 at 6% for 4 years.",
+      "choices": [
+        "$1307.14",
+        "$1457.14",
+        "$1257.14",
+        "$1407.14"
+      ],
+      "answer": "$1307.14"
+    },
+    {
+      "text": "A pipe fills a tank in 7 hours but a leak empties it in 25 hours. How long to fill the tank with both open?",
+      "choices": [
+        "11.7 hours",
+        "9.7 hours",
+        "7.7 hours",
+        "12.7 hours"
+      ],
+      "answer": "9.7 hours"
+    },
+    {
+      "text": "A man buys an item for $403 and sells it for $466. Find his profit or loss percentage.",
+      "choices": [
+        "20.630000000000003% profit",
+        "25.630000000000003% loss",
+        "12.63% profit",
+        "15.63% profit"
+      ],
+      "answer": "15.63% profit"
+    },
+    {
+      "text": "A pipe fills a tank in 11 hours but a leak empties it in 23 hours. How long to fill the tank with both open?",
+      "choices": [
+        "23.1 hours",
+        "24.1 hours",
+        "19.1 hours",
+        "21.1 hours"
+      ],
+      "answer": "21.1 hours"
+    },
+    {
+      "text": "192 kg of rice at $5/kg is mixed with 121 kg at $9/kg. Find the average price per kg.",
+      "choices": [
+        "$7.05",
+        "$6.05",
+        "$6.55",
+        "$7.55"
+      ],
+      "answer": "$6.55"
+    },
+    {
+      "text": "A man buys an item for $446 and sells it for $531. Find his profit or loss percentage.",
+      "choices": [
+        "19.06% profit",
+        "16.06% profit",
+        "24.06% profit",
+        "29.06% loss"
+      ],
+      "answer": "19.06% profit"
+    },
+    {
+      "text": "A man buys an item for $478 and sells it for $496. Find his profit or loss percentage.",
+      "choices": [
+        "8.77% profit",
+        "3.77% profit",
+        "13.77% loss",
+        "0.77% profit"
+      ],
+      "answer": "3.77% profit"
+    },
+    {
+      "text": "A train 118 m long passes a man standing on a platform in 11 seconds. Find its speed in km/h.",
+      "choices": [
+        "89 km/h",
+        "84 km/h",
+        "74 km/h",
+        "79 km/h"
+      ],
+      "answer": "79 km/h"
+    },
+    {
+      "text": "157 kg of rice at $4/kg is mixed with 170 kg at $9/kg. Find the average price per kg.",
+      "choices": [
+        "$6.1",
+        "$6.6",
+        "$7.6",
+        "$7.1"
+      ],
+      "answer": "$6.6"
+    },
+    {
+      "text": "A train 127 m long passes a man standing on a platform in 14 seconds. Find its speed in km/h.",
+      "choices": [
+        "57 km/h",
+        "47 km/h",
+        "62 km/h",
+        "52 km/h"
+      ],
+      "answer": "52 km/h"
+    },
+    {
+      "text": "A man buys an item for $177 and sells it for $181. Find his profit or loss percentage.",
+      "choices": [
+        "7.26% profit",
+        "0.7400000000000002% profit",
+        "12.26% loss",
+        "2.26% profit"
+      ],
+      "answer": "2.26% profit"
+    },
+    {
+      "text": "A pipe fills a tank in 9 hours but a leak empties it in 23 hours. How long to fill the tank with both open?",
+      "choices": [
+        "16.8 hours",
+        "12.8 hours",
+        "17.8 hours",
+        "14.8 hours"
+      ],
+      "answer": "14.8 hours"
+    },
+    {
+      "text": "A pipe fills a tank in 12 hours but a leak empties it in 16 hours. How long to fill the tank with both open?",
+      "choices": [
+        "46.0 hours",
+        "51.0 hours",
+        "48.0 hours",
+        "50.0 hours"
+      ],
+      "answer": "48.0 hours"
+    },
+    {
+      "text": "Find the compound interest on $1600 at 9% for 4 years.",
+      "choices": [
+        "$658.53",
+        "$608.53",
+        "$808.53",
+        "$758.53"
+      ],
+      "answer": "$658.53"
+    },
+    {
+      "text": "Find the compound interest on $2305 at 6% for 4 years.",
+      "choices": [
+        "$555.01",
+        "$755.01",
+        "$605.01",
+        "$705.01"
+      ],
+      "answer": "$605.01"
+    },
+    {
+      "text": "A train 91 m long passes a man standing on a platform in 14 seconds. Find its speed in km/h.",
+      "choices": [
+        "85 km/h",
+        "95 km/h",
+        "90 km/h",
+        "100 km/h"
+      ],
+      "answer": "90 km/h"
+    },
+    {
+      "text": "180 kg of rice at $4/kg is mixed with 101 kg at $9/kg. Find the average price per kg.",
+      "choices": [
+        "$6.3",
+        "$5.3",
+        "$5.8",
+        "$6.8"
+      ],
+      "answer": "$5.8"
+    },
+    {
+      "text": "Find the compound interest on $3027 at 10% for 2 years.",
+      "choices": [
+        "$785.67",
+        "$735.67",
+        "$635.67",
+        "$585.67"
+      ],
+      "answer": "$635.67"
+    },
+    {
+      "text": "A man buys an item for $458 and sells it for $508. Find his profit or loss percentage.",
+      "choices": [
+        "15.92% profit",
+        "7.92% profit",
+        "10.92% profit",
+        "20.92% loss"
+      ],
+      "answer": "10.92% profit"
+    },
+    {
+      "text": "A train 82 m long passes a man standing on a platform in 9 seconds. Find its speed in km/h.",
+      "choices": [
+        "48 km/h",
+        "58 km/h",
+        "43 km/h",
+        "53 km/h"
+      ],
+      "answer": "48 km/h"
+    },
+    {
+      "text": "A pipe fills a tank in 6 hours but a leak empties it in 30 hours. How long to fill the tank with both open?",
+      "choices": [
+        "9.5 hours",
+        "10.5 hours",
+        "5.5 hours",
+        "7.5 hours"
+      ],
+      "answer": "7.5 hours"
+    },
+    {
+      "text": "A pipe fills a tank in 11 hours but a leak empties it in 29 hours. How long to fill the tank with both open?",
+      "choices": [
+        "20.7 hours",
+        "15.7 hours",
+        "17.7 hours",
+        "19.7 hours"
+      ],
+      "answer": "17.7 hours"
+    },
+    {
+      "text": "A pipe fills a tank in 11 hours but a leak empties it in 20 hours. How long to fill the tank with both open?",
+      "choices": [
+        "27.4 hours",
+        "24.4 hours",
+        "26.4 hours",
+        "22.4 hours"
+      ],
+      "answer": "24.4 hours"
+    },
+    {
+      "text": "176 kg of rice at $2/kg is mixed with 175 kg at $7/kg. Find the average price per kg.",
+      "choices": [
+        "$3.99",
+        "$5.49",
+        "$4.99",
+        "$4.49"
+      ],
+      "answer": "$4.49"
+    },
+    {
+      "text": "A pipe fills a tank in 6 hours but a leak empties it in 30 hours. How long to fill the tank with both open?",
+      "choices": [
+        "7.5 hours",
+        "10.5 hours",
+        "9.5 hours",
+        "5.5 hours"
+      ],
+      "answer": "7.5 hours"
+    }
+  ],
+  "average_situational": [
+    {
+      "text": "In a class there are 17 boys and 31 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "22:31",
+        "17:36",
+        "31:17",
+        "17:31"
+      ],
+      "answer": "17:31"
+    },
+    {
+      "text": "Find the average of 11, 11, and 10.",
+      "choices": [
+        "9.67",
+        "13.67",
+        "12.67",
+        "10.67"
+      ],
+      "answer": "10.67"
+    },
+    {
+      "text": "Find the average of 31, 32, and 14.",
+      "choices": [
+        "28.67",
+        "24.67",
+        "25.67",
+        "27.67"
+      ],
+      "answer": "25.67"
+    },
+    {
+      "text": "A car covers 163 km in 3 hours. Find its speed.",
+      "choices": [
+        "69.33333333333334 km/h",
+        "49.333333333333336 km/h",
+        "64.33333333333334 km/h",
+        "54.333333333333336 km/h"
+      ],
+      "answer": "54.333333333333336 km/h"
+    },
+    {
+      "text": "Find the average of 20, 23, and 13.",
+      "choices": [
+        "20.67",
+        "17.67",
+        "21.67",
+        "18.67"
+      ],
+      "answer": "18.67"
+    },
+    {
+      "text": "A man buys an article for $111 and sells it at 25% profit. Find the selling price.",
+      "choices": [
+        "$153.75",
+        "$138.75",
+        "$133.75",
+        "$148.75"
+      ],
+      "answer": "$138.75"
+    },
+    {
+      "text": "A man buys an article for $320 and sells it at 20% profit. Find the selling price.",
+      "choices": [
+        "$384.0",
+        "$399.0",
+        "$379.0",
+        "$394.0"
+      ],
+      "answer": "$384.0"
+    },
+    {
+      "text": "A man buys an article for $216 and sells it at 24% profit. Find the selling price.",
+      "choices": [
+        "$262.84",
+        "$277.84",
+        "$267.84",
+        "$282.84"
+      ],
+      "answer": "$267.84"
+    },
+    {
+      "text": "Find the average of 49, 29, and 31.",
+      "choices": [
+        "39.33",
+        "38.33",
+        "35.33",
+        "36.33"
+      ],
+      "answer": "36.33"
+    },
+    {
+      "text": "In a class there are 12 boys and 14 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "14:12",
+        "17:14",
+        "12:19",
+        "12:14"
+      ],
+      "answer": "12:14"
+    },
+    {
+      "text": "A man buys an article for $144 and sells it at 18% profit. Find the selling price.",
+      "choices": [
+        "$179.92",
+        "$164.92",
+        "$184.92",
+        "$169.92"
+      ],
+      "answer": "$169.92"
+    },
+    {
+      "text": "A car covers 190 km in 3 hours. Find its speed.",
+      "choices": [
+        "58.333333333333336 km/h",
+        "63.333333333333336 km/h",
+        "73.33333333333334 km/h",
+        "78.33333333333334 km/h"
+      ],
+      "answer": "63.333333333333336 km/h"
+    },
+    {
+      "text": "A car covers 119 km in 4 hours. Find its speed.",
+      "choices": [
+        "24.75 km/h",
+        "44.75 km/h",
+        "39.75 km/h",
+        "29.75 km/h"
+      ],
+      "answer": "29.75 km/h"
+    },
+    {
+      "text": "In a class there are 27 boys and 37 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "27:42",
+        "37:27",
+        "27:37",
+        "32:37"
+      ],
+      "answer": "27:37"
+    },
+    {
+      "text": "In a class there are 50 boys and 23 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "50:28",
+        "50:23",
+        "55:23",
+        "23:50"
+      ],
+      "answer": "50:23"
+    },
+    {
+      "text": "A man buys an article for $258 and sells it at 28% profit. Find the selling price.",
+      "choices": [
+        "$330.24",
+        "$325.24",
+        "$340.24",
+        "$345.24"
+      ],
+      "answer": "$330.24"
+    },
+    {
+      "text": "Find the average of 10, 34, and 50.",
+      "choices": [
+        "30.33",
+        "34.33",
+        "31.33",
+        "33.33"
+      ],
+      "answer": "31.33"
+    },
+    {
+      "text": "A man buys an article for $371 and sells it at 11% profit. Find the selling price.",
+      "choices": [
+        "$421.81",
+        "$406.81",
+        "$411.81",
+        "$426.81"
+      ],
+      "answer": "$411.81"
+    },
+    {
+      "text": "In a class there are 27 boys and 21 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "27:26",
+        "21:27",
+        "27:21",
+        "32:21"
+      ],
+      "answer": "27:21"
+    },
+    {
+      "text": "A car covers 170 km in 3 hours. Find its speed.",
+      "choices": [
+        "56.666666666666664 km/h",
+        "66.66666666666666 km/h",
+        "51.666666666666664 km/h",
+        "71.66666666666666 km/h"
+      ],
+      "answer": "56.666666666666664 km/h"
+    },
+    {
+      "text": "Find the average of 44, 40, and 18.",
+      "choices": [
+        "36.0",
+        "37.0",
+        "33.0",
+        "34.0"
+      ],
+      "answer": "34.0"
+    },
+    {
+      "text": "A man buys an article for $134 and sells it at 13% profit. Find the selling price.",
+      "choices": [
+        "$161.42",
+        "$166.42",
+        "$146.42",
+        "$151.42"
+      ],
+      "answer": "$151.42"
+    },
+    {
+      "text": "Find the average of 40, 34, and 30.",
+      "choices": [
+        "34.67",
+        "36.67",
+        "33.67",
+        "37.67"
+      ],
+      "answer": "34.67"
+    },
+    {
+      "text": "A car covers 172 km in 3 hours. Find its speed.",
+      "choices": [
+        "67.33333333333334 km/h",
+        "57.333333333333336 km/h",
+        "52.333333333333336 km/h",
+        "72.33333333333334 km/h"
+      ],
+      "answer": "57.333333333333336 km/h"
+    },
+    {
+      "text": "In a class there are 21 boys and 44 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "26:44",
+        "44:21",
+        "21:44",
+        "21:49"
+      ],
+      "answer": "21:44"
+    },
+    {
+      "text": "A car covers 142 km in 4 hours. Find its speed.",
+      "choices": [
+        "30.5 km/h",
+        "35.5 km/h",
+        "45.5 km/h",
+        "50.5 km/h"
+      ],
+      "answer": "35.5 km/h"
+    },
+    {
+      "text": "In a class there are 26 boys and 17 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "26:17",
+        "17:26",
+        "31:17",
+        "26:22"
+      ],
+      "answer": "26:17"
+    },
+    {
+      "text": "A car covers 124 km in 5 hours. Find its speed.",
+      "choices": [
+        "24.8 km/h",
+        "19.8 km/h",
+        "34.8 km/h",
+        "39.8 km/h"
+      ],
+      "answer": "24.8 km/h"
+    },
+    {
+      "text": "In a class there are 28 boys and 30 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "28:35",
+        "28:30",
+        "33:30",
+        "30:28"
+      ],
+      "answer": "28:30"
+    },
+    {
+      "text": "A man buys an article for $186 and sells it at 12% profit. Find the selling price.",
+      "choices": [
+        "$203.32",
+        "$223.32",
+        "$208.32",
+        "$218.32"
+      ],
+      "answer": "$208.32"
+    },
+    {
+      "text": "In a class there are 24 boys and 22 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "24:27",
+        "24:22",
+        "22:24",
+        "29:22"
+      ],
+      "answer": "24:22"
+    },
+    {
+      "text": "Find the average of 33, 31, and 47.",
+      "choices": [
+        "36.0",
+        "37.0",
+        "40.0",
+        "39.0"
+      ],
+      "answer": "37.0"
+    },
+    {
+      "text": "In a class there are 35 boys and 49 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "40:49",
+        "35:49",
+        "49:35",
+        "35:54"
+      ],
+      "answer": "35:49"
+    },
+    {
+      "text": "A man buys an article for $200 and sells it at 19% profit. Find the selling price.",
+      "choices": [
+        "$233.0",
+        "$248.0",
+        "$238.0",
+        "$253.0"
+      ],
+      "answer": "$238.0"
+    },
+    {
+      "text": "In a class there are 22 boys and 13 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "13:22",
+        "22:18",
+        "22:13",
+        "27:13"
+      ],
+      "answer": "22:13"
+    },
+    {
+      "text": "A car covers 186 km in 2 hours. Find its speed.",
+      "choices": [
+        "88.0 km/h",
+        "108.0 km/h",
+        "103.0 km/h",
+        "93.0 km/h"
+      ],
+      "answer": "93.0 km/h"
+    },
+    {
+      "text": "A car covers 187 km in 3 hours. Find its speed.",
+      "choices": [
+        "62.333333333333336 km/h",
+        "72.33333333333334 km/h",
+        "77.33333333333334 km/h",
+        "57.333333333333336 km/h"
+      ],
+      "answer": "62.333333333333336 km/h"
+    },
+    {
+      "text": "A car covers 174 km in 3 hours. Find its speed.",
+      "choices": [
+        "68.0 km/h",
+        "53.0 km/h",
+        "73.0 km/h",
+        "58.0 km/h"
+      ],
+      "answer": "58.0 km/h"
+    },
+    {
+      "text": "A man buys an article for $263 and sells it at 14% profit. Find the selling price.",
+      "choices": [
+        "$309.82",
+        "$314.82",
+        "$299.82",
+        "$294.82"
+      ],
+      "answer": "$299.82"
+    },
+    {
+      "text": "A man buys an article for $108 and sells it at 23% profit. Find the selling price.",
+      "choices": [
+        "$132.84",
+        "$127.84",
+        "$142.84",
+        "$147.84"
+      ],
+      "answer": "$132.84"
+    },
+    {
+      "text": "Find the average of 21, 50, and 35.",
+      "choices": [
+        "34.33",
+        "37.33",
+        "38.33",
+        "35.33"
+      ],
+      "answer": "35.33"
+    },
+    {
+      "text": "Find the average of 32, 34, and 24.",
+      "choices": [
+        "32.0",
+        "29.0",
+        "30.0",
+        "33.0"
+      ],
+      "answer": "30.0"
+    },
+    {
+      "text": "A man buys an article for $304 and sells it at 19% profit. Find the selling price.",
+      "choices": [
+        "$371.76",
+        "$361.76",
+        "$356.76",
+        "$376.76"
+      ],
+      "answer": "$361.76"
+    },
+    {
+      "text": "A car covers 143 km in 2 hours. Find its speed.",
+      "choices": [
+        "71.5 km/h",
+        "86.5 km/h",
+        "81.5 km/h",
+        "66.5 km/h"
+      ],
+      "answer": "71.5 km/h"
+    },
+    {
+      "text": "Find the average of 48, 21, and 49.",
+      "choices": [
+        "42.33",
+        "39.33",
+        "38.33",
+        "41.33"
+      ],
+      "answer": "39.33"
+    },
+    {
+      "text": "A man buys an article for $334 and sells it at 15% profit. Find the selling price.",
+      "choices": [
+        "$379.1",
+        "$399.1",
+        "$384.1",
+        "$394.1"
+      ],
+      "answer": "$384.1"
+    },
+    {
+      "text": "A car covers 160 km in 2 hours. Find its speed.",
+      "choices": [
+        "90.0 km/h",
+        "75.0 km/h",
+        "80.0 km/h",
+        "95.0 km/h"
+      ],
+      "answer": "80.0 km/h"
+    },
+    {
+      "text": "In a class there are 38 boys and 47 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "47:38",
+        "38:47",
+        "43:47",
+        "38:52"
+      ],
+      "answer": "38:47"
+    },
+    {
+      "text": "A car covers 111 km in 2 hours. Find its speed.",
+      "choices": [
+        "65.5 km/h",
+        "55.5 km/h",
+        "70.5 km/h",
+        "50.5 km/h"
+      ],
+      "answer": "55.5 km/h"
+    },
+    {
+      "text": "In a class there are 49 boys and 30 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "49:35",
+        "30:49",
+        "49:30",
+        "54:30"
+      ],
+      "answer": "49:30"
+    },
+    {
+      "text": "In a class there are 30 boys and 27 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "35:27",
+        "30:27",
+        "30:32",
+        "27:30"
+      ],
+      "answer": "30:27"
+    },
+    {
+      "text": "In a class there are 20 boys and 35 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "20:40",
+        "20:35",
+        "35:20",
+        "25:35"
+      ],
+      "answer": "20:35"
+    },
+    {
+      "text": "A car covers 110 km in 4 hours. Find its speed.",
+      "choices": [
+        "37.5 km/h",
+        "42.5 km/h",
+        "27.5 km/h",
+        "22.5 km/h"
+      ],
+      "answer": "27.5 km/h"
+    },
+    {
+      "text": "A car covers 117 km in 5 hours. Find its speed.",
+      "choices": [
+        "33.4 km/h",
+        "18.4 km/h",
+        "38.4 km/h",
+        "23.4 km/h"
+      ],
+      "answer": "23.4 km/h"
+    },
+    {
+      "text": "In a class there are 48 boys and 20 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "20:48",
+        "48:25",
+        "53:20",
+        "48:20"
+      ],
+      "answer": "48:20"
+    },
+    {
+      "text": "In a class there are 43 boys and 15 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "15:43",
+        "48:15",
+        "43:20",
+        "43:15"
+      ],
+      "answer": "43:15"
+    },
+    {
+      "text": "In a class there are 10 boys and 20 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "10:25",
+        "10:20",
+        "15:20",
+        "20:10"
+      ],
+      "answer": "10:20"
+    },
+    {
+      "text": "A man buys an article for $139 and sells it at 29% profit. Find the selling price.",
+      "choices": [
+        "$174.31",
+        "$179.31",
+        "$194.31",
+        "$189.31"
+      ],
+      "answer": "$179.31"
+    },
+    {
+      "text": "In a class there are 45 boys and 49 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "49:45",
+        "50:49",
+        "45:54",
+        "45:49"
+      ],
+      "answer": "45:49"
+    },
+    {
+      "text": "A man buys an article for $162 and sells it at 23% profit. Find the selling price.",
+      "choices": [
+        "$209.26",
+        "$194.26",
+        "$199.26",
+        "$214.26"
+      ],
+      "answer": "$199.26"
+    },
+    {
+      "text": "Find the average of 18, 47, and 33.",
+      "choices": [
+        "35.67",
+        "31.67",
+        "34.67",
+        "32.67"
+      ],
+      "answer": "32.67"
+    },
+    {
+      "text": "A car covers 107 km in 4 hours. Find its speed.",
+      "choices": [
+        "36.75 km/h",
+        "26.75 km/h",
+        "41.75 km/h",
+        "21.75 km/h"
+      ],
+      "answer": "26.75 km/h"
+    },
+    {
+      "text": "A car covers 155 km in 3 hours. Find its speed.",
+      "choices": [
+        "46.666666666666664 km/h",
+        "61.666666666666664 km/h",
+        "51.666666666666664 km/h",
+        "66.66666666666666 km/h"
+      ],
+      "answer": "51.666666666666664 km/h"
+    },
+    {
+      "text": "In a class there are 16 boys and 27 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "16:27",
+        "27:16",
+        "21:27",
+        "16:32"
+      ],
+      "answer": "16:27"
+    },
+    {
+      "text": "A car covers 133 km in 4 hours. Find its speed.",
+      "choices": [
+        "48.25 km/h",
+        "43.25 km/h",
+        "33.25 km/h",
+        "28.25 km/h"
+      ],
+      "answer": "33.25 km/h"
+    },
+    {
+      "text": "Find the average of 45, 23, and 46.",
+      "choices": [
+        "37.0",
+        "38.0",
+        "40.0",
+        "41.0"
+      ],
+      "answer": "38.0"
+    },
+    {
+      "text": "A man buys an article for $225 and sells it at 25% profit. Find the selling price.",
+      "choices": [
+        "$276.25",
+        "$291.25",
+        "$296.25",
+        "$281.25"
+      ],
+      "answer": "$281.25"
+    },
+    {
+      "text": "A man buys an article for $228 and sells it at 12% profit. Find the selling price.",
+      "choices": [
+        "$265.36",
+        "$270.36",
+        "$250.36",
+        "$255.36"
+      ],
+      "answer": "$255.36"
+    },
+    {
+      "text": "In a class there are 28 boys and 13 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "28:13",
+        "33:13",
+        "13:28",
+        "28:18"
+      ],
+      "answer": "28:13"
+    },
+    {
+      "text": "A man buys an article for $244 and sells it at 12% profit. Find the selling price.",
+      "choices": [
+        "$268.28",
+        "$283.28",
+        "$273.28",
+        "$288.28"
+      ],
+      "answer": "$273.28"
+    },
+    {
+      "text": "A man buys an article for $245 and sells it at 30% profit. Find the selling price.",
+      "choices": [
+        "$333.5",
+        "$328.5",
+        "$318.5",
+        "$313.5"
+      ],
+      "answer": "$318.5"
+    },
+    {
+      "text": "In a class there are 13 boys and 49 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "13:49",
+        "49:13",
+        "18:49",
+        "13:54"
+      ],
+      "answer": "13:49"
+    },
+    {
+      "text": "A man buys an article for $352 and sells it at 21% profit. Find the selling price.",
+      "choices": [
+        "$440.92",
+        "$420.92",
+        "$425.92",
+        "$435.92"
+      ],
+      "answer": "$425.92"
+    },
+    {
+      "text": "A car covers 199 km in 4 hours. Find its speed.",
+      "choices": [
+        "44.75 km/h",
+        "49.75 km/h",
+        "64.75 km/h",
+        "59.75 km/h"
+      ],
+      "answer": "49.75 km/h"
+    },
+    {
+      "text": "A man buys an article for $221 and sells it at 13% profit. Find the selling price.",
+      "choices": [
+        "$264.73",
+        "$259.73",
+        "$244.73",
+        "$249.73"
+      ],
+      "answer": "$249.73"
+    },
+    {
+      "text": "In a class there are 32 boys and 20 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "37:20",
+        "32:25",
+        "20:32",
+        "32:20"
+      ],
+      "answer": "32:20"
+    },
+    {
+      "text": "Find the average of 16, 31, and 24.",
+      "choices": [
+        "25.67",
+        "26.67",
+        "23.67",
+        "22.67"
+      ],
+      "answer": "23.67"
+    },
+    {
+      "text": "Find the average of 42, 12, and 24.",
+      "choices": [
+        "28.0",
+        "26.0",
+        "25.0",
+        "29.0"
+      ],
+      "answer": "26.0"
+    },
+    {
+      "text": "A car covers 109 km in 4 hours. Find its speed.",
+      "choices": [
+        "37.25 km/h",
+        "22.25 km/h",
+        "27.25 km/h",
+        "42.25 km/h"
+      ],
+      "answer": "27.25 km/h"
+    },
+    {
+      "text": "A car covers 170 km in 2 hours. Find its speed.",
+      "choices": [
+        "100.0 km/h",
+        "85.0 km/h",
+        "80.0 km/h",
+        "95.0 km/h"
+      ],
+      "answer": "85.0 km/h"
+    },
+    {
+      "text": "Find the average of 42, 18, and 27.",
+      "choices": [
+        "31.0",
+        "28.0",
+        "32.0",
+        "29.0"
+      ],
+      "answer": "29.0"
+    },
+    {
+      "text": "A car covers 191 km in 5 hours. Find its speed.",
+      "choices": [
+        "33.2 km/h",
+        "53.2 km/h",
+        "48.2 km/h",
+        "38.2 km/h"
+      ],
+      "answer": "38.2 km/h"
+    },
+    {
+      "text": "A man buys an article for $239 and sells it at 10% profit. Find the selling price.",
+      "choices": [
+        "$257.9",
+        "$262.9",
+        "$272.9",
+        "$277.9"
+      ],
+      "answer": "$262.9"
+    },
+    {
+      "text": "A man buys an article for $157 and sells it at 24% profit. Find the selling price.",
+      "choices": [
+        "$204.68",
+        "$194.68",
+        "$209.68",
+        "$189.68"
+      ],
+      "answer": "$194.68"
+    },
+    {
+      "text": "A man buys an article for $170 and sells it at 27% profit. Find the selling price.",
+      "choices": [
+        "$230.9",
+        "$215.9",
+        "$225.9",
+        "$210.9"
+      ],
+      "answer": "$215.9"
+    },
+    {
+      "text": "In a class there are 15 boys and 15 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "15:15",
+        "15:15",
+        "15:20",
+        "20:15"
+      ],
+      "answer": "15:15"
+    },
+    {
+      "text": "A car covers 138 km in 5 hours. Find its speed.",
+      "choices": [
+        "37.6 km/h",
+        "22.6 km/h",
+        "42.6 km/h",
+        "27.6 km/h"
+      ],
+      "answer": "27.6 km/h"
+    },
+    {
+      "text": "Find the average of 21, 21, and 34.",
+      "choices": [
+        "28.33",
+        "25.33",
+        "27.33",
+        "24.33"
+      ],
+      "answer": "25.33"
+    },
+    {
+      "text": "A man buys an article for $272 and sells it at 28% profit. Find the selling price.",
+      "choices": [
+        "$363.16",
+        "$348.16",
+        "$343.16",
+        "$358.16"
+      ],
+      "answer": "$348.16"
+    },
+    {
+      "text": "In a class there are 26 boys and 19 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "19:26",
+        "26:19",
+        "31:19",
+        "26:24"
+      ],
+      "answer": "26:19"
+    },
+    {
+      "text": "Find the average of 32, 20, and 42.",
+      "choices": [
+        "34.33",
+        "31.33",
+        "33.33",
+        "30.33"
+      ],
+      "answer": "31.33"
+    },
+    {
+      "text": "In a class there are 35 boys and 47 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "35:52",
+        "35:47",
+        "47:35",
+        "40:47"
+      ],
+      "answer": "35:47"
+    },
+    {
+      "text": "In a class there are 18 boys and 30 girls. Find the ratio of boys to girls.",
+      "choices": [
+        "18:35",
+        "30:18",
+        "18:30",
+        "23:30"
+      ],
+      "answer": "18:30"
+    },
+    {
+      "text": "A man buys an article for $283 and sells it at 21% profit. Find the selling price.",
+      "choices": [
+        "$342.43",
+        "$357.43",
+        "$352.43",
+        "$337.43"
+      ],
+      "answer": "$342.43"
+    },
+    {
+      "text": "A car covers 124 km in 3 hours. Find its speed.",
+      "choices": [
+        "36.333333333333336 km/h",
+        "41.333333333333336 km/h",
+        "51.333333333333336 km/h",
+        "56.333333333333336 km/h"
+      ],
+      "answer": "41.333333333333336 km/h"
+    },
+    {
+      "text": "A car covers 127 km in 3 hours. Find its speed.",
+      "choices": [
+        "42.333333333333336 km/h",
+        "57.333333333333336 km/h",
+        "37.333333333333336 km/h",
+        "52.333333333333336 km/h"
+      ],
+      "answer": "42.333333333333336 km/h"
+    },
+    {
+      "text": "A car covers 125 km in 3 hours. Find its speed.",
+      "choices": [
+        "51.666666666666664 km/h",
+        "56.666666666666664 km/h",
+        "36.666666666666664 km/h",
+        "41.666666666666664 km/h"
+      ],
+      "answer": "41.666666666666664 km/h"
+    },
+    {
+      "text": "A man buys an article for $244 and sells it at 26% profit. Find the selling price.",
+      "choices": [
+        "$302.44",
+        "$317.44",
+        "$322.44",
+        "$307.44"
+      ],
+      "answer": "$307.44"
+    },
+    {
+      "text": "A man buys an article for $254 and sells it at 24% profit. Find the selling price.",
+      "choices": [
+        "$314.96",
+        "$329.96",
+        "$324.96",
+        "$309.96"
+      ],
+      "answer": "$314.96"
+    },
+    {
+      "text": "A man buys an article for $104 and sells it at 27% profit. Find the selling price.",
+      "choices": [
+        "$142.08",
+        "$127.08",
+        "$147.08",
+        "$132.08"
+      ],
+      "answer": "$132.08"
+    }
+  ],
+  "analytical": [
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some dogs are not animals",
+        "All dogs are cats",
+        "All cats are animals",
+        "Some cats are dogs"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "A man walks 5 km north, then 5 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northeast",
+        "Southeast",
+        "Northwest",
+        "Southwest"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All cats are animals",
+        "Some cats are dogs",
+        "Some dogs are not animals",
+        "All dogs are cats"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Find the missing term in the series: [2, 4, 8, 16, '?']",
+      "choices": [
+        "24",
+        "40",
+        "32",
+        "20"
+      ],
+      "answer": "32"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some cats are dogs",
+        "All dogs are cats",
+        "Some dogs are not animals",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "A man walks 4 km north, then 4 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northwest",
+        "Southwest",
+        "Northeast",
+        "Southeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Cousin",
+        "Brother",
+        "Uncle",
+        "Father"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Father",
+        "Brother",
+        "Uncle",
+        "Cousin"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Cousin",
+        "Uncle",
+        "Brother",
+        "Father"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some cats are dogs",
+        "All cats are animals",
+        "All dogs are cats",
+        "Some dogs are not animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Brother",
+        "Cousin",
+        "Father",
+        "Uncle"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Find the missing term in the series: [6, 12, 24, 48, '?']",
+      "choices": [
+        "60",
+        "96",
+        "120",
+        "72"
+      ],
+      "answer": "96"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some dogs are not animals",
+        "All dogs are cats",
+        "Some cats are dogs",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Find the missing term in the series: [3, 6, 12, 24, '?']",
+      "choices": [
+        "48",
+        "30",
+        "36",
+        "60"
+      ],
+      "answer": "48"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some cats are dogs",
+        "All dogs are cats",
+        "All cats are animals",
+        "Some dogs are not animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Find the missing term in the series: [6, 12, 24, 48, '?']",
+      "choices": [
+        "120",
+        "72",
+        "96",
+        "60"
+      ],
+      "answer": "96"
+    },
+    {
+      "text": "A man walks 3 km north, then 3 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Southwest",
+        "Northwest",
+        "Southeast",
+        "Northeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Brother",
+        "Cousin",
+        "Uncle",
+        "Father"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Find the missing term in the series: [2, 4, 8, 16, '?']",
+      "choices": [
+        "24",
+        "20",
+        "32",
+        "40"
+      ],
+      "answer": "32"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All dogs are cats",
+        "All cats are animals",
+        "Some cats are dogs",
+        "Some dogs are not animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All dogs are cats",
+        "Some cats are dogs",
+        "Some dogs are not animals",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Father",
+        "Brother",
+        "Cousin",
+        "Uncle"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Find the missing term in the series: [5, 10, 20, 40, '?']",
+      "choices": [
+        "100",
+        "60",
+        "50",
+        "80"
+      ],
+      "answer": "80"
+    },
+    {
+      "text": "Find the missing term in the series: [2, 4, 8, 16, '?']",
+      "choices": [
+        "24",
+        "20",
+        "32",
+        "40"
+      ],
+      "answer": "32"
+    },
+    {
+      "text": "A man walks 5 km north, then 5 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northwest",
+        "Southwest",
+        "Northeast",
+        "Southeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All cats are animals",
+        "Some cats are dogs",
+        "All dogs are cats",
+        "Some dogs are not animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All cats are animals",
+        "Some cats are dogs",
+        "All dogs are cats",
+        "Some dogs are not animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Find the missing term in the series: [6, 12, 24, 48, '?']",
+      "choices": [
+        "72",
+        "60",
+        "96",
+        "120"
+      ],
+      "answer": "96"
+    },
+    {
+      "text": "A man walks 4 km north, then 4 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Southwest",
+        "Northwest",
+        "Southeast",
+        "Northeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All cats are animals",
+        "Some dogs are not animals",
+        "All dogs are cats",
+        "Some cats are dogs"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "A man walks 2 km north, then 2 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northeast",
+        "Northwest",
+        "Southeast",
+        "Southwest"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some dogs are not animals",
+        "Some cats are dogs",
+        "All dogs are cats",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "A man walks 3 km north, then 3 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Southwest",
+        "Northeast",
+        "Southeast",
+        "Northwest"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some dogs are not animals",
+        "All dogs are cats",
+        "Some cats are dogs",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Father",
+        "Brother",
+        "Cousin",
+        "Uncle"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some cats are dogs",
+        "All dogs are cats",
+        "Some dogs are not animals",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Cousin",
+        "Father",
+        "Uncle",
+        "Brother"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "A man walks 3 km north, then 3 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northwest",
+        "Southeast",
+        "Northeast",
+        "Southwest"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Father",
+        "Brother",
+        "Uncle",
+        "Cousin"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "A man walks 5 km north, then 5 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northwest",
+        "Southeast",
+        "Northeast",
+        "Southwest"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "A man walks 3 km north, then 3 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Southwest",
+        "Northwest",
+        "Northeast",
+        "Southeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "A man walks 2 km north, then 2 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northwest",
+        "Southeast",
+        "Southwest",
+        "Northeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All dogs are cats",
+        "Some cats are dogs",
+        "All cats are animals",
+        "Some dogs are not animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Brother",
+        "Father",
+        "Cousin",
+        "Uncle"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All cats are animals",
+        "All dogs are cats",
+        "Some dogs are not animals",
+        "Some cats are dogs"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All dogs are cats",
+        "Some dogs are not animals",
+        "All cats are animals",
+        "Some cats are dogs"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some dogs are not animals",
+        "All dogs are cats",
+        "Some cats are dogs",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Brother",
+        "Father",
+        "Uncle",
+        "Cousin"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "A man walks 5 km north, then 5 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northwest",
+        "Southeast",
+        "Northeast",
+        "Southwest"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "A man walks 5 km north, then 5 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northeast",
+        "Southeast",
+        "Southwest",
+        "Northwest"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "Find the missing term in the series: [4, 8, 16, 32, '?']",
+      "choices": [
+        "40",
+        "64",
+        "48",
+        "80"
+      ],
+      "answer": "64"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All dogs are cats",
+        "Some dogs are not animals",
+        "Some cats are dogs",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Find the missing term in the series: [5, 10, 20, 40, '?']",
+      "choices": [
+        "100",
+        "50",
+        "80",
+        "60"
+      ],
+      "answer": "80"
+    },
+    {
+      "text": "A man walks 5 km north, then 5 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Southwest",
+        "Southeast",
+        "Northwest",
+        "Northeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some cats are dogs",
+        "All dogs are cats",
+        "All cats are animals",
+        "Some dogs are not animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some dogs are not animals",
+        "All dogs are cats",
+        "Some cats are dogs",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All dogs are cats",
+        "Some cats are dogs",
+        "Some dogs are not animals",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Uncle",
+        "Brother",
+        "Father",
+        "Cousin"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "A man walks 5 km north, then 5 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northeast",
+        "Southeast",
+        "Northwest",
+        "Southwest"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Cousin"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "A man walks 2 km north, then 2 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Southwest",
+        "Northwest",
+        "Southeast",
+        "Northeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some cats are dogs",
+        "All cats are animals",
+        "All dogs are cats",
+        "Some dogs are not animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some cats are dogs",
+        "All dogs are cats",
+        "All cats are animals",
+        "Some dogs are not animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Find the missing term in the series: [5, 10, 20, 40, '?']",
+      "choices": [
+        "100",
+        "50",
+        "80",
+        "60"
+      ],
+      "answer": "80"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some cats are dogs",
+        "All dogs are cats",
+        "Some dogs are not animals",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Cousin",
+        "Uncle",
+        "Brother",
+        "Father"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Cousin",
+        "Uncle",
+        "Father",
+        "Brother"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some dogs are not animals",
+        "All dogs are cats",
+        "All cats are animals",
+        "Some cats are dogs"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Father",
+        "Brother",
+        "Cousin",
+        "Uncle"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Find the missing term in the series: [4, 8, 16, 32, '?']",
+      "choices": [
+        "80",
+        "40",
+        "64",
+        "48"
+      ],
+      "answer": "64"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All dogs are cats",
+        "Some dogs are not animals",
+        "Some cats are dogs",
+        "All cats are animals"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Brother",
+        "Uncle",
+        "Cousin",
+        "Father"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Find the missing term in the series: [6, 12, 24, 48, '?']",
+      "choices": [
+        "72",
+        "60",
+        "120",
+        "96"
+      ],
+      "answer": "96"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Brother",
+        "Cousin",
+        "Father",
+        "Uncle"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Father",
+        "Cousin",
+        "Uncle",
+        "Brother"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "A man walks 2 km north, then 2 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Southeast",
+        "Southwest",
+        "Northwest",
+        "Northeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Father",
+        "Cousin",
+        "Uncle",
+        "Brother"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Find the missing term in the series: [5, 10, 20, 40, '?']",
+      "choices": [
+        "100",
+        "60",
+        "50",
+        "80"
+      ],
+      "answer": "80"
+    },
+    {
+      "text": "A man walks 3 km north, then 3 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northeast",
+        "Southeast",
+        "Northwest",
+        "Southwest"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "Find the missing term in the series: [4, 8, 16, 32, '?']",
+      "choices": [
+        "80",
+        "64",
+        "48",
+        "40"
+      ],
+      "answer": "64"
+    },
+    {
+      "text": "A man walks 2 km north, then 2 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Southwest",
+        "Northwest",
+        "Northeast",
+        "Southeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "Find the missing term in the series: [4, 8, 16, 32, '?']",
+      "choices": [
+        "40",
+        "48",
+        "64",
+        "80"
+      ],
+      "answer": "64"
+    },
+    {
+      "text": "Find the missing term in the series: [6, 12, 24, 48, '?']",
+      "choices": [
+        "72",
+        "60",
+        "96",
+        "120"
+      ],
+      "answer": "96"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Cousin",
+        "Father",
+        "Brother",
+        "Uncle"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "A man walks 4 km north, then 4 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northeast",
+        "Southeast",
+        "Southwest",
+        "Northwest"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "All cats are animals",
+        "Some dogs are not animals",
+        "All dogs are cats",
+        "Some cats are dogs"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Find the missing term in the series: [2, 4, 8, 16, '?']",
+      "choices": [
+        "20",
+        "32",
+        "24",
+        "40"
+      ],
+      "answer": "32"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Brother",
+        "Cousin",
+        "Uncle",
+        "Father"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Find the missing term in the series: [5, 10, 20, 40, '?']",
+      "choices": [
+        "80",
+        "50",
+        "60",
+        "100"
+      ],
+      "answer": "80"
+    },
+    {
+      "text": "Find the missing term in the series: [3, 6, 12, 24, '?']",
+      "choices": [
+        "36",
+        "48",
+        "60",
+        "30"
+      ],
+      "answer": "48"
+    },
+    {
+      "text": "Find the missing term in the series: [4, 8, 16, 32, '?']",
+      "choices": [
+        "80",
+        "64",
+        "40",
+        "48"
+      ],
+      "answer": "64"
+    },
+    {
+      "text": "Find the missing term in the series: [3, 6, 12, 24, '?']",
+      "choices": [
+        "60",
+        "48",
+        "36",
+        "30"
+      ],
+      "answer": "48"
+    },
+    {
+      "text": "A man walks 2 km north, then 2 km east. In which direction is he from the starting point?",
+      "choices": [
+        "Northwest",
+        "Northeast",
+        "Southwest",
+        "Southeast"
+      ],
+      "answer": "Northeast"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some cats are dogs",
+        "All cats are animals",
+        "Some dogs are not animals",
+        "All dogs are cats"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Father",
+        "Cousin",
+        "Brother",
+        "Uncle"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Father",
+        "Uncle",
+        "Cousin",
+        "Brother"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "All cats are animals. Some animals are dogs. Which is true?",
+      "choices": [
+        "Some dogs are not animals",
+        "All dogs are cats",
+        "All cats are animals",
+        "Some cats are dogs"
+      ],
+      "answer": "All cats are animals"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Brother",
+        "Uncle",
+        "Cousin",
+        "Father"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Uncle",
+        "Brother",
+        "Cousin",
+        "Father"
+      ],
+      "answer": "Brother"
+    },
+    {
+      "text": "Pointing to a man, John said, 'He is the son of my grandfather's only son.' How is the man related to John?",
+      "choices": [
+        "Uncle",
+        "Brother",
+        "Father",
+        "Cousin"
+      ],
+      "answer": "Brother"
+    }
+  ]
+}

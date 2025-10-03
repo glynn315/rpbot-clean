@@ -9,7 +9,7 @@ export const Jobs:Job[] =[
             'Familiar with the System Development Life Cycle(SDLC)',
             'Experience in preparing structures Reports',
         ],
-        salaryBudget: 18000
+        salaryBudget: '15000/month'
     },
     {
         role: 'HR Staff',
@@ -21,7 +21,7 @@ export const Jobs:Job[] =[
             'Proficient in MS Office and HRIS systems (an advantage)',
             'Detail-oriented and able to handle confidential information'
         ],
-        salaryBudget: 16000
+        salaryBudget: '15000/month'
     },
     {
         role: 'Planning Staff',
@@ -33,6 +33,28 @@ export const Jobs:Job[] =[
             'Ability to read and interpret blueprints, plans, and technnical drawings',
             'Experience in fieldwork is an advantage'
         ],
-        salaryBudget: 18000
-    }
+        salaryBudget: '18000/month'
+    },
+    {
+        role: 'Skilled Mason',
+        qualifications: [
+            'Can read and follow simple building plans',
+            'Understands safety rules at the worksite',
+            'Has experience through training or practice',
+            'Physically fit for heavy work',
+            'Pays attention to detail and quality'
+        ],
+        salaryBudget: '550/day'
+    },
+    {
+        role: 'Laborer',
+        qualifications: [
+            'Can follow instructions from supervisors',
+            'Physically fit and able to do heavy work',
+            'Basic knowledge of tools and materials',
+            'Understands safety rules at the worksite',
+            'Willing to assist skilled workers'
+        ],
+        salaryBudget: '430/day'
+    },
 ]

@@ -69,8 +69,15 @@ export class Typing implements OnInit {
     this.currentStatuses = this.computeWordStatuses(this.userInput, this.currentLine);
     const typedWords = this.userInput.trim().split(/\s+/);
     const targetWords = this.currentLine.trim().split(/\s+/);
-    if (typedWords.length >= targetWords.length && this.userInput.trim() === this.currentLine.trim()) {
-      this.nextSentence();
+    if (typedWords.length >= targetWords.length) {
+      const lastTyped = typedWords[typedWords.length - 1];
+      const lastTarget = targetWords[targetWords.length - 1];
+      if (lastTyped === lastTarget) {
+        this.nextSentence();
+      }
+      if (this.userInput.endsWith(" ")) {
+        this.nextSentence();
+      }
     }
   }
 

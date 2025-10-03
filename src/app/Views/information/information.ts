@@ -71,15 +71,18 @@ export class Information implements OnInit {
     'Automotive': false,
     'Plumber': false,
     'linux server': false,
-    'technical and hardware service': false,
+    'Technical': false,
     'Tile Setter': false,
     'Electrician': false,
     'Carpenter': false,
     'Estimator': false,
     'Survey': false,
-    'Total Station': false
+    'Total Station': false,
+    'Other': false
   };
+  
   technicalOptionKeys: string[] = [];
+  otherSkillText: string = '';
   applicantinformation: InformationModel ={
     firstname: '',
     middlename: '',
@@ -96,6 +99,9 @@ export class Information implements OnInit {
     expectedSalary: 0,
     positionSelected: '',
     applicantName: '',
+    blood_type: '',
+    gender: '',
+    nickname: '',
   };
   WorkingInformation: WorkExperience ={
     previouscompensation: 0,
@@ -160,20 +166,22 @@ export class Information implements OnInit {
   openTechnicalSkills(){
     this.TechnocalSkillsVisible = true;
   }
-  selectTechnicalSkills() {
+  getSelectedTechnicalSkills(): string {
     const selected: string[] = [];
     for (const key in this.technicalOptions) {
-      if (this.technicalOptions[key] && key !== 'total') {
+      if (this.technicalOptions[key] && key !== 'Other') {
         selected.push(key);
       }
     }
-
-    if (selected.length === 0) {
-      alert('Please select at least one technical skill.');
-      return;
+    if (this.technicalOptions['Other'] && this.otherSkillText.trim()) {
+      selected.push(this.otherSkillText.trim());
     }
     this.ApplicationStatusField.technicalSkills = selected.join(", ");
-    sessionStorage.setItem('technicalSkills', this.ApplicationStatusField.technicalSkills);
+    return this.ApplicationStatusField.technicalSkills;
+  }
+
+  selectTechnicalSkills() {
+    this.getSelectedTechnicalSkills();
     this.TechnocalSkillsVisible = false;
   }
 
@@ -274,6 +282,10 @@ export class Information implements OnInit {
     sessionStorage.setItem('barangay', this.applicantinformation.barangay!);
     sessionStorage.setItem('zipcode', this.applicantinformation.zipcode?.toString() ?? '');
     sessionStorage.setItem('expectedsalary', this.applicantinformation.expectedSalary?.toString() ?? '');
+    
+    sessionStorage.setItem('blood_type', this.applicantinformation.blood_type?.toString() ?? '');
+    sessionStorage.setItem('gender', this.applicantinformation.gender?.toString() ?? '');
+    sessionStorage.setItem('nickname', this.applicantinformation.nickname?.toString() ?? '');
 
     alert('Information submitted successfully!');
   }
@@ -376,6 +388,11 @@ export class Information implements OnInit {
       expectedSalary: Number(sessionStorage.getItem('expectedsalary')) || 0,
       positionSelected: sessionStorage.getItem('applicantPosition') || '',
       applicantName: sessionStorage.getItem('applicantName') || '',
+
+
+      blood_type: sessionStorage.getItem('blood_type') || '',
+      gender: sessionStorage.getItem('gender') || '',
+      nickname: sessionStorage.getItem('nickname') || '',
     };
 
     const eligibility: Eligibility = {

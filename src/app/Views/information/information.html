@@ -1,14 +1,12 @@
 <div class="w-full block flex-col flex">
-    <div class="w-full flex flex-row items-center gap-3">
-        <span (click)="previousForm()" class="text-white cursor-pointer">back</span>
-        <header class="text-3xl font-Playfair text-white">
-            Applicant Information
-        </header>
-    </div>
-    <div class="pt-4">
-        
-        <form class="mt-2 flex flex-row">
+    <div>
+        <form class="flex flex-row">
             <div *ngIf="displayForm == 1">
+                <div class="w-full flex flex-row items-center gap-3">
+                    <header class="text-3xl font-Playfair text-white">
+                        Applicant Information
+                    </header>
+                </div>
                 <form (ngSubmit)="submitInformation()">
                     <div class="flex flex-row gap-2">
                         <div class="w-2/3">
@@ -27,23 +25,51 @@
                                     [disabled]="middleNameNA"
                                     class="w-full p-2 bg-primary rounded-md outline-none"
                                     placeholder="Middle Name"
-                                    [required]="!middleNameNA"
-                                >
-
+                                    [required]="!middleNameNA">
                                 <input
                                     type="checkbox"
                                     name="middleNameNA"
                                     [(ngModel)]="middleNameNA"
                                     id="middleNA"
-                                    (change)="toggleMiddleNameNA()"
-                                >
+                                    (change)="toggleMiddleNameNA()">
                                 <label for="middleNA" class="text-white">N/A</label>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <label for="" class="text-lg font-Lora text-white">Family Name <span class="text-red-700">*</span></label>
-                        <input type="text" name="lastname" [(ngModel)]="applicantinformation.lastname" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Last Name" required>
+                    <div class="flex flex-row gap-2">
+                        <div class="w-2/3">
+                            <label for="" class="text-lg font-Lora text-white">Family Name <span class="text-red-700">*</span></label>
+                            <input type="text" name="lastname" [(ngModel)]="applicantinformation.lastname" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Last Name" required>
+                        </div>
+                        <div class="w-1/3">
+                            <label for="" class="text-lg font-Lora text-white">Nickname <span class="text-red-700">*</span></label>
+                            <input type="text" name="nickname" [(ngModel)]="applicantinformation.nickname" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Nick Name" required>
+                        </div>
+                    </div>
+                    <div class="flex flex-row gap-2">
+                        <div class="w-2/3">
+                            <label for="" class="text-lg font-Lora text-white">Gender <span class="text-red-700">*</span></label>
+                            <select name="gender" [(ngModel)]="applicantinformation.gender" id="" class="w-full p-2 bg-primary rounded-md outline-none">
+                                <option value="">-- Select Gender --</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="w-1/3">
+                            <label for="" class="text-lg font-Lora text-white">Blood Type <span class="text-red-700">*</span></label>
+                            <select name="blood_type" [(ngModel)]="applicantinformation.blood_type" id="" class="w-full p-2 bg-primary rounded-md outline-none">
+                                <option value="">-- Select Gender --</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
                     </div>
                     <div>
                         <label for="" class="text-lg font-Lora text-white">Email <span class="text-red-700">*</span></label>
@@ -53,11 +79,13 @@
                         <label for="" class="text-lg font-Lora text-white">Desired Position <span class="text-red-700">*</span></label>
                         <select [(ngModel)]="applicantinformation.positionSelected" name="positionSelected" id="" class="w-[100%] p-2 bg-primary rounded-md outline-none appearance-none" required>
                             <option value="">-Select Available Position-</option>
-                            <option value="IT Staff">IT Staff</option>
-                            <option value="Planning Staff">Planning Staff</option>HR Staff
+                            <!-- <option value="Accounting">Accounting</option> -->
+                            <!-- <option value="Civil Engineer">Civil Engineer</option> -->
                             <option value="HR Staff">HR Staff</option>
-                            <option value="Accounting">Accounting</option>
-                            <option value="Civil Engineer">Civil Engineer</option>
+                            <option value="IT Staff">IT Staff</option>
+                            <option value="Laborer">Laborer</option>
+                            <option value="Planning Staff">Planning Staff</option>
+                            <option value="Skilled Mason">Skilled Mason</option>
                         </select>
                     </div>
                     <div class="flex flex-row gap-2">
@@ -139,6 +167,7 @@
                 </form>
             </div>
             <div *ngIf="displayForm == 2" class="w-full">
+                <span (click)="previousForm()" class="text-white cursor-pointer">Back</span>
                 <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Eligibility <span class="text-red-700">*</span></header>
                 <form (ngSubmit)="addEligibility()">
                     <div class="flex flex-row py-2 gap-3 justify-center items-center">
@@ -185,6 +214,7 @@
                 }
             </div>
             <div *ngIf="displayForm == 3" class="w-full">
+                <span (click)="previousForm()" class="text-white cursor-pointer">Back</span>
                 <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Educational Background</header>
                 <label for="" class="text-white font-Playfair text-xl mt-1">College Graduate</label>
                 <select [(ngModel)]="collegeGraduate" name="collegeGraduate" class="w-full border rounded-md p-2 mt-2">
@@ -222,6 +252,7 @@
                 </form>
             </div>
             <div *ngIf="displayForm == 4" class="w-full">
+                <span (click)="previousForm()" class="text-white cursor-pointer">Back</span>
                 <header class="font-Playfair text-2xl mt-3 text-white border-b-2 pb-1">Marriage</header>
                 <label for="" class="text-white font-Playfair text-xl mt-1">Are you Married?</label>
                 <select [(ngModel)]="marriage" name="marriage" class="w-full border rounded-md p-2 mt-2">
@@ -275,6 +306,7 @@
                 </form>
             </div>
             <div *ngIf="displayForm == 5" class="w-full">
+                <span (click)="previousForm()" class="text-white cursor-pointer">Back</span>
                 <header class="font-Playfair text-xl mt-3 text-white border-b-2 pb-1">Add Work Experience <span class="text-base">(Click New to add more Work Experience)</span></header>
                 <div class="mt-3 space-y-2">
                     <div *ngFor="let item of workingList; let i = index" class="p-3 bg-white rounded-md shadow">
@@ -335,6 +367,7 @@
                 }
             </div>
             <div *ngIf="displayForm == 6">
+                <span (click)="previousForm()" class="text-white cursor-pointer">Back</span>
                 <form (click)="applicationStatusInformation()">
                     <header class="font-Lora text-xl text-white border-b-2 pb-1">Do you have any pending application with the government or other companies that might derail your application/employment with us?</header>
                     <div class="flex flex-row gap-3 mt-3">
@@ -404,11 +437,12 @@
                 </form>
             </div>
             <div *ngIf="displayForm == 7" class="w-full">
+                <span (click)="previousForm()" class="text-white cursor-pointer">Back</span>
                 <form (ngSubmit)="applicationConfirmation()">
                     <label for="" class="text-lg font-Lora text-white text-justify">Top 3 Technical Skills you are good at</label>
                     <div class="mt-2 flex flex-row items-center justify-between gap-3">
                         <div class="w-full">
-                            <input type="text" name="technicalSkills" [(ngModel)]="ApplicationStatusField.technicalSkills" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Technical Skills" disabled>
+                            <input type="text" name="technicalSkills" [(ngModel)]="ApplicationStatusField.technicalSkills" [value]="getSelectedTechnicalSkills()" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Technical Skills" disabled>
                         </div>
                         <lucide-icon [img]="PlusCircle" (click)="openTechnicalSkills()"></lucide-icon>
                     </div>
@@ -418,15 +452,24 @@
                     </div> 
                     <button class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Confirm</button>
                 </form>
-                  <div *ngIf="TechnocalSkillsVisible" class="p-5 w-full rounded-xl shadow-md bg-white absolute top-0 z-50">
+                <div *ngIf="TechnocalSkillsVisible" class="p-5 w-full rounded-xl shadow-md bg-white absolute top-0 z-50">
                     <header class="text-2xl font-Playfair border-b-2 pb-2">Select Technical Skills</header>
 
-                    <div *ngFor="let skill of technicalOptionKeys">
-                    <div class="flex flex-row items-center gap-2 mt-2">
-                        <input type="checkbox" [(ngModel)]="technicalOptions[skill]" [name]="skill">
-                        <label>{{ skill }}</label>
+                    <div class="grid grid-cols-4 gap-2 mt-2">
+                        <div *ngFor="let skill of technicalOptionKeys">
+                            <div>
+                                <div class="flex flex-row gap-2 items-center">
+                                    <input type="checkbox" [(ngModel)]="technicalOptions[skill]" [name]="skill">
+                                    <label>{{ skill }}</label>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
+                    <div *ngIf="technicalOptions['Other']" class="mt-2">
+                        <input type="text" name="otherSkillText" [(ngModel)]="otherSkillText" placeholder="Please specify other skill" class="w-full p-2 border rounded-md">
                     </div>
+                    
 
                     <button
                     (click)="selectTechnicalSkills()"

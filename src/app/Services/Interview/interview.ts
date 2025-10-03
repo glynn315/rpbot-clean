@@ -13,12 +13,7 @@ export class InterviewServices {
 
   constructor(private http: HttpClient) {}
 
-  sendMessage(
-    messages: { role: string; content: string }[],
-    job: Job,
-    command: 'start' | 'end' | 'followup' | 'ratings' | string
-  ): Observable<any> {
-
+  sendMessage(messages: { role: string; content: string }[],job: Job,command: 'start' | 'end' | 'followup' | 'ratings' | string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.apiKey}`

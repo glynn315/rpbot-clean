@@ -15,4 +15,7 @@ export interface InformationModel {
     expectedSalary?: number,
     positionSelected?: string;
     applicantName?:string,
+    blood_type?:string,
+    gender?:string,
+    nickname?:string,
 }

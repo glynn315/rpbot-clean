@@ -9,12 +9,12 @@
         <h2 class="text-xl font-bold mb-4 text-white">
           Question {{ currentStep + 1 }} of {{ questions.length }}
         </h2>
-        <p class="mb-4 text-white text-justify">{{ questions[currentStep]?.text }}</p>
-        <div *ngFor="let choice of questions[currentStep]?.choices" class="mb-2">
+        <p class="mb-4 text-white text-justify">{{ questions[currentStep].text }}</p>
+        <div *ngFor="let choice of questions[currentStep]?.choices; let idx = index" class="mb-2">
           <label class="flex items-center gap-2 bg-primary p-2 rounded-xl">
             <input
               type="radio"
-              [value]="choice.charAt(0)"
+              [value]="getOptionLetter(idx)"
               [(ngModel)]="answers[currentStep]"
               name="q{{ currentStep }}"/>
             {{ choice }}
