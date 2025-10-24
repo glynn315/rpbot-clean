@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { emit } from 'process';
 
 @Component({
@@ -11,6 +12,7 @@ export class Disclaimer {
   @Input() isVisible: boolean= true
   @Output() confirmDisclaimer = new EventEmitter<void>();
   disclaimerConfirmation: boolean = false;
+  constructor(private route : Router){}
 
   confirm()
   {

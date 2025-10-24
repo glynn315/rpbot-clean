@@ -8,7 +8,7 @@ import testBank from '../../../assets/testBank.json'
 export class IqtestService {
 
   private openai = new OpenAI({
-    apiKey: '',
+    apiKey: 'REMOVED',
     dangerouslyAllowBrowser: true
   });
 

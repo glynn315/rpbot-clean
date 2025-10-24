@@ -28,6 +28,7 @@ export class Information implements OnInit {
   readonly close = CircleX;
   readonly PlusCircle = PlusCircle;
   OthersField: boolean = false;
+  selectedFile: File | null = null;
   eligibilityVisible: boolean = false;
   TechnocalSkillsVisible: boolean = false;
   activeLoader: boolean = false;
@@ -42,6 +43,7 @@ export class Information implements OnInit {
   educationalBackground: Education[] = [];
   marriageInformation: Marriage[] = [];
   middleNameNA: boolean = false;
+  datastored:boolean = true;
   fromDate!: string;
   toDate!: string; 
   ApplicationStatusField: ApplicationStatus ={
@@ -51,6 +53,9 @@ export class Information implements OnInit {
     license: '',
     technicalSkills: '',
     question: '',
+    potfolio_link: '',
+    filename: '',
+    file_content: '',
   }
   eligibilityOptions = {
     cs: false,
@@ -102,6 +107,7 @@ export class Information implements OnInit {
     blood_type: '',
     gender: '',
     nickname: '',
+    desiredPosition: '',
   };
   WorkingInformation: WorkExperience ={
     previouscompensation: 0,
@@ -280,6 +286,7 @@ export class Information implements OnInit {
     sessionStorage.setItem('province', this.applicantinformation.province!);
     sessionStorage.setItem('cities', this.applicantinformation.cities!);
     sessionStorage.setItem('barangay', this.applicantinformation.barangay!);
+    sessionStorage.setItem('desiredPosition', this.applicantinformation.desiredPosition!);
     sessionStorage.setItem('zipcode', this.applicantinformation.zipcode?.toString() ?? '');
     sessionStorage.setItem('expectedsalary', this.applicantinformation.expectedSalary?.toString() ?? '');
     
@@ -369,6 +376,22 @@ export class Information implements OnInit {
       this.WorkingInformation.workduration = '';
     }
   }
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  convertFileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const base64 = (reader.result as string).split(',')[1]; // remove metadata
+        resolve(base64);
+      };
+      reader.onerror = error => reject(error);
+    });
+  }
   applicationConfirmationField() {
     sessionStorage.setItem('question', this.ApplicationStatusField.question!);
     sessionStorage.setItem('technicalSkills', this.ApplicationStatusField.technicalSkills!);
@@ -382,6 +405,7 @@ export class Information implements OnInit {
       birthdate: sessionStorage.getItem('birthdate') || '',
       religion: sessionStorage.getItem('religion') || '',
       province: sessionStorage.getItem('province') || '',
+      desiredPosition: sessionStorage.getItem('applicantPosition') || '',
       cities: sessionStorage.getItem('cities') || '',
       barangay: sessionStorage.getItem('barangay') || '',
       zipcode: Number(sessionStorage.getItem('zipcode')) || 0,
@@ -438,13 +462,30 @@ export class Information implements OnInit {
       this.InformationServices.storeEligibility(eligibility).subscribe();
       this.InformationServices.storeApplicantEducation(education).subscribe();
       this.InformationServices.storeMarriageInformation(marriage).subscribe();
-      this.InformationServices.storeApplicationStatus(applicationStatus).subscribe();
+      if (this.selectedFile) {
+        this.convertFileToBase64(this.selectedFile).then((base64String) => {
+          applicationStatus.filename = this.selectedFile!.name;
+          applicationStatus.file_content = base64String;
+          applicationStatus.potfolio_link = '';
+
+          this.InformationServices.storeApplicationStatus(applicationStatus).subscribe();
+        });
+      } else if (this.ApplicationStatusField.potfolio_link) {
+        applicationStatus.potfolio_link = this.ApplicationStatusField.potfolio_link;
+        applicationStatus.filename = '';
+        applicationStatus.file_content = '';
+
+        this.InformationServices.storeApplicationStatus(applicationStatus).subscribe();
+      } else {
+        this.InformationServices.storeApplicationStatus(applicationStatus).subscribe();
+      }
 
       workingList.forEach(work =>
         this.InformationServices.storeExperience(work).subscribe()
       );
     });
     sessionStorage.setItem('DataStored', 'true');
+    this.datastored = false;
   }
 
 }

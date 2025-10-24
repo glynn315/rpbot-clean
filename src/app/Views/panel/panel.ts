@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Information } from '../information/information';
 import { Test } from '../test/test';
 import { CommonModule } from '@angular/common';
@@ -9,11 +9,13 @@ import { Interview } from "../interview/interview";
 import { InterviewProcess } from "../interview-process/interview-process";
 import { Router } from '@angular/router';
 import { Disclaimer } from '../disclaimer/disclaimer';
+import { ApplicantPreview } from "../applicant-preview/applicant-preview";
+import { Validation } from '../applicantValidation/validation';
 
 @Component({
   selector: 'app-panel',
   standalone: true,
-  imports: [Information, Test, CommonModule, Home, LucideAngularModule, Interview, InterviewProcess, Disclaimer],
+  imports: [Information, Test, CommonModule, Home, LucideAngularModule, Interview, InterviewProcess, Disclaimer, Validation],
   templateUrl: './panel.html',
   styleUrl: './panel.scss',
   providers: []
@@ -23,9 +25,11 @@ export class Panel implements OnInit {
   step: number = 1;
   showNext = true;
   isVisible: boolean = true;
+  verifierisVisible: boolean = true;
   disclaimerVisible: boolean = true;
+  applicationVerifier: boolean = false;
   generalInterview = sessionStorage.getItem('generalInterview') || 'Pending';
-  constructor(private Router: Router) {}
+  constructor(private Router: Router, private cdr: ChangeDetectorRef) {}
 
   get info(): string {
     const dataStored = sessionStorage.getItem('DataStored');
@@ -50,6 +54,9 @@ export class Panel implements OnInit {
 
     const restriction = sessionStorage.getItem('Agreement');
     this.disclaimerVisible = !restriction;
+    const verification = sessionStorage.getItem('Agreement');
+    this.applicationVerifier = !verification;
+    
   }
   nextStep() {
     if (this.step < 5) {
@@ -75,6 +82,12 @@ export class Panel implements OnInit {
   }
   confirmDisclaimer(){
     this.isVisible = false;
+    const verification = sessionStorage.getItem('Agreement');
+    this.applicationVerifier = !verification;
+    this.cdr.detectChanges();
+  }
+  confirmVerifier(){
+    this.verifierisVisible = false;
   }
 
   prevStep() {

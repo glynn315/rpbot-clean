@@ -18,4 +18,5 @@ export interface InformationModel {
     blood_type?:string,
     gender?:string,
     nickname?:string,
+    desiredPosition?:string,
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
-import { LucideAngularModule , Send } from "lucide-angular";
+import { LucideAngularModule, Send } from "lucide-angular";
 import { InterviewServices } from '../../Services/Interview/interview';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -16,20 +16,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./interview-process.scss'],
   providers: [InterviewServices]
 })
-export class InterviewProcess implements OnInit, AfterViewChecked  {
+export class InterviewProcess implements OnInit, AfterViewChecked {
   readonly Send = Send;
-  isTyping: boolean = false;
-  showEndButton: boolean = false;
-  messages: { role: string, content: string }[] = [];
-  userInput: string = '';
+  isTyping = false;
+  showEndButton = false;
+  messages: { role: string; content: string }[] = [];
+  userInput = '';
+  interviewCompleted = false;
 
-  applicantName: string = '';
-  applicantPosition: string = '';
-  interviewCompleted: boolean = false;
+  interviewSections = [
+    'Introduction & influences',
+    'Work experience',
+    'Problem-solving',
+    'Job alignment',
+    'Follow-ups & tasks',
+    'Teamwork',
+    'Discipline & documentation',
+    'Mastery & initiative',
+    'Adaptability',
+    'Career goals',
+    'Salary & negotiation',
+    'Closing'
+  ];
 
-  jobs = Jobs;
+  currentSectionIndex = 0;
+  progressPercent = 0;
+  currentSection = this.interviewSections[0];
+  applicantName = '';
+  applicantPosition = '';
   selectedJob: Job | undefined;
-  private shouldScroll: boolean = false;
+  jobs = Jobs;
+  private shouldScroll = false;
   @ViewChild('messagesContainer') private messagesContainer!: ElementRef;
 
   constructor(
@@ -37,12 +54,6 @@ export class InterviewProcess implements OnInit, AfterViewChecked  {
     private cdr: ChangeDetectorRef,
     private router: Router
   ) {}
-  ngAfterViewChecked(): void {
-    if (this.shouldScroll) {
-      this.scrollToBottom();
-      this.shouldScroll = false;
-    }
-  }
 
   ngOnInit() {
     this.applicantName = sessionStorage.getItem('applicantName') ?? 'Applicant';
@@ -55,23 +66,44 @@ export class InterviewProcess implements OnInit, AfterViewChecked  {
     } else {
       this.startInterview();
     }
+
+    const savedIndex = sessionStorage.getItem('currentSectionIndex');
+    if (savedIndex) {
+      this.currentSectionIndex = +savedIndex;
+      this.currentSection = this.interviewSections[this.currentSectionIndex];
+      this.updateSectionProgress();
+    }
   }
+
+  ngAfterViewChecked(): void {
+    if (this.shouldScroll) {
+      this.scrollToBottom(true);
+      this.shouldScroll = false;
+    }
+  }
+
   startInterview() {
     if (!this.selectedJob) return;
 
     this.interviewService.sendMessage(this.messages, this.selectedJob, 'start').subscribe(res => {
-      this.messages.push({ role: 'assistant', content: res.choices[0].message.content });
+      const reply = res.choices[0].message.content;
+      this.messages.push({ role: 'assistant', content: reply });
       this.saveMessages();
+      this.shouldScroll = true;
       this.cdr.detectChanges();
     });
   }
+
   sendMessage() {
     if (!this.userInput.trim() || !this.selectedJob) return;
+
     const userMessage = this.userInput.trim();
     this.messages.push({ role: 'user', content: userMessage });
     this.saveMessages();
     this.userInput = '';
-    if (["none","no","nope","no questions","nothing"].includes(userMessage.toLowerCase())) {
+    this.shouldScroll = true;
+
+    if (["end"].includes(userMessage.toLowerCase())) {
       this.endInterview();
       return;
     }
@@ -83,32 +115,36 @@ export class InterviewProcess implements OnInit, AfterViewChecked  {
 
       setTimeout(() => {
         this.messages.push({ role: 'assistant', content: reply });
+        this.detectSectionProgress(reply);
+        this.updateSectionProgress();
         this.saveMessages();
         this.isTyping = false;
-        this.shouldScroll = true; 
+        this.shouldScroll = true;
         this.cdr.detectChanges();
         this.scrollToBottom();
+
         if (/thank you for taking the time|we’ll review your application|have a great day/i.test(reply)) {
           this.showEndButton = true;
-        } else {
         }
       }, 2000);
     });
   }
+
   endInterview() {
     if (!this.selectedJob) return;
 
     this.interviewService.sendMessage(this.messages, this.selectedJob, 'end').subscribe(res => {
-      this.messages.push({ role: 'assistant', content: res.choices[0].message.content });
+      const reply = res.choices[0].message.content;
+      this.messages.push({ role: 'assistant', content: reply });
       this.interviewCompleted = true;
       this.saveMessages();
       this.shouldScroll = true;
       this.cdr.detectChanges();
       this.scrollToBottom();
       this.fetchPrivateRatings();
-      
     });
   }
+
   private fetchPrivateRatings() {
     if (!this.selectedJob) return;
 
@@ -117,11 +153,10 @@ export class InterviewProcess implements OnInit, AfterViewChecked  {
       const ratings = this.extractRatings(evalText);
       sessionStorage.setItem('evaluationRatings', JSON.stringify(ratings));
       sessionStorage.setItem('generalInterview', 'Done');
-      
     });
   }
 
-  private extractRatings(evalText: string): { care: number, discipline: number, mastery: number, commentary?: string } {
+  private extractRatings(evalText: string): { care: number; discipline: number; mastery: number; commentary?: string } {
     try {
       const jsonStart = evalText.indexOf('{');
       const jsonEnd = evalText.lastIndexOf('}') + 1;
@@ -135,7 +170,7 @@ export class InterviewProcess implements OnInit, AfterViewChecked  {
           commentary: data.commentary ?? ''
         };
       }
-    } catch(e) {
+    } catch (e) {
       console.error('Failed to parse ratings JSON', e);
     }
     return { care: 0, discipline: 0, mastery: 0 };
@@ -143,18 +178,52 @@ export class InterviewProcess implements OnInit, AfterViewChecked  {
 
   private saveMessages() {
     sessionStorage.setItem('interviewMessages', JSON.stringify(this.messages));
+    sessionStorage.setItem('currentSectionIndex', this.currentSectionIndex.toString());
   }
 
-  private scrollToBottom() {
-    setTimeout(() => {
-      if (this.messagesContainer) {
-        this.messagesContainer.nativeElement.scrollTop = this.messagesContainer.nativeElement.scrollHeight;
+  private detectSectionProgress(reply: string) {
+    const checkpoints = [
+      { keyword: /introduce|background/i, index: 0 },
+      { keyword: /responsibility|work experience|company/i, index: 1 },
+      { keyword: /problem|challenge|pressure/i, index: 2 },
+      { keyword: /qualification|align/i, index: 3 },
+      { keyword: /follow[- ]?up|tasks?/i, index: 4 },
+      { keyword: /team|collaborat/i, index: 5 },
+      { keyword: /discipline|document/i, index: 6 },
+      { keyword: /mastery|initiative|feedback/i, index: 7 },
+      { keyword: /adapt|growth/i, index: 8 },
+      { keyword: /career|strength/i, index: 9 },
+      { keyword: /salary|negotiat/i, index: 10 },
+      { keyword: /closing|thank you/i, index: 11 }
+    ];
+
+    for (let check of checkpoints) {
+      if (check.keyword.test(reply)) {
+        this.currentSectionIndex = Math.max(this.currentSectionIndex, check.index);
+        this.currentSection = this.interviewSections[this.currentSectionIndex];
+        break;
       }
-    }, 100);
+    }
+  }
+
+  private updateSectionProgress() {
+    const total = this.interviewSections.length;
+    this.progressPercent = Math.round(((this.currentSectionIndex + 1) / total) * 100);
+  }
+
+  private scrollToBottom(smooth: boolean = true) {
+    setTimeout(() => {
+      if (this.messagesContainer?.nativeElement) {
+        this.messagesContainer.nativeElement.scrollTo({
+          top: this.messagesContainer.nativeElement.scrollHeight,
+          behavior: smooth ? 'smooth' : 'auto'
+        });
+      }
+    }, 150);
   }
 
   proceedNext() {
-    sessionStorage.setItem('step','3');
+    sessionStorage.setItem('step', '3');
     location.reload();
   }
 }

@@ -7,6 +7,22 @@
     </div>
     <div *ngIf="isTyping" class="text-black italic animate-pulse">Interviewer is typing...</div>
   </div>
+  <div class="flex flex-row absolute w-full px-2 items-center top-0 gap-2">
+    <div class="left-0 w-full bg-gray-200 h-3 rounded-full overflow-hidden">
+      <div class="h-full transition-all duration-500"
+          [ngClass]="{
+            'bg-red-500': progressPercent < 40,
+            'bg-yellow-500': progressPercent >= 40 && progressPercent < 80,
+            'bg-green-500': progressPercent >= 80
+          }"
+          [style.width.%]="progressPercent">
+      </div>
+    </div>
+
+    <div class="text-base text-black font-semibold">
+      {{ progressPercent }}%
+    </div>
+  </div>
   <div *ngIf="!interviewCompleted" class="w-full h-[15%] py-2 flex flex-row gap-2 items-start">
     <textarea [(ngModel)]="userInput"
           placeholder="Interview Response"

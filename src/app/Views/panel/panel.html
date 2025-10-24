@@ -44,4 +44,7 @@
 @if (disclaimerVisible) {
     <app-disclaimer [isVisible]="isVisible" (confirmDisclaimer)="confirmDisclaimer()"></app-disclaimer>
 }
+@if (!applicationVerifier) {
+    <app-validation [isVisible]="verifierisVisible" (confirmVerifier)="confirmVerifier()"></app-validation>
+}
 

@@ -11,6 +11,7 @@ import { WorkExperience } from '../Model/Information/WorkExperience/work-experie
 import { Wpm } from '../Model/wpm/wpm';
 import { IqModel } from '../Model/iq/iq';
 import { Conversation } from '../Model/Conversation/conversation';
+import { Lookup } from '../Model/Lookup/lookup.model';
 
 @Injectable({
   providedIn: 'root'
@@ -80,9 +81,9 @@ export class FormSubmission {
     return this.http.post<Conversation>(`${this.apiUrl}conversations`, post)
   }
 
-
-
-
+  lookup(post: Lookup):Observable<Lookup>{
+    return this.http.post<Lookup>(`${this.apiUrl}applicant/lookup`, post)
+  }
 
   displayApplicantInfo(id: number):Observable<InformationModel>{
     return this.http.get<InformationModel>(`${this.apiUrl}applicant/${id}`);

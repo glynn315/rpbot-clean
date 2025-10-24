@@ -1,0 +1,69 @@
+@if (isVisible) {
+  <div class="w-full bg-black/50 h-dvh absolute top-0 flex flex-col justify-center items-center">
+    <div class="w-1/3 bg-secondary rounded-xl p-4">
+      <header class="text-left text-white text-2xl font-Playfair border-b-3 pb-2">
+        Applicant Verification
+      </header>
+
+      <div class="mt-4 text-white">
+        <!-- Step 1: Select Applicant Type -->
+        @if (!employmentStatus) {
+          <p class="mb-3 text-sm text-gray-200">Please select your applicant type:</p>
+          <div class="flex gap-3">
+            <button type="button"
+              (click)="employmentStatus = 'New Applicant'"
+              [class.bg-accent]="employmentStatus === 'New Applicant'"
+              [class.bg-gray-600]="employmentStatus !== 'New Applicant'"
+              class="flex-1 py-6 rounded-xl transition-all duration-200 text-white font-medium hover:bg-accent/80">
+              New Applicant
+            </button>
+
+            <button type="button"
+              (click)="employmentStatus = 'Re-Apply'"
+              [class.bg-accent]="employmentStatus === 'Re-Apply'"
+              [class.bg-gray-600]="employmentStatus !== 'Re-Apply'"
+              class="flex-1 py-6 rounded-xl transition-all duration-200 text-white font-medium hover:bg-accent/80">
+              Re-Apply
+            </button>
+          </div>
+        }
+        @if (employmentStatus === 'Re-Apply') {
+          <div class="mt-4 space-y-3">
+            <label class="block">
+              <span class="text-sm text-gray-300">First Name</span>
+              <input type="text" name="fname" [(ngModel)]="LookupField.fname"
+                class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-500 mt-1" />
+            </label>
+            <label class="block">
+              <span class="text-sm text-gray-300">Last Name</span>
+              <input type="text" name="lname" [(ngModel)]="LookupField.lname"
+                class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-500 mt-1" />
+            </label>
+
+            <label class="block">
+              <span class="text-sm text-gray-300">Birthday</span>
+              <input type="date" name="bdate" [(ngModel)]="LookupField.bdate"
+                class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-500 mt-1" />
+            </label>
+
+            <label class="block">
+              <span class="text-sm text-gray-300">Contact Number</span>
+              <input type="text" name="number" [(ngModel)]="LookupField.number"
+                class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-500 mt-1" />
+            </label>
+
+            <button type="button" (click)="reset()" class="text-sm text-accent mt-2 hover:underline">
+              ← Change Applicant Type
+            </button>
+          </div>
+        }
+      </div>
+      <button
+        (click)="confirm()"
+        class="p-2 w-full bg-accent text-white rounded-xl mt-5 disabled:!bg-gray-200/40 disabled:cursor-not-allowed transition-all duration-200"
+        [disabled]="employmentStatus === ''">
+        Confirm
+      </button>
+    </div>
+  </div>
+}

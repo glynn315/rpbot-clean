@@ -22,7 +22,7 @@ export class AddressServices {
 
   displayProvinces(): Observable<{ name: string; municipalities: string[] }[]> {
     return of(
-      Object.keys(this.flatAddress).map(prov => ({
+      Object.keys(this.flatAddress).sort().map(prov => ({
         name: prov,
         municipalities: Object.keys(this.flatAddress[prov].municipality_list)
       }))
@@ -33,7 +33,7 @@ export class AddressServices {
     const province = this.flatAddress[provinceName];
     if (!province) return of([]);
     return of(
-      Object.keys(province.municipality_list).map(muni => ({
+      Object.keys(province.municipality_list).sort().map(muni => ({
         name: muni,
         barangays: province.municipality_list[muni].barangay_list
       }))
@@ -43,6 +43,6 @@ export class AddressServices {
   displayBarangay(provinceName: string, municipalityName: string): Observable<{ name: string }[]> {
     const barangays = this.flatAddress[provinceName]?.municipality_list[municipalityName]?.barangay_list;
     if (!barangays) return of([]);
-    return of(barangays.map(brgy => ({ name: brgy })));
+    return of(barangays.sort().map(brgy => ({ name: brgy })));
   }
 }
