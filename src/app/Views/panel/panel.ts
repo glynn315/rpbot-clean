@@ -29,6 +29,7 @@ export class Panel implements OnInit {
   disclaimerVisible: boolean = true;
   reApplyUser: boolean = false;
   applicationVerifier: boolean = false;
+  reInterviewID = sessionStorage.getItem('reapplyID');
   generalInterview = sessionStorage.getItem('generalInterview') || 'Pending';
   constructor(private Router: Router, private cdr: ChangeDetectorRef) {}
 
@@ -101,7 +102,6 @@ export class Panel implements OnInit {
     }
   }
   reviewInformation(){
-
-    
+    this.Router.navigate([`previewInformation/${this.reInterviewID}`]);
   }
 }

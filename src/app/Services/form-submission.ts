@@ -109,6 +109,10 @@ export class FormSubmission {
     return this.http.get<WorkExperience>(`${this.apiUrl}workExperience/${id}`);
   }
 
+  displayApplicantExperienceInfoAll(id: number):Observable<WorkExperience[]>{
+    return this.http.get<WorkExperience[]>(`${this.apiUrl}workExperienceall/${id}`);
+  }
+
   displayWpmInfo(id: number):Observable<Wpm>{
     return this.http.get<Wpm>(`${this.apiUrl}wpm/${id}`);
   }
@@ -121,5 +125,7 @@ export class FormSubmission {
     return this.http.get<Conversation>(`${this.apiUrl}conversations/${id}`);
   }
 
-
+  updateWorkExperience(id: number, data: WorkExperience): Observable<WorkExperience> {
+    return this.http.put(`${this.apiUrl}applicantExperience/update/${id}`, data);
+  }
 }
