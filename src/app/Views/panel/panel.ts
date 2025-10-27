@@ -27,6 +27,7 @@ export class Panel implements OnInit {
   isVisible: boolean = true;
   verifierisVisible: boolean = true;
   disclaimerVisible: boolean = true;
+  reApplyUser: boolean = false;
   applicationVerifier: boolean = false;
   generalInterview = sessionStorage.getItem('generalInterview') || 'Pending';
   constructor(private Router: Router, private cdr: ChangeDetectorRef) {}
@@ -54,9 +55,12 @@ export class Panel implements OnInit {
 
     const restriction = sessionStorage.getItem('Agreement');
     this.disclaimerVisible = !restriction;
+
     const verification = sessionStorage.getItem('Agreement');
     this.applicationVerifier = !verification;
-    
+
+    const employmentStatus = sessionStorage.getItem('EmployementStatus');
+    this.reApplyUser = (employmentStatus === 'Re-Apply');
   }
   nextStep() {
     if (this.step < 5) {
@@ -95,5 +99,9 @@ export class Panel implements OnInit {
       this.step--;
       sessionStorage.setItem('step', this.step.toString());
     }
+  }
+  reviewInformation(){
+
+    
   }
 }

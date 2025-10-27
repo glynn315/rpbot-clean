@@ -32,7 +32,10 @@ export class Interviewevaluation implements OnInit {
     applicant_i_information_id: Number(sessionStorage.getItem('applicantID')) || 0,
     messages: JSON.parse(sessionStorage.getItem('interviewMessages') || '[]'),
     care: 0,
-    mastery: 0,
+    ambition: 0,
+    influence: 0,
+    skillsDevelopment: 0,
+    technicalSkills: 0,
     discipline: 0,
     commentary: '',
   };
@@ -49,7 +52,10 @@ export class Interviewevaluation implements OnInit {
       message: ratings.commentary,
       care: ratings.care,
       discipline: ratings.discipline,
-      mastery: ratings.mastery,
+      ambition: ratings.ambition,
+      influence: ratings.influence,
+      skillsDevelopment: ratings.skillsDevelopment,
+      technicalSkills: ratings.technicalSkills,
       wpm: sessionStorage.getItem('wpm') || null,
       accuracy: sessionStorage.getItem('accuracy') || null,
       score: sessionStorage.getItem('score') || null,
@@ -59,7 +65,10 @@ export class Interviewevaluation implements OnInit {
 
     this.MessageFields.care = this.EmailFields.care;
     this.MessageFields.discipline = this.EmailFields.discipline;
-    this.MessageFields.mastery = this.EmailFields.mastery;
+    this.MessageFields.ambition = this.EmailFields.ambition;
+    this.MessageFields.influence = this.EmailFields.influence;
+    this.MessageFields.skillsDevelopment = this.EmailFields.skillsDevelopment;
+    this.MessageFields.technicalSkills = this.EmailFields.technicalSkills;
     this.MessageFields.commentary = this.EmailFields.message;
 
     setTimeout(() => {

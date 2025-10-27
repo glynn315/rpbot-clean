@@ -7,7 +7,10 @@ export interface Conversation {
     applicant_i_information_id: number;
     messages: Message[];
     care?: number;
-    mastery?: number;
+    ambition?: number;
+    influence?: number;
+    skillsDevelopment?: number;
+    technicalSkills?: number;
     discipline?: number;
     commentary?: string;
 }

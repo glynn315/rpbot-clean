@@ -156,25 +156,46 @@ export class InterviewProcess implements OnInit, AfterViewChecked {
     });
   }
 
-  private extractRatings(evalText: string): { care: number; discipline: number; mastery: number; commentary?: string } {
+  private extractRatings(evalText: string): {
+    ambition: number;
+    influence: number;
+    discipline: number;
+    skillsDevelopment: number;
+    care: number;
+    technicalSkills: number;
+    commentary?: string;
+  } {
     try {
       const jsonStart = evalText.indexOf('{');
       const jsonEnd = evalText.lastIndexOf('}') + 1;
       if (jsonStart >= 0 && jsonEnd > jsonStart) {
         const jsonString = evalText.substring(jsonStart, jsonEnd);
         const data = JSON.parse(jsonString);
+
         return {
-          care: data.care ?? 0,
+          ambition: data.ambition ?? 0,
+          influence: data.influence ?? 0,
           discipline: data.discipline ?? 0,
-          mastery: data.mastery ?? 0,
+          skillsDevelopment: data.skillsDevelopment ?? 0,
+          care: data.care ?? 0,
+          technicalSkills: data.technicalSkills ?? 0,
           commentary: data.commentary ?? ''
         };
       }
     } catch (e) {
       console.error('Failed to parse ratings JSON', e);
     }
-    return { care: 0, discipline: 0, mastery: 0 };
+
+    return {
+      ambition: 0,
+      influence: 0,
+      discipline: 0,
+      skillsDevelopment: 0,
+      care: 0,
+      technicalSkills: 0
+    };
   }
+
 
   private saveMessages() {
     sessionStorage.setItem('interviewMessages', JSON.stringify(this.messages));
