@@ -76,7 +76,6 @@
         <section *ngIf="status" class="bg-gray-50 rounded-xl p-4 shadow-sm border">
             <div class="flex flex-row items-center justify-between">
                 <h3 class="font-semibold text-lg text-black mb-2">Portfolio</h3>
-                <lucide-icon [img]="editPen" class="cursor-pointer"></lucide-icon>
             </div>
             <p><b>Portfolio:</b> <a href="{{ status.potfolio_link }}"> {{ status.potfolio_link }}</a></p>
         </section>
@@ -84,7 +83,7 @@
 </div>
 
 <ng-template #loadingBlock>
-  <p class="text-gray-500 italic animate-pulse">Loading applicant data...</p>
+    <p class="text-gray-500 italic animate-pulse">Loading applicant data...</p>
 </ng-template>
 
 @if (WorkModal) {
@@ -345,20 +344,39 @@
                     </label>
                 </div>
                 <label for="" class="text-lg font-Lora text-white text-justify">Top 3 Technical Skills you are good at</label>
-                    <div class="mt-2 flex flex-row items-center justify-between gap-3">
-                        <div class="w-full">
-                            <input type="text" name="technicalSkills" [(ngModel)]="ApplicationStatusField.technicalSkills" [value]="getSelectedTechnicalSkills()" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Technical Skills" disabled>
-                        </div>
-                        <lucide-icon [img]="PlusCircle" (click)="openTechnicalSkills()"></lucide-icon>
+                <div class="mt-2 flex flex-row items-center justify-between gap-3">
+                    <div class="w-full">
+                        <input type="text" name="technicalSkills" [(ngModel)]="ApplicationStatusField.technicalSkills" [value]="getSelectedTechnicalSkills()" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Technical Skills" disabled>
                     </div>
-                    <div class="mt-1">
-                        <label for="" class="text-lg font-Lora text-white">Applicants Question</label>
-                        <textarea name="question" [(ngModel)]="ApplicationStatusField.question" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Applicants Question"></textarea>
-                    </div> 
-                        <input type="file" (change)="onFileSelected($event)" class="w-full border p-3 rounded-xl mt-3">
-                        <span class="w-full text-center block my-2">or</span>
-                        <input type="text" name="potfolio_link" placeholder="Portfolio link (optional)" [(ngModel)]="ApplicationStatusField.potfolio_link" class="w-full border p-3 rounded-xl">
+                    <lucide-icon [img]="PlusCircle" (click)="openTechnicalSkills()"></lucide-icon>
+                </div>
+                <div class="mt-1">
+                    <label for="" class="text-lg font-Lora text-white">Applicants Question</label>
+                    <textarea name="question" [(ngModel)]="ApplicationStatusField.question" id="" class="w-full p-2 bg-primary rounded-md outline-none" placeholder="Applicants Question"></textarea>
+                </div> 
+                <input type="file" (change)="onFileSelected($event)" class="w-full border p-3 rounded-xl mt-3">
+                <span class="w-full text-center block my-2">or</span>
+                <input type="text" name="potfolio_link" placeholder="Portfolio link (optional)" [(ngModel)]="ApplicationStatusField.potfolio_link" class="w-full border p-3 rounded-xl">
                 <button (click)="updateStatusApplication()" class="w-full bg-accent text-white p-2 rounded-full font-Playfair font-semibold mt-3 ">Next</button>
+                <div *ngIf="TechnocalSkillsVisible" class="p-5 w-full rounded-xl shadow-md bg-white absolute top-0 z-50">
+                    <header class="text-2xl font-Playfair border-b-2 pb-2">Select Technical Skills</header>
+                    <div class="grid grid-cols-4 gap-2 mt-2">
+                        <div *ngFor="let skill of technicalOptionKeys">
+                            <div>
+                                <div class="flex flex-row gap-2 items-center">
+                                    <input type="checkbox" [(ngModel)]="technicalOptions[skill]" [name]="skill">
+                                    <label>{{ skill }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="technicalOptions['Other']" class="mt-2">
+                        <input type="text" name="otherSkillText" [(ngModel)]="otherSkillText" placeholder="Please specify other skill" class="w-full p-2 border rounded-md">
+                    </div>
+                    <button (click)="selectTechnicalSkills()" class="w-full bg-accent text-white rounded-full mt-2 p-2">
+                        Select
+                    </button>
+                </div>
             </div>
         </div>
     </div>

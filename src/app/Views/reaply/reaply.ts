@@ -203,6 +203,17 @@ export class Reaply implements OnInit {
       this.WorkingInformation.workduration = '';
     }
   }
+  convertFileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const base64 = (reader.result as string).split(',')[1]; 
+        resolve(base64);
+      };
+      reader.onerror = error => reject(error);
+    });
+  }
   selectEligibility() {
     const selected: string[] = [];
 
@@ -241,22 +252,12 @@ export class Reaply implements OnInit {
   }
   updateStatusApplication(){
     if (this.selectedFile) {
-        this.convertFileToBase64(this.selectedFile).then((base64String) => {
-          ApplicationStatusField.filename = this.selectedFile!.name;
-          ApplicationStatusField.file_content = base64String;
-          ApplicationStatusField.potfolio_link = '';
-
-          this.InformationServices.storeApplicationStatus(ApplicationStatusField).subscribe();
-        });
-      } else if (this.ApplicationStatusField.potfolio_link) {
-        ApplicationStatusField.potfolio_link = this.ApplicationStatusField.potfolio_link;
-        ApplicationStatusField.filename = '';
-        ApplicationStatusField.file_content = '';
-
-        this.InformationServices.storeApplicationStatus(ApplicationStatusField).subscribe();
-      } else {
-        this.InformationServices.storeApplicationStatus(ApplicationStatusField).subscribe();
-      }
+      this.convertFileToBase64(this.selectedFile).then((base64String) => {
+        this.ApplicationStatusField.filename = this.selectedFile!.name;
+        this.ApplicationStatusField.file_content = base64String;
+        this.ApplicationStatusField.potfolio_link = '';
+      });
+    }
     this.formService.updateStatus(this.StatusID! , this.ApplicationStatusField).subscribe(() => {
       this.StatusModal = false;
       this.displayEducation();
@@ -282,6 +283,7 @@ export class Reaply implements OnInit {
       this.EducationalField.boardexam = this.educationList.boardexam;
     })
   }
+  
   UpdateFormExperience(){
     this.formService.updateWorkExperience(this.workingID!, this.WorkingInformation).subscribe(() => {
 
@@ -322,7 +324,7 @@ export class Reaply implements OnInit {
     });
   }
   openTechnicalSkills(){
-
+    this.TechnocalSkillsVisible = true;
   }
 
 }
