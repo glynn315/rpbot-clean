@@ -1,4 +1,5 @@
 export interface ApplicationStatus {
+    applicant_i_status_id?: number,
     applicant_i_information_id?: number,
     pendingapplication?: string,
     lockincontract?: string,

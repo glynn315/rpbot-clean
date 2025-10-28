@@ -128,4 +128,14 @@ export class FormSubmission {
   updateWorkExperience(id: number, data: WorkExperience): Observable<WorkExperience> {
     return this.http.put(`${this.apiUrl}applicantExperience/update/${id}`, data);
   }
+  
+  updateEligibility(id: number, data: Eligibility): Observable<Eligibility> {
+    return this.http.put(`${this.apiUrl}applicantEligibility/update/${id}`, data);
+  }
+  updateEducation(id: number, data: Education): Observable<Education> {
+    return this.http.put(`${this.apiUrl}applicantEducation/update/${id}`, data);
+  }
+   updateStatus(id: number, data: ApplicationStatus): Observable<ApplicationStatus> {
+    return this.http.put(`${this.apiUrl}applicantionStatus/update/${id}`, data);
+  }
 }

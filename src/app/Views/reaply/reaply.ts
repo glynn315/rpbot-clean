@@ -14,7 +14,7 @@ import { forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { LucideAngularModule , SquarePen , CircleFadingPlus, CircleX } from 'lucide-angular';
+import { LucideAngularModule , SquarePen , CircleFadingPlus, CircleX , PlusCircle } from 'lucide-angular';
 
 @Component({
   selector: 'app-reaply',
@@ -27,25 +27,31 @@ export class Reaply implements OnInit {
   readonly editPen = SquarePen;
   readonly addWork = CircleFadingPlus;
   readonly CircleX = CircleX;
+  readonly PlusCircle = PlusCircle;
   applicant?: InformationModel;
   education?: Education;
   status?: ApplicationStatus;
   eligibility?: Eligibility;
   marriage?: Marriage;
-  work?: WorkExperience[] = [];
   wpm?: Wpm;
   iq?: IqModel;
   fromDate!: string;
   toDate!: string; 
   conversation?: Conversation;
   applicantID: number| null = null;
-
+  EligibilityModal: boolean = false;
+  TechnocalSkillsVisible: boolean = false;
   WorkModal: boolean = false;
+  EducationModal: boolean = false;
+  StatusModal: boolean = false;
   modifyWorkExperience: boolean = false;
-
+  eligibilityID: number | null = null;
   workingID: number | null = null;
+  EducationID: number | null = null;
+  StatusID: number | null = null;
   loading = true;
-
+  otherEligibility: string = '';
+  OthersField: boolean = false;
   WorkingInformation: WorkExperience = {
     applicant_i_information_id:0,
     previouscompensation: 0,
@@ -55,14 +61,71 @@ export class Reaply implements OnInit {
     position: '',
     contribution: '',
   }
+  eligibilityOptions = {
+    cs: false,
+    let: false,
+    board: false,
+    none: false,
+    others: false
+  };
+  eligibilityField: Eligibility = {
+    eligibility_i_id: 0,
+    eligibility: '',
+  }
+  EducationalField: Education ={
+    college: '',
+    course: '',
+    yeargraduate: 0,
+    graduateschool: 0,
+    boardexam: '',
+  };
+  ApplicationStatusField: ApplicationStatus ={
+    pendingapplication: '',
+    lockincontract: '',
+    motorcycle: '',
+    license: '',
+    technicalSkills: '',
+    question: '',
+    potfolio_link: '',
+    filename: '',
+    file_content: '',
+  }
+  work?: WorkExperience[] = [];
+  eligibilityList: Eligibility = {};
+  educationList: Education = {};
+  selectedFile: File | null = null;
+  technicalOptionKeys: string[] = [];
+  otherSkillText: string = '';
+  technicalOptions: { [key: string]: boolean } = {
+    'AUTOCAD': false,
+    'SKETCH UP': false,
+    'LUMION': false,
+    'APPSHEET': false,
+    'Welder': false,
+    'Mason': false,
+    'Painter': false,
+    'Skimcoat': false,
+    'Automotive': false,
+    'Plumber': false,
+    'linux server': false,
+    'Technical': false,
+    'Tile Setter': false,
+    'Electrician': false,
+    'Carpenter': false,
+    'Estimator': false,
+    'Survey': false,
+    'Total Station': false,
+    'Other': false
+  };
 
   constructor(private formService: FormSubmission, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.applicantID =  Number(this.route.snapshot.paramMap.get('id')) || 0
-
+    this.technicalOptionKeys = Object.keys(this.technicalOptions);
     this.displayWorkExperience();
-
+    this.displayEligibility();
+    this.displayEducation();
     forkJoin({
       applicant: this.formService.displayApplicantInfo(this.applicantID),
       education: this.formService.displayApplicantEducationInfo(this.applicantID),
@@ -92,6 +155,35 @@ export class Reaply implements OnInit {
       }
     });
   }
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+  getSelectedTechnicalSkills(): string {
+    const selected: string[] = [];
+    for (const key in this.technicalOptions) {
+      if (this.technicalOptions[key] && key !== 'Other') {
+        selected.push(key);
+      }
+    }
+    if (this.technicalOptions['Other'] && this.otherSkillText.trim()) {
+      selected.push(this.otherSkillText.trim());
+    }
+    this.ApplicationStatusField.technicalSkills = selected.join(", ");
+    return this.ApplicationStatusField.technicalSkills;
+  }
+
+  selectTechnicalSkills() {
+    this.getSelectedTechnicalSkills();
+    this.TechnocalSkillsVisible = false;
+  }
+  otherSelected(){
+    if (this.OthersField) {
+      this.OthersField = false;
+    }
+    else{
+      this.OthersField = true;
+    }
+  }
   calculateDuration() {
     if (this.fromDate && this.toDate) {
       const from = new Date(this.fromDate);
@@ -111,6 +203,22 @@ export class Reaply implements OnInit {
       this.WorkingInformation.workduration = '';
     }
   }
+  selectEligibility() {
+    const selected: string[] = [];
+
+    if (this.eligibilityOptions.cs) selected.push("CS Passer");
+    if (this.eligibilityOptions.let) selected.push("LET Passer");
+    if (this.eligibilityOptions.board) selected.push("Board Exam Passer");
+    if (this.eligibilityOptions.none) selected.push("None");
+    if (this.eligibilityOptions.others && this.otherEligibility) {
+      selected.push(this.otherEligibility);
+    }
+    this.eligibilityField.eligibility = selected.join(", ");
+    this.formService.updateEligibility(this.eligibilityID! , this.eligibilityField).subscribe(() => {
+      this.EligibilityModal = false;
+      this.displayEligibility();
+    });
+  }
 
   addWorkExperience(){
     this.WorkModal = true;
@@ -125,9 +233,53 @@ export class Reaply implements OnInit {
       this.modifyWorkExperience = true;
     }
   }
+  modifyEducation(){
+    this.formService.updateEducation(this.EducationID! , this.EducationalField).subscribe(() => {
+      this.EducationModal = false;
+      this.displayEducation();
+    });
+  }
+  updateStatusApplication(){
+    if (this.selectedFile) {
+        this.convertFileToBase64(this.selectedFile).then((base64String) => {
+          ApplicationStatusField.filename = this.selectedFile!.name;
+          ApplicationStatusField.file_content = base64String;
+          ApplicationStatusField.potfolio_link = '';
+
+          this.InformationServices.storeApplicationStatus(ApplicationStatusField).subscribe();
+        });
+      } else if (this.ApplicationStatusField.potfolio_link) {
+        ApplicationStatusField.potfolio_link = this.ApplicationStatusField.potfolio_link;
+        ApplicationStatusField.filename = '';
+        ApplicationStatusField.file_content = '';
+
+        this.InformationServices.storeApplicationStatus(ApplicationStatusField).subscribe();
+      } else {
+        this.InformationServices.storeApplicationStatus(ApplicationStatusField).subscribe();
+      }
+    this.formService.updateStatus(this.StatusID! , this.ApplicationStatusField).subscribe(() => {
+      this.StatusModal = false;
+      this.displayEducation();
+    });
+  }
   displayWorkExperience(){
     this.formService.displayApplicantExperienceInfoAll(this.applicantID!).subscribe((data) => {
       this.work = data;
+    })
+  }
+  displayEligibility(){
+    this.formService.displayApplicantEligibilityInfo(this.applicantID!).subscribe((data) => {
+      this.eligibilityList = data;
+    })
+  }
+  displayEducation(){
+    this.formService.displayApplicantEducationInfo(this.applicantID!).subscribe((data) => {
+      this.educationList = data;
+      this.EducationalField.college = this.educationList.college;
+      this.EducationalField.course = this.educationList.course;
+      this.EducationalField.yeargraduate = this.educationList.yeargraduate;
+      this.EducationalField.graduateschool = this.educationList.graduateschool;
+      this.EducationalField.boardexam = this.educationList.boardexam;
     })
   }
   UpdateFormExperience(){
@@ -135,12 +287,42 @@ export class Reaply implements OnInit {
 
     });
   }
+  updateEligibility(eligibility_i_id: number){
+    if (eligibility_i_id) {
+      this.eligibilityID = eligibility_i_id;
+      this.EligibilityModal=true;
+    }
+  }
+  updateStatus(applicant_i_status_id: number){
+    if (applicant_i_status_id) {
+      this.StatusID = applicant_i_status_id;
+      this.StatusModal = true;
+    }
+  }
+  updateEducation(education_i_information_id: number){
+    if (education_i_information_id) {
+      this.EducationModal = true;
+      this.EducationID = education_i_information_id;
+    }
+  }
+  closeEligibility(){
+    this.EligibilityModal = false;
+  }
+  closeEducation(){
+    this.EducationModal = false;
+  }
+  closeStatus(){
+    this.StatusModal = false;
+  }
   workingExperience(){
     this.WorkingInformation.applicant_i_information_id = this.applicantID!;
     this.formService.storeExperience(this.WorkingInformation).subscribe(() => {
       this.WorkModal = false;
       this.displayWorkExperience();
     });
+  }
+  openTechnicalSkills(){
+
   }
 
 }
